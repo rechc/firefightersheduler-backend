@@ -20,6 +20,9 @@ require_once('StreckeListe.php');
  * 
  */
 class User { // TODO sqls hier was bedeutet der Punkt in den Statements
+    // joins überprüfen , performance
+    // todo sql befehle andere sicherere , ggf schneller syntax
+    // http://php.net/manual/de/pdo.prepared-statements.php
 
     private $ID;
     private $email;
@@ -237,7 +240,7 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
      * @return <type> integer, siehe Config.php 
      */
     public function get_warning_status() {
-        // TODO implement UNTERWEISUNG in warnings 
+        // TODO implement UNTERWEISUNG in warnings genauso wie strecke also wenn rot alles rot
         $warning = 0;
 
 
