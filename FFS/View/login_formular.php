@@ -14,7 +14,8 @@
     <body>
         <?php //Ausnahme ;-)
             if (isset($_REQUEST["fehler"])) {
-                echo Exception::bad_user_login();
+                echo "Login fehlgeschlagen";
+//                echo Exception::bad_user_login();
             }
         ?>
         <form action="../Model/Authentification/login.php" method="post">
