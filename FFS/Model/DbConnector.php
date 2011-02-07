@@ -1,5 +1,6 @@
 <?php
-require_once('../../Configuration/Config.php');
+include_once '../global.inc.php';
+require_once(PATH_BASIS . '/Configuration/Config.php');
 
 /**
  * Description of DbConnector

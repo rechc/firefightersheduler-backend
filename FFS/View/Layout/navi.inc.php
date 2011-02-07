@@ -1,4 +1,3 @@
-
     <div id="buttonbar">
         <ul>
           <li><a href="index.php">Startseite</a></li>

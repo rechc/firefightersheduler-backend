@@ -1,8 +1,9 @@
 <?php
     session_start ();
-    require_once('../Configuration/ExceptionText.php');
-    include ('Layout/header.inc.php');
-    include ('Layout/navi.inc.php');
+    include_once '../global.inc.php';
+    require_once PATH_BASIS . '/Configuration/ExceptionText.php';
+    include (PATH_BASIS . '/View/Layout/header.inc.php');
+    include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
 <html>
     <head>
@@ -43,4 +44,4 @@
         </form>
     </body>  
 </html>
-<?php include ('Layout/footer.inc.php') ?>
+<?php include (PATH_BASIS . '/View/Layout/footer.inc.php') ?>

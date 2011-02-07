@@ -1,7 +1,8 @@
 <?php
     // Session starten
     session_start ();
-    require_once('../DbConnector.php');
+    include_once '../../global.inc.php';
+    require_once(PATH_BASIS . '/Model/DbConnector.php');
 
     $sql = "SELECT ID, email, name, vorname, passwort " .
             "FROM user " .
