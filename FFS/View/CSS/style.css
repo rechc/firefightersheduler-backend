@@ -1,0 +1,224 @@
+/* 
+    Document   : style
+    Created on : 12.01.2011, 16:29:10
+    Author     : tobiaslana
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+/*
+    Document   : style
+    Created on : 17.12.2010, 15:09:26
+    Author     : awagen
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*----Style Grundeinstellungen----*/
+
+body{
+        background: #333333;
+        color: #333333;
+        padding-top:13px;
+        margin: 0px;
+        font:12px/1.5em Arial,Verdana,Sans-Serif;
+}
+
+
+/*----Elemente zur Anordnung und zum Style----*/
+/*
+Anordnung:
+maincontainer
+	header
+        buttonbar
+	content
+foot
+*/
+
+#maincontainer {
+	width: 880px;
+	margin:0px auto;  			/* äußerer Rand*/
+        padding:10px 25px 0px;
+	background-color: #FFFFFF;
+	border:3px double #333333;  /* Rahmen alle properties*/
+}
+
+#header {
+	margin: 0px;
+	padding: 0px;
+	background-color: #FFFFFF;
+        text-align: center;
+}
+
+#content {
+	margin: 0; 		/* für die Abstände wenn die Nav-Bars kürzer als der Content sind*/
+	padding: 25px 0px;
+	min-height: 150px;		/* minimale Höhe */
+	background-color: #FFFFFF;
+}
+
+
+#foot {
+       width: 880px;
+       margin: 0px auto;
+       padding: 10px 25px 20px;
+       background-color: #333333;
+       font-size: 0.9em;
+       color: #FFFFFF;
+       text-align: center; /*Schriftgröße und Anordnung */
+}
+
+/*Wie bei der offiziellen Seite das branding*/
+
+#branding {
+      background:url("../images/ffw_banner_880.png") no-repeat scroll 0 0 transparent;
+      height:100px;
+      padding-bottom:15px;
+      width:880px;
+      margin:0px auto;
+}
+
+#buttonbar{
+    margin: 0px;
+    padding: 0px;
+    background-color: #666666;
+    height: 2.1em;
+}
+
+/*Navigations Bar*/
+#buttonbar ul{
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+#buttonbar li{
+    list-style: none;
+    background-color:  #666666;
+}
+#buttonbar a {
+    float: left; 
+    /*width: 6em;*/
+    width: auto;
+    margin: 0px;
+    padding: 0.3em 0.3em;
+    text-decoration:none;
+    border-right: 1px solid white;
+    font-weight: bold;
+    font-size:1em;
+    color: #FFFFFF;
+}
+
+#buttonbar a:hover {
+    background-color:  #333333;
+    color: #FFFFFF;
+}
+
+/*Details foot*/
+
+#foot a{
+    color: #FFFFFF;
+    text-decoration:none;
+}
+
+#loginform div{
+    padding: 0.2em 0;
+}
+
+table {
+	width: 880px;
+	border:1px solid #000000;
+	border-spacing: 0px; }
+
+table a, table, tbody, tfoot, tr, th, td {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table caption {
+	font-size: 1.8em;
+	text-align: left;
+	text-indent: 100px;
+	/* background: url(images/bg_caption.gif) left top; */
+	height: 40px;
+	color: #FFFFFF;
+	border:1px solid #000000; }
+
+thead th {
+        background: url(../images//sort_down.gif) no-repeat right #666666;
+	height: 21px;
+	color: #FFFFFF;
+	font-size: 0.8em;
+	font-family: Arial;
+	font-weight: bold;
+	padding: 0px 7px;
+	margin: 20px 0px 0px;
+	text-align: center;
+        border-right: 1px groove #000000;}
+
+tbody tr {	background: #ffffff; }
+
+tbody tr.odd {	background: #f0f0f0; }
+
+tbody th {
+	/*background: url(images/arrow_white.gif) left center no-repeat; 
+	background-position: 5px; */
+	padding-left: 40px !important; }
+
+tbody tr.odd th {
+	/* background: url(images/arrow_grey.gif) left center no-repeat;
+	background-position: 5px; */
+	padding-left: 40px !important; }
+
+tbody th, tbody td {
+	font-size: 0.8em;
+	line-height: 1.4em;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000000;
+	padding: 10px 7px;
+	border-bottom: 1px solid #800000;
+	text-align: center;
+        border-right: 1px dashed #000000;}
+
+tbody td.attention { background: url(../images//icon-ampel-gelb.gif) no-repeat left;}
+tbody td.noway { background: url(../images//icon-ampel-rot.gif) no-repeat left;}
+
+tbody a {
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none; }
+
+tbody a:hover {
+	color: #ffffff;
+	text-decoration: underline; }
+
+tbody tr:hover th {
+	/* background: #800000 url(images/arrow_red.gif) left center no-repeat;
+	background-position: 5px; */
+	color: #ffffff; }
+
+tbody tr.odd:hover th {
+	/* background: #000000 url(images/arrow_black.gif) left center no-repeat;
+	background-position: 5px; */
+	color: #ffffff; }
+
+tbody tr:hover th a, tr.odd:hover th a	{
+		 color: #ffffff; }
+
+tbody tr:hover td, tr:hover td a, tr.odd:hover td, tr.odd:hover td a {
+	background: #800000;
+	color: #ffffff;	 }
+
+tbody tr.odd:hover td, tr.odd:hover td a{
+	background: #000000;
+	color: #ffffff;	 }
+
+tfoot th, tfoot td {
+	/* background: #ffffff url(images/bg_footer.gif) repeat-x bottom; */
+	font-size: 0.8em;
+	color: #ffffff;
+	height: 21px;
+	}
