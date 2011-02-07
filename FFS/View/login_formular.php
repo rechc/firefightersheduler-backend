@@ -1,10 +1,8 @@
-
-
 <?php
+    session_start ();
     require_once('../Configuration/ExceptionText.php');
     include ('Layout/header.inc.php');
     include ('Layout/navi.inc.php');
-    session_start ();
 ?>
 <html>
     <head>
