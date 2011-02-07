@@ -1,7 +1,8 @@
-<?php 
-    require_once '../Model/Authentification/checkuser.php';
-    include ('Layout/header.inc.php') ;
-    include ('Layout/navi.inc.php') ;
+<?php
+    include_once '../global.inc.php';
+    require_once PATH_BASIS .'/Model/Authentification/checkuser.php';
+    include (PATH_BASIS . '/View/Layout/header.inc.php');
+    include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
     <div id="content">
         <div><h1>Ansicht - Tobias Lana</h1></div>
@@ -150,4 +151,4 @@
         </table>
     <!-- Ende Content -->
     </div>
-<?php include ('Layout/footer.inc.php') ?>
+<?php include (PATH_BASIS . '/View/Layout/footer.inc.php') ?>
