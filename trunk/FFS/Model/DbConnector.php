@@ -1,5 +1,5 @@
 <?php
-require_once('../Configuration/Config.php');
+require_once('../../Configuration/Config.php');
 
 /**
  * Description of DbConnector
