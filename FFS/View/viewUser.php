@@ -1,5 +1,8 @@
-<?php include ('Layout/header.inc.php') ?>
-<?php include ('Layout/navi.inc.php') ?>
+<?php 
+    require_once '../Model/Authentification/checkuser.php';
+    include ('Layout/header.inc.php') ;
+    include ('Layout/navi.inc.php') ;
+?>
     <div id="content">
         <div><h1>Ansicht - Tobias Lana</h1></div>
         <table>

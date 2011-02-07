@@ -3,11 +3,12 @@
     session_start ();
     require_once('../DbConnector.php');
 
-    $sql = "SELECT ID, email, name, vorname " .
+    $sql = "SELECT ID, email, name, vorname, passwort " .
             "FROM user " .
-            "WHERE ( email like '" . $_REQUEST["Mail"] .
+            "WHERE ( email = '" . $_REQUEST["Mail"] .
             "' ) AND ( " .
-            "Password = '" .  md5($_REQUEST["Pwd"]) . "')";
+            "passwort = '" .  $_REQUEST["Pwd"] . "')";
+//            "passwort = '" .  md5($_REQUEST["Pwd"]) . "')";
 
     $dbConnector = DbConnector::getInstance();
     $result = $dbConnector->execute_sql($sql);
@@ -22,7 +23,7 @@
         $_SESSION["user_nachname"] = $data["name"];
         $_SESSION["user_vorname"] = $data["vorname"];
 
-        header("Location: ../../View/userOverview.php");
+        header("Location: ../../View/viewUser.php");
     } else {
         header("Location: ../../View/login_formular.php?fehler=1");
     }

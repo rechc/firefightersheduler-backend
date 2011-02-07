@@ -22,7 +22,7 @@
             mysql_select_db($mysqldb, $connection)
                             or die("Konnte die Datenbank nicht waehlen.");
 
-            $sql = "SELECT ID, email, name from user";
+            $sql = "SELECT ID, email, passwort from user";
 
             $adressen_query = mysql_query($sql)
                               or die("Anfrage nicht erfolgreich");
@@ -40,7 +40,7 @@
                 echo "<tr>" . 
                         "<td>$adr[ID]</td>" .
                         "<td>$adr[email]</td>" .
-                        "<td>$adr[name]</td>" .
+                        "<td>$adr[passwort]</td>" .
                     "</tr>";
             }
             ?>
