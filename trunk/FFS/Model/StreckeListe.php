@@ -22,7 +22,8 @@ class StreckeListe {
      */
     public function __construct() {
         $this->strecke_array = new ArrayObject();
-        $this->strecke_array[0] = new Strecke();
+        // TL TODO auskommentiert. testen ob so lauffaehig
+        //$this->strecke_array[0] = new Strecke();
     }
 
     /**
