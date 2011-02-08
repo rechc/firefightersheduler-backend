@@ -1,7 +1,7 @@
 <?php
     session_start ();
     include_once '../global.inc.php';
-    require_once PATH_BASIS . '/Configuration/ExceptionText.php';
+    require_once ''. PATH_BASIS . '/Configuration/ExceptionText.php';
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
@@ -14,7 +14,8 @@
     <body>
         <?php //Ausnahme ;-)
             if (isset($_REQUEST["fehler"])) {
-                echo "Login fehlgeschlagen";
+                echo "Login fehlgeschlagen! ";
+                echo PATH_BASIS;
 //                echo Exception::bad_user_login();
             }
         ?>
