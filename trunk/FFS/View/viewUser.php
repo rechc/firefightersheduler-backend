@@ -1,6 +1,7 @@
 <?php
     include_once '../global.inc.php';
-    require_once PATH_BASIS .'/Model/Authentification/checkuser.php';
+    require_once (PATH_BASIS .'/Model/Authentification/checkuser.php');
+    require_once (PATH_BASIS . '/Model/UserView/PersonalList.php');
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
@@ -72,13 +73,9 @@
             </thead>
             <tfoot></tfoot>
             <tbody>
-                <!-- START -->
                 <?php
-                    // echo PATH_BASIS . '/Model/UserView/PersonalList.php';
-                    require_once (PATH_BASIS . '/Model/UserView/PersonalList.php');
                     echo PersonalList::getStreckeTable();
                 ?>
-                <!-- ENDE -->
             </tbody>
         </table>
         <div><h1>Eins&auml;tze</h1></div>
@@ -92,11 +89,9 @@
             </thead>
             <tfoot></tfoot>
             <tbody>
-                <!-- START -->
                 <?php
                     echo PersonalList::getEinsatzTable();
                 ?>
-                <!-- ENDE -->
             </tbody>
         </table>
         <div><h1>Einsatz&uuml;bungen</h1></div>
@@ -110,11 +105,9 @@
             </thead>
             <tfoot></tfoot>
             <tbody>
-                <!-- START -->
                 <?php
                     echo PersonalList::getUebungTable();
                 ?>
-                <!-- ENDE -->
             </tbody>
         </table>
         <div><h1>Unterweisungen</h1></div>
@@ -128,11 +121,9 @@
             </thead>
             <tfoot></tfoot>
             <tbody>
-                <!-- START -->
                 <?php
                     echo PersonalList::getUnterweisungTable();
                 ?>
-                <!-- ENDE -->
             </tbody>
         </table>
     <!-- Ende Content -->
