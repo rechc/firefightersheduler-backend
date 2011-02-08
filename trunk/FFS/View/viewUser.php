@@ -65,7 +65,8 @@
         <table>
             <thead>
                 <tr>
-                    <th>Strecke am</th>
+                    <th width="50px">Status</th>
+                    <th width="150px">Datum</th>
                     <th>Ort</th>
                 </tr>
             </thead>
@@ -84,8 +85,9 @@
         <table>
             <thead>
                 <tr>
-                    <th>Am</th>
-                    <th>Bemerkungen</th>
+                    <th width="50px">Status</th>
+                    <th width="150px">Datum</th>
+                    <th>Ort</th>
                 </tr>
             </thead>
             <tfoot></tfoot>
@@ -101,8 +103,9 @@
         <table>
             <thead>
                 <tr>
-                    <th>Am</th>
-                    <th>Bemerkungen</th>
+                    <th width="50px">Status</th>
+                    <th width="150px">Datum</th>
+                    <th>Ort</th>
                 </tr>
             </thead>
             <tfoot></tfoot>
@@ -118,7 +121,8 @@
         <table>
             <thead>
                 <tr>
-                    <th>Unterweisung am</th>
+                    <th width="50px">Status</th>
+                    <th width="150px">Datum</th>
                     <th>Ort</th>
                 </tr>
             </thead>
