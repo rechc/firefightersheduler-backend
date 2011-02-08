@@ -1,5 +1,4 @@
 <?php
-    // Session starten
     session_start ();
     include_once '../../global.inc.php';
     require_once(PATH_BASIS . '/Model/DbConnector.php');
@@ -18,7 +17,7 @@
         // Benutzerdaten in ein Array auslesen.
         $data = mysql_fetch_array($result);
 
-        // Sessionvariablen erstellen und registrieren
+// Sessionvariablen erstellen und registrieren
         $_SESSION["user_id"] = $data["ID"];
         $_SESSION["user_email"] = $data["email"];
         $_SESSION["user_nachname"] = $data["name"];
