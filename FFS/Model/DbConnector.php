@@ -1,5 +1,4 @@
 <?php
-include_once '../global.inc.php';
 require_once(PATH_BASIS . '/Configuration/Config.php');
 
 /**
