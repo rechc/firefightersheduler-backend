@@ -1,6 +1,6 @@
 <?php
-    require_once('../Model/AllUser.php');
-
+    //require_once('./AllUser.php');
+    require_once(PATH_BASIS.'/Model/AllUser.php');
     /**
      * author christian
      */
@@ -39,7 +39,7 @@
                         <img alt='bearbeiten' src='images/edit.png' /></td>";
                 $output .= "</tr>";
             }
-            echo $output;
+            return $output;
         }
     }
 
