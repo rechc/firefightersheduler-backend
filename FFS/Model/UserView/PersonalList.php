@@ -30,22 +30,19 @@ class PersonalList{
             $output = "";
             $output .= "<!-- ARRAY::::::::".sizeOf($starray)." -->\n";
             foreach ($starray as $starray_entry) {
-                $output .= "<tr>\n";                
+                $output .= "<tr>\n";
+                $output .= "\t\t\t<td ";
                 if ($starray_entry->get_warning_status() == 0) {
-                    $output .= "\t\t\t<td class=\"fine\">";
-                    $output .= $starray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"fine\">";
                 } elseif ($starray_entry->get_warning_status() == 1) {
-                    $output .= "\t\t\t<td class=\"attention\">";
-                    $output .= $starray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"attention\">";
                 } elseif ($starray_entry->get_warning_status() == 2) {
-                    $output .= "\t\t\t<td class=\"noway\">";
-                    $output .= $starray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"noway\">";
                 } else {
-                    $output .= "\t\t\t<td></td>\n";
-                }                
+                    $output .= "> ";
+                }
+                $output .= "&nbsp;</td>\n";
+                $output .= "\t\t\t<td>".$starray_entry->getDatum()."</td>\n";
                 $output .= "\t\t\t<td>".$starray_entry->getOrt()."</td>\n";
                 $output .= "\t\t</tr>\n";
             }
@@ -60,21 +57,18 @@ class PersonalList{
             $output .= "<!-- ARRAY::::::::".sizeOf($earray)." -->\n";
             foreach ($earray as $earray_entry) {
                 $output .= "<tr>\n";
+                $output .= "\t\t\t<td ";
                 if ($earray_entry->get_warning_status() == 0) {
-                    $output .= "\t\t\t<td class=\"fine\">";
-                    $output .= $earray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"fine\">";
                 } elseif ($earray_entry->get_warning_status() == 1) {
-                    $output .= "\t\t\t<td class=\"attention\">";
-                    $output .= $earray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"attention\">";
                 } elseif ($earray_entry->get_warning_status() == 2) {
-                    $output .= "\t\t\t<td class=\"noway\">";
-                    $output .= $earray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"noway\">";
                 } else {
-                    $output .= "\t\t\t<td></td>\n";
+                    $output .= "> ";
                 }
+                $output .= "&nbsp;</td>\n";
+                $output .= "\t\t\t<td>".$earray_entry->getDatum()."</td>\n";
                 $output .= "\t\t\t<td>".$earray_entry->getOrt()."</td>\n";
                 $output .= "\t\t</tr>\n";
             }
@@ -90,21 +84,18 @@ class PersonalList{
             $output .= "<!-- ARRAY::::::::".sizeOf($uarray)." -->\n";
             foreach ($uarray as $uarray_entry) {
                 $output .= "<tr>\n";
+                $output .= "\t\t\t<td ";
                 if ($uarray_entry->get_warning_status() == 0) {
-                    $output .= "\t\t\t<td class=\"fine\">";
-                    $output .= $uarray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"fine\">";
                 } elseif ($uarray_entry->get_warning_status() == 1) {
-                    $output .= "\t\t\t<td class=\"attention\">";
-                    $output .= $uarray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"attention\">";
                 } elseif ($uarray_entry->get_warning_status() == 2) {
-                    $output .= "\t\t\t<td class=\"noway\">";
-                    $output .= $uarray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"noway\">";
                 } else {
-                    $output .= "\t\t\t<td></td>\n";
+                    $output .= "> ";
                 }
+                $output .= "&nbsp;</td>\n";
+                $output .= "\t\t\t<td>".$uarray_entry->getDatum()."</td>\n";
                 $output .= "\t\t\t<td>".$uarray_entry->getOrt()."</td>\n";
                 $output .= "\t\t</tr>\n";
             }
@@ -116,24 +107,20 @@ class PersonalList{
             $uwlist = $user->getUnterweisungListe_object();
             $uwarray = $uwlist->getUnterweisung_array();
             $output = "";
-            $output .= "<!-- ARRAY::::::::".sizeOf($uwarray)." -->\n";
             foreach ($uwarray as $uwarray_entry) {
                 $output .= "<tr>\n";
+                $output .= "\t\t\t<td ";
                 if ($uwarray_entry->get_warning_status() == 0) {
-                    $output .= "\t\t\t<td class=\"fine\">";
-                    $output .= $uwarray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"fine\">";
                 } elseif ($uwarray_entry->get_warning_status() == 1) {
-                    $output .= "\t\t\t<td class=\"attention\">";
-                    $output .= $uwarray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"attention\">";
                 } elseif ($uwarray_entry->get_warning_status() == 2) {
-                    $output .= "\t\t\t<td class=\"noway\">";
-                    $output .= $uwarray_entry->getDatum();
-                    $output .= "</td>\n";
+                    $output .= "class=\"noway\">";
                 } else {
-                    $output .= "\t\t\t<td></td>\n";
+                    $output .= "> ";
                 }
+                $output .= "&nbsp;</td>\n";
+                $output .= "\t\t\t<td>".$uwarray_entry->getDatum()."</td>\n";
                 $output .= "\t\t\t<td>".$uwarray_entry->getOrt()."</td>\n";
                 $output .= "\t\t</tr>\n";
             }
