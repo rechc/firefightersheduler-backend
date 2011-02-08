@@ -183,9 +183,12 @@ tbody th, tbody td {
 	text-align: center;
         border-right: 1px dashed #000000;}
 
-tbody td.fine { background: url(../images//icon-ampel-gruen.gif) no-repeat left;}
-tbody td.attention { background: url(../images//icon-ampel-gelb.gif) no-repeat left;}
-tbody td.noway { background: url(../images//icon-ampel-rot.gif) no-repeat left;}
+tbody td.fine { background: url(../images//icon-ampel-gruen.gif) no-repeat center;
+                width: 50px}
+tbody td.attention { background: url(../images//icon-ampel-gelb.gif) no-repeat center;
+                width: 50px}
+tbody td.noway { background: url(../images//icon-ampel-rot.gif) no-repeat center;
+                width: 50px}
 
 tbody a {
 	color: #000000;
