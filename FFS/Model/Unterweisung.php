@@ -140,9 +140,9 @@ class Unterweisung {
                         (int) substr($this->datum, 8, 2),
                         (int) substr($this->datum, 0, 4));
         $date_difference = floor(($datum_formated - $timestamp) / 86400);
-        if ($date_difference < 0) { //TODO  weis nemmer für was unterweisungsstrecke da ist......
+        if ($date_difference < Config::last_unterweisung()) {
             return Config::red();
-        } elseif ($date_difference < Config::unterweisung_warning_yellow()) {
+        } elseif ($date_difference < (Config::last_unterweisung() + Config::unterweisung_warning_yellow())) {
             return Config::yellow();
         } else {
             return Config::green();

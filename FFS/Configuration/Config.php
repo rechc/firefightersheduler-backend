@@ -54,6 +54,15 @@ class Config {
         return -365;
     }
 
+    /**
+     *
+     * max Zeitabstand zur letzten Unterweisung
+     * @return Anzahl Tage
+     */
+    public static function last_unterweisung(){
+        return -365;
+    }
+
 
     /**
      * wieviel tage vor ablauf der zeit der gelbe warning status angezeigt wird
