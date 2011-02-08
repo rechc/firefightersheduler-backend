@@ -1,3 +1,3 @@
 <?php
-    define("PATH_BASIS", dirname(__FILE__));
+    define(PATH_BASIS, dirname(__FILE__));
 ?>
