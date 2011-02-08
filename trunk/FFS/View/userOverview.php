@@ -25,10 +25,11 @@
                 <?php
                     require_once(PATH_BASIS . '/Model/UserOverview/Userlist.php');
                     $userlist = Userlist::getUserTable();
+                    echo $userlist;
                 ?>
             </tbody>
         </table>
     <!-- Ende Content -->
     </div>
-<?php include (PATH_BASIS . '/Layout/footer.inc.php') ?>
+<?php include (PATH_BASIS . '/View/Layout/footer.inc.php') ?>
 
