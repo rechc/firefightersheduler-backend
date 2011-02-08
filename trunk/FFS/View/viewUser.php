@@ -66,59 +66,52 @@
             <thead>
                 <tr>
                     <th>Strecke am</th>
-                    <th>G&uuml;ltig bis</th>
-                    <th>Bemerkungen</th>
+                    <th>Ort</th>
                 </tr>
             </thead>
             <tfoot></tfoot>
             <tbody>
-                <tr>
-                    <td>01.01.2011</td>
-                    <td>01.01.2012</td>
-                    <td>- keine -</td>
-                </tr>
-                <tr>
-                    <td>01.01.2010</td>
-                    <td class="noway">01.01.2011</td>
-                    <td>- keine -</td>
-                </tr>
-                <tr>
-                    <td>01.01.2009</td>
-                    <td class="noway">01.01.2010</td>
-                    <td>- keine -</td>
-                </tr>
+                <!-- START -->
+                <?php
+                    // echo PATH_BASIS . '/Model/UserView/PersonalList.php';
+                    require_once (PATH_BASIS . '/Model/UserView/PersonalList.php');
+                    echo PersonalList::getStreckeTable();
+                ?>
+                <!-- ENDE -->
             </tbody>
         </table>
-        <div><h1>Eins&auml;tze und Einsatz&uuml;bungen</h1></div>
+        <div><h1>Eins&auml;tze</h1></div>
         <table>
             <thead>
                 <tr>
                     <th>Am</th>
-                    <th>Einsatz/&Uuml;bung</th>
-                    <th>G&uuml;ltig bis</th>
                     <th>Bemerkungen</th>
                 </tr>
             </thead>
             <tfoot></tfoot>
             <tbody>
+                <!-- START -->
+                <?php
+                    echo PersonalList::getEinsatzTable();
+                ?>
+                <!-- ENDE -->
+            </tbody>
+        </table>
+        <div><h1>Einsatz&uuml;bungen</h1></div>
+        <table>
+            <thead>
                 <tr>
-                    <td>01.01.2011</td>
-                    <td>Einsatz</td>
-                    <td>01.01.2012</td>
-                    <td>Zimmerbrand, Alleestra&szlig;e</td>
+                    <th>Am</th>
+                    <th>Bemerkungen</th>
                 </tr>
-                <tr>
-                    <td>01.01.2010</td>
-                    <td>U&uml;bung</td>
-                    <td class="noway">01.01.2011</td>
-                    <td>Riegelsberghalle</td>
-                </tr>
-                <tr>
-                    <td>01.01.2009</td>
-                    <td>U&uml;bung</td>
-                    <td class="noway">01.01.2010</td>
-                    <td>Alleestraße</td>
-                </tr>
+            </thead>
+            <tfoot></tfoot>
+            <tbody>
+                <!-- START -->
+                <?php
+                    echo PersonalList::getUebungTable();
+                ?>
+                <!-- ENDE -->
             </tbody>
         </table>
         <div><h1>Unterweisungen</h1></div>
@@ -126,27 +119,16 @@
             <thead>
                 <tr>
                     <th>Unterweisung am</th>
-                    <th>G&uuml;ltig bis</th>
-                    <th>Bemerkungen</th>
+                    <th>Ort</th>
                 </tr>
             </thead>
             <tfoot></tfoot>
             <tbody>
-                <tr>
-                    <td>01.01.2011</td>
-                    <td>01.01.2012</td>
-                    <td>Dienst FwDV 7</td>
-                </tr>
-                <tr>
-                    <td>01.01.2010</td>
-                    <td class="noway">01.01.2011</td>
-                    <td>nach Strecke</td>
-                </tr>
-                <tr>
-                    <td>01.01.2009</td>
-                    <td class="noway">01.01.2010</td>
-                    <td>Dienst FwDV 7</td>
-                </tr>
+                <!-- START -->
+                <?php
+                    echo PersonalList::getUnterweisungTable();
+                ?>
+                <!-- ENDE -->
             </tbody>
         </table>
     <!-- Ende Content -->
