@@ -1,6 +1,6 @@
     <div id="buttonbar">
         <ul>
-          <li><a href="index.php">Startseite</a></li>
+          <!-- <li><a href="index.php">Startseite</a></li> -->
           <li><a href="userOverview.php">&Uuml;bersicht</a></li>
           <li><a href="viewUser.php">Userview</a></li>
           <li><a href="editUser.php">Useredit</a></li>
