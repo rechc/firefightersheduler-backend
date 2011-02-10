@@ -21,8 +21,7 @@ require_once('StreckeListe.php');
  */
 class User { // TODO sqls hier was bedeutet der Punkt in den Statements
     // joins überprüfen , performance
-    // todo sql befehle andere sicherere , ggf schneller syntax
-    // http://php.net/manual/de/pdo.prepared-statements.php
+    // todo email validierung
 
     private $ID;
     private $email;
@@ -73,11 +72,10 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
      * @return User-Objekt 
      */
     public static function get_user_by_login($email, $password) {
-        $sql = "SELECT ID, email, name, vorname, gebDat, lbz_ID, agt, rollen_ID " .
-                "FROM user " .
-                "WHERE ( email like '" . $email .
-                "' ) AND ( " .
-                "passwort = '" . $password . "')";
+        $sql = "SELECT ID, email, name, vorname, gebDat, lbz_ID, agt, rollen_ID 
+                FROM user 
+                WHERE ( email like ' $email' ) AND ( 
+                    passwort = ' $password ')";
 
         $dbConnector = DbConnector::getInstance();
         $result = $dbConnector->execute_sql($sql);
@@ -94,7 +92,7 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
     public static function get_user($ID) {
         if (is_numeric($ID)) {
             $sql = "SELECT ID, email, name, vorname, gebDat, lbz_ID, agt, rollen_ID
-                 FROM user WHERE ID = " . $ID;
+                 FROM user WHERE ID = '$ID';";
 
             $dbConnector = DbConnector::getInstance();
             $result = $dbConnector->execute_sql($sql);
@@ -246,7 +244,7 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
 
         if (($this->g26_object == NULL) or
                 (($this->einsatzListe_object == NULL) and ($this->uebungListe_object == NULL))
-                or ($this->streckeListe_object == NULL)) {
+                or ($this->streckeListe_object == NULL) or ($this->unterweisungListe_object == NULL)) {
             return Config::red(); // wenn Bedingung komplett fehlt
         }
 
@@ -263,19 +261,20 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
         }
 
         // so nun sollte es weiter keine "Nullpointer" mehr geben
-        
+
         $g26Warning = $this->g26_object->get_warning_status();
         $streckeWarning = $this->streckeListe_object->get_warning_status();
+        $unterweisungWarning = $this->unterweisungListe_object->get_warning_status();
 
         if (($g26Warning == Config::red()) or
                 (($einsatzWarning == Config::red()) and ($uebungWarning == Config::red()))
-                or ($streckeWarning == Config::red())) {
+                or ($streckeWarning == Config::red()) or ($unterweisungWarning == Config::red())) {
             return Config::red();
         }
 
         if (($g26Warning == Config::yellow()) or
                 (($einsatzWarning == Config::yellow()) and ($uebungWarning == Config::yellow()))
-                or ($streckeWarning == Config::yellow())) {
+                or ($streckeWarning == Config::yellow()) or ($unterweisungWarning == Config::yellow())) {
             return Config::yellow();
         } else {
             return Config::green();
