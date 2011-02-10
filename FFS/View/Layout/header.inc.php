@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" media="screen" href="CSS/style.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title></title>
+    <title>Feuerwehr Riegelsberg - Atemschutzverwaltung</title>
 </head>
  <body>
  <div id="maincontainer">
