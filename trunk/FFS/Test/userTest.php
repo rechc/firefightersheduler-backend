@@ -1,9 +1,9 @@
 <?php
 require_once('../Configuration/Config.php');
 require_once('../Model/User.php');
-require_once('../Model/AllUser.php');
-require_once('../Model/UnterweisungListe.php');
-require_once('../Model/Unterweisung.php');
+//require_once('../Model/AllUser.php');
+//require_once('../Model/UnterweisungListe.php');
+//require_once('../Model/Unterweisung.php');
 
 //schnelle unsaubere tests
 
@@ -57,9 +57,13 @@ function testusrmanagerlist(){
 
 function testusrg26(){
     $email = "t.lana@ff-riegelsberg.de";
-    $password = 4711;
+    //$password = 4711;
+    //$password = "4711;SELECT * FROM user";
 
-    $user = User::get_user_by_login($email, $password);
+    //$user = User::get_user_by_login($email, $password);
+    $ID = "2 OR 1";
+    $ID = "1";
+    $user = User::get_user($ID);
     $user->debug_output_full_user();
     //test_ausgabe($user);
 }

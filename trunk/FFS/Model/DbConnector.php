@@ -1,5 +1,7 @@
 <?php
-require_once(PATH_BASIS . '/Configuration/Config.php');
+//require_once(PATH_BASIS . '/Configuration/Config.php');  // TODO geht bei mir net (andy)
+require_once('../Configuration/Config.php');
+
 
 /**
  * Description of DbConnector
