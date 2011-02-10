@@ -13,7 +13,7 @@ require_once('../Configuration/ExceptionText.php');
  * @author Warken Andreas
  * @version 1.0
  */
-class Uebung {
+class Uebung { // TODO Vererbung ect nachtraeglich einbauen und testen .... zuviel doppelter code....
 
     private $ID;
     private $ort;
