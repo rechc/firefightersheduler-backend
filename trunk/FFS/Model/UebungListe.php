@@ -60,6 +60,17 @@ class UebungListe {
     }
 
     /**
+     * get_array_at
+     * liefert den Eintrag an der uebergebenen Index-stelle
+     *
+     * @param <type> $index Stelle im Array
+     * @return <type> Objekt
+     */
+    public function get_array_at($index) {
+        return $this->uebung_array[$index];
+    }
+
+    /**
      * append_uebung
      * fuegt eine Uebung dem Array hinzu
      *
@@ -82,7 +93,7 @@ class UebungListe {
         if (is_a($this->uebung_array[0], "Uebung")) {
             return $this->uebung_array[0]->get_warning_status();
         } else {
-            return Config::red(); 
+            return Config::red();
         }
     }
 

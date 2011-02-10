@@ -60,6 +60,17 @@ class UnterweisungListe {
     }
 
     /**
+     * get_array_at
+     * liefert den Eintrag an der uebergebenen Index-stelle
+     *
+     * @param <type> $index Stelle im Array
+     * @return <type> Objekt
+     */
+    public function get_array_at($index) {
+        return $this->unterweisung_array[$index];
+    }
+
+    /**
      * append_unterweisung
      * fuegt eine Unterweisung dem Array hinzu
      *
