@@ -23,8 +23,7 @@ class G26 {
     /**
      * Standard Konstruktor
      */
-    public function __construct() {// TODO mehrere pro user ... liste etc implementieren  1 zu n nicht 1 zu 1
-        
+    public function __construct() {
     }
 
     /**
@@ -35,7 +34,7 @@ class G26 {
      * @return G26-Objekt
      */
     public static function load($userID) {
-        if ((is_numeric($userID)or $userID == NULL)) {
+        if ((is_numeric($userID) or $userID == NULL)) {
             $sql = "SELECT *
             FROM g26
             WHERE userID = '$userID' ";
@@ -46,19 +45,29 @@ class G26 {
             if (mysql_num_rows($result) > 0) {
                 $data = mysql_fetch_array($result);
 
-                $g26 = new G26();
-                $g26->setID($data["ID"]);
-                $g26->setUserID($data["userID"]);
-                $g26->setDatum($data["datum"]);
-                $g26->setGueltigBis($data["gueltigBis"]);
-
-                return $g26;
+                return G26::parse_result_as_objekt($data);
             } else {
                 throw new FFSException(ExceptionText::g26_not_found());
             }
         } else {
             throw new FFSException(ExceptionText::g26_ID_not_numeric());
         }
+    }
+
+    /**
+     * parse_result_as_objekt
+     * erstellt aus einer Datenbankzeile ein Objekt der Klasse
+     *
+     * @param <type> $row DB-row
+     * @return Uebungs Objekt
+     */
+    public static function parse_result_as_objekt($row) {
+        $g26 = new G26();
+        $g26->setID($row["ID"]);
+        $g26->setUserID($row["userID"]);
+        $g26->setDatum($row["datum"]);
+        $g26->setGueltigBis($row["gueltigBis"]);
+        return $g26;
     }
 
     /**

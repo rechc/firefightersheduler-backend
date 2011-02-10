@@ -3,6 +3,7 @@
 require_once('DbConnector.php');
 require_once('../Configuration/Config.php');
 require_once('G26.php');
+require_once('G26Liste.php');
 require_once('Uebung.php');
 require_once('UebungListe.php');
 require_once('Unterweisung.php');
@@ -19,7 +20,7 @@ require_once('StreckeListe.php');
  * @version 1.0 Beta
  * 
  */
-class User { // TODO sqls hier was bedeutet der Punkt in den Statements
+class User {
     // joins überprüfen , performance
     // todo email validierung
 
@@ -35,7 +36,7 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
     private $agt;
     private $rollen_ID;
     // folgendes sind Objekte
-    private $g26_object;
+    private $g26Liste_object;
     private $unterweisungListe_object;
     private $uebungListe_object;
     private $einsatzListe_object;
@@ -55,7 +56,7 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
         $this->lbz_ID = 0;
         $this->agt = false;
         $this->rollen_ID = 0;
-        $this->g26_object = new G26();
+        $this->g26Liste_object = new G26Liste();
         $this->unterweisungListe_object = new UnterweisungListe();
         $this->uebungListe_object = new UebungListe();
         $this->einsatzListe_object = new EinsatzListe();
@@ -128,7 +129,7 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
             $user->setRollen_ID($data["rollen_ID"]);
 
             //folgend aus anderen tabellen
-            $user->setG26_object(G26::load($data["ID"]));
+            $user->setG26Liste_object(G26Liste::load(($data["ID"])));
             $user->setUnterweisungListe_object(UnterweisungListe::load($data["ID"]));
             $user->setUebungListe_object(UebungListe::load($data["ID"]));
             $user->setEinsatzListe_object(EinsatzListe::load($data["ID"]));
@@ -238,11 +239,8 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
      * @return <type> integer, siehe Config.php 
      */
     public function get_warning_status() {
-        // TODO implement UNTERWEISUNG in warnings genauso wie strecke also wenn rot alles rot
-        $warning = 0;
 
-
-        if (($this->g26_object == NULL) or
+        if (($this->g26Liste_object == NULL) or
                 (($this->einsatzListe_object == NULL) and ($this->uebungListe_object == NULL))
                 or ($this->streckeListe_object == NULL) or ($this->unterweisungListe_object == NULL)) {
             return Config::red(); // wenn Bedingung komplett fehlt
@@ -262,7 +260,7 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
 
         // so nun sollte es weiter keine "Nullpointer" mehr geben
 
-        $g26Warning = $this->g26_object->get_warning_status();
+        $g26Warning = $this->g26Liste_object->get_warning_status();
         $streckeWarning = $this->streckeListe_object->get_warning_status();
         $unterweisungWarning = $this->unterweisungListe_object->get_warning_status();
 
@@ -350,13 +348,19 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
         echo "Warning Status: ", $this->get_warning_status(), '<br>';
 
         echo '<h3>', "G26:", '</h3>', '<br>';
-        $g26 = $this->getG26_object();
+        $g26 = $this->getG26Liste_object();
         if ($g26 != NULL) {
-            echo "GDatum: ", $g26->getDatum(), '<br>';
-            echo "GGueltigBis: ", $g26->getGueltigBis(), '<br>';
-            echo "GID: ", $g26->getID(), '<br>';
-            echo "GUserID: ", $g26->getUserID(), '<br>';
-            echo "Gwarning_status: ", $g26->get_warning_status(), '<br>';
+            echo "G26BestWarning Status: ", $g26->get_warning_status(), '<br>';
+            $g26array = $g26->getG26_array();
+            foreach ($g26array as $g26) {
+                echo "NEXT", '<br>';
+                echo "GDatum: ", $g26->getDatum(), '<br>';
+                echo "GGueltigBis: ", $g26->getGueltigBis(), '<br>';
+                echo "GID: ", $g26->getID(), '<br>';
+                echo "GUserID: ", $g26->getUserID(), '<br>';
+                echo "Gwarning_status: ", $g26->get_warning_status(), '<br>';
+                echo '<br>';
+            }
         } else {
             echo "G26 null", '<br>';
         }
@@ -476,12 +480,8 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
         $this->rollen_ID = $rollen_ID;
     }
 
-    public function setG26_object($g26_object) {
-        if (is_a($g26_object, 'G26')) {
-            $this->g26_object = $g26_object;
-        } else {
-            //fehlerhandling
-        }
+    public function setG26Liste_object($g26Liste_object) {
+        $this->g26Liste_object = $g26Liste_object;
     }
 
     public function setUnterweisungListe_object($unterweisungListe_object) {
@@ -536,10 +536,6 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
         return $this->rollen_ID;
     }
 
-    public function getG26_object() {
-        return $this->g26_object;
-    }
-
     public function getUnterweisungListe_object() {
         return $this->unterweisungListe_object;
     }
@@ -554,6 +550,10 @@ class User { // TODO sqls hier was bedeutet der Punkt in den Statements
 
     public function getStreckeListe_object() {
         return $this->streckeListe_object;
+    }
+
+    public function getG26Liste_object() {
+        return $this->g26Liste_object;
     }
 
 }
