@@ -62,6 +62,17 @@ class StreckeListe {
     }
 
     /**
+     * get_array_at
+     * liefert den Eintrag an der uebergebenen Index-stelle
+     *
+     * @param <type> $index Stelle im Array
+     * @return <type> Objekt
+     */
+    public function get_array_at($index) {
+        return $this->strecke_array[$index];
+    }
+
+    /**
      * append_strecke
      * fuegt eine Strecke dem Array hinzu
      *
@@ -92,9 +103,10 @@ class StreckeListe {
         return $this->strecke_array;
     }
 
-    public function getStreckeAt($pos){
+    public function getStreckeAt($pos) {
         return $this->strecke_array[$pos];
     }
+
 }
 
 ?>
