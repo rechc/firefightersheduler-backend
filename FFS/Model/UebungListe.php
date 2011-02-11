@@ -67,7 +67,9 @@ class UebungListe {
      * @return <type> Objekt
      */
     public function get_array_at($index) {
-        return $this->uebung_array[$index];
+        if (!empty ($this->uebung_array[$index]))
+            return $this->uebung_array[$index];
+        return "unbekannt";
     }
 
     /**

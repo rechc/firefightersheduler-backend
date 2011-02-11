@@ -67,7 +67,9 @@ class UnterweisungListe {
      * @return <type> Objekt
      */
     public function get_array_at($index) {
-        return $this->unterweisung_array[$index];
+        if (!empty ($this->unterweisung_array[$index]))
+            return $this->unterweisung_array[$index];
+        return "unbekannt";
     }
 
     /**
