@@ -69,7 +69,10 @@ class StreckeListe {
      * @return <type> Objekt
      */
     public function get_array_at($index) {
-        return $this->strecke_array[$index];
+        if (!empty ($this->strecke_array[$index]))
+            return $this->strecke_array[$index];
+        else
+            return "unbekannt";
     }
 
     /**

@@ -16,27 +16,37 @@
             $output = "";
             
             $uebung = "Uebung";
-            $einsatz = "Einsatz";
             $unterweisung = "Unterweisung";
 
             foreach($user_array as $user){
-                $G26 = $user->getG26_object();
-                $strecke = $user->getStreckeListe_object()->getStreckeAt(0);
-//                $uebung = $user->getUebungListe_object();
-//                $einsatz = $user->getEinsatzListe_object();
-//                $unterweisung = $user->getUnterweisungListe_object();
-                
+                $G26 = $user->getG26Liste_object()->get_array_at(0);
+                $strecke = $user->getStreckeListe_object()->get_array_at(0);
+                $uebung = $user->getUebungListe_object()->get_array_at(0);
+                $einsatz = $user->getEinsatzListe_object()->get_array_at(0);
+                $unterweisung = $user->getUnterweisungListe_object()->get_array_at(0);
+
+
                 $output .= "<tr>";
                     $output .= "<td>". $user->getName() ."</td>";
                     $output .= "<td>". $user->getVorname() ."</td>";
-                    $output .= "<td><img alt='einsatzbereit' src='images/icon-ampel-gruen.gif' /></td>";
-                    $output .= "<td>". $G26->getGueltigBis() ."</td>";
-                    $output .= "<td>". $strecke->getDatum() ."</td>";
+                    $output .= "\t\t\t<td ";
+//                    if ($user->get_warning_status() == 0) {
+//                        $output .= "class=\"fine\">";
+//                    } elseif ($user->get_warning_status() == 1) {
+//                        $output .= "class=\"attention\">";
+//                    } elseif ($user->get_warning_status() == 2) {
+//                        $output .= "class=\"noway\">";
+//                    } else {
+//                        $output .= "> ";
+//                    }
+                    $output .= "&nbsp;</td>\n";
+                    $output .= "<td>". $G26 ."</td>";
+                    $output .= "<td>". $strecke ."</td>";
                     $output .= "<td>". $uebung ."</td>";
                     $output .= "<td>". $einsatz ."</td>";
                     $output .= "<td>". $unterweisung ."</td>"; //$unterweisung->getDatum()
                     $output .= "<td><a href='viewUser.php'><img alt='anschauen' src='images/view.gif' /></a>&nbsp;
-                        <img alt='bearbeiten' src='images/edit.png' /></td>";
+                        <a href='editUser.php'><img alt='bearbeiten' src='images/edit.png' /></a></td>";
                 $output .= "</tr>";
             }
             return $output;

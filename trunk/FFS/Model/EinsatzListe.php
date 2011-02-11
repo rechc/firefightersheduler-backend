@@ -67,7 +67,9 @@ class EinsatzListe {
      * @return <type> Objekt
      */
     public function get_array_at($index) {
-        return $this->einsatz_array[$index];
+        if (!empty ($this->einsatz_array[$index]))
+            return $this->einsatz_array[$index];
+        return "unbekannt";
     }
 
     /**

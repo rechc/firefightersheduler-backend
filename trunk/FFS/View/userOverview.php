@@ -5,7 +5,7 @@
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
     <div id="content">
-        <div><h1>User&uuml;bersicht</h1></div>
+        <div><h1>Userübersicht</h1></div>
         <table>
             <thead>
                 <tr>
