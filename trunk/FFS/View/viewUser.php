@@ -22,16 +22,9 @@
             </thead>
             <tfoot></tfoot>
             <tbody>
-                <tr>
-                    <td>Lana</td>
-                    <td>Tobias</td>
-                    <td><img alt="einsatzbereit" src="images/icon-ampel-gruen.gif" /></td>
-                    <td>01.11.2011</td>
-                    <td>31.12.2010</td>
-                    <td>31.11.2010</td>
-                    <td>31.10.2010</td>
-                    <td>31.10.2010</td>
-                </tr>
+                <?php
+                    echo PersonalList::getUserData();
+                ?>
             </tbody>
         </table>
         <div><h1>G26.3 Untersuchungen</h1></div>

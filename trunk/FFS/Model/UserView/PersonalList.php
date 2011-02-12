@@ -1,5 +1,7 @@
 <?php
 require_once(PATH_BASIS.'/Model/User.php');
+require_once(PATH_BASIS.'/Model/Table.php');
+require_once(PATH_BASIS.'/Model/UserOverview/Userlist.php');
 
 class PersonalList{
 
@@ -10,6 +12,16 @@ class PersonalList{
 
         public static function getUserDataTable(){
 
+        }
+
+        public static function getUserData(){
+            $uid = $_SESSION["user_id"];
+            $user = User::get_user($uid);
+            $table = new Table();
+            $output = $table->openTR();
+                $output = Userlist::getUserData($user);
+            $output .= $table->closeTR();
+            return $output;
         }
 
         public static function getG26Table(){
