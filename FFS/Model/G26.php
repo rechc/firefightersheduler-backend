@@ -192,7 +192,9 @@ class G26 {
     }
 
     public function getGueltigBis() {
-        return $this->gueltigBis;
+        if(!empty ($this->gueltigBis))
+            return $this->gueltigBis;
+        return "unbekannt";
     }
 
 }

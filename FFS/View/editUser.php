@@ -6,6 +6,8 @@
 ?>
     <div id="content">
         <div><h1>Ansicht - Tobias Lana</h1></div>
+        <div align="right">speichern<img alt="hinzuf&uuml;gen" src="images/add.gif" />
+                            | zurück<img alt="hinzuf&uuml;gen" src="images/add.gif" /></div>
         <table>
             <thead>
                 <tr>

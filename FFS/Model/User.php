@@ -113,29 +113,35 @@ class User {
      * @return User-Objekt 
      */
     private static function parse_result_as_object($result) {
+        $user_array = User::parse_result_list_as_object($result);
+        return $user_array[0];
+    }
+
+    public static function parse_result_list_as_object($result){
         if (mysql_num_rows($result) > 0) {
-            // Benutzerdaten in ein Array auslesen.
-            $data = mysql_fetch_array($result);
+            $user_array = new ArrayObject();
+            while($data = mysql_fetch_array($result)){
+                $user = new User();
+                $user->setID($data["ID"]);
+                $user->setEmail($data["email"]);
+                // $user->setPassword($data["password"]);
+                $user->setName($data["name"]);
+                $user->setVorname($data["vorname"]);
+                $user->setGebDat($data["gebDat"]);
+                $user->setLbz_ID($data["lbz_ID"]);
+                $user->setAgt($data["agt"]);
+                $user->setRollen_ID($data["rollen_ID"]);
 
-            $user = new User();
-            $user->setID($data["ID"]);
-            $user->setEmail($data["email"]);
-            // $user->setPassword($data["password"]);
-            $user->setName($data["name"]);
-            $user->setVorname($data["vorname"]);
-            $user->setGebDat($data["gebDat"]);
-            $user->setLbz_ID($data["lbz_ID"]);
-            $user->setAgt($data["agt"]);
-            $user->setRollen_ID($data["rollen_ID"]);
-
-            //folgend aus anderen tabellen
-            $user->setG26Liste_object(G26Liste::load(($data["ID"])));
-            $user->setUnterweisungListe_object(UnterweisungListe::load($data["ID"]));
-            $user->setUebungListe_object(UebungListe::load($data["ID"]));
-            $user->setEinsatzListe_object(EinsatzListe::load($data["ID"]));
-            $user->setStreckeListe_object(StreckeListe::load($data["ID"]));
-
-            return $user;
+                //folgend aus anderen tabellen
+                $user->setG26Liste_object(G26Liste::load(($data["ID"])));
+                $user->setUnterweisungListe_object(UnterweisungListe::load($data["ID"]));
+                $user->setUebungListe_object(UebungListe::load($data["ID"]));
+                $user->setEinsatzListe_object(EinsatzListe::load($data["ID"]));
+                $user->setStreckeListe_object(StreckeListe::load($data["ID"]));
+                
+                $user_array->append($user);
+            }
+            return $user_array;
         } else {
             throw new FFSException(ExceptionText::user_not_found());
         }

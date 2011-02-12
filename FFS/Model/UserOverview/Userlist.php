@@ -1,6 +1,7 @@
 <?php
-    //require_once('./AllUser.php');
     require_once(PATH_BASIS.'/Model/AllUser.php');
+    require_once(PATH_BASIS.'/Model/Table.php');
+    
     /**
      * author christian
      */
@@ -14,19 +15,30 @@
         public static function getUserTable(){
             $user_array=AllUser::get_userarray_for_manager_view();
             $output = "";
-            
-            $uebung = "Uebung";
-            $unterweisung = "Unterweisung";
 
             foreach($user_array as $user){
-                $G26 = $user->getG26Liste_object()->get_array_at(0);
-                $strecke = $user->getStreckeListe_object()->get_array_at(0);
-                $uebung = $user->getUebungListe_object()->get_array_at(0);
-                $einsatz = $user->getEinsatzListe_object()->get_array_at(0);
-                $unterweisung = $user->getUnterweisungListe_object()->get_array_at(0);
+                $output .= Table::getOpenTag();
+                $output .= Userlist::getUserData($user);
+                $output .= "<td><a href='viewUser.php'><img alt='anschauen' src='images/view.gif' /></a>&nbsp;
+                            <a href='editUser.php'><img alt='bearbeiten' src='images/edit.png' /></a></td>";
+                $output .= Table::getCloseTag();
+            }
+            return $output;
+        }
 
+        public static function getUserData($user){
+            try{
+                $G26 = $user->getG26Liste_object()->get_array_at(0)->getGueltigBis();
+                $strecke = $user->getStreckeListe_object()->get_array_at(0)->getDatum();
+                $uebung = $user->getUebungListe_object()->get_array_at(0)->getDatum();
+                $einsatz = $user->getEinsatzListe_object()->get_array_at(0)->getDatum();
+                $unterweisung = $user->getUnterweisungListe_object()->get_array_at(0)->getDatum();
+            } catch (Exception $e){
+                echo 'Fehler bei Zugriff auf Liste';
+            }
 
-                $output .= "<tr>";
+                $output = "";
+//                $output .= "<tr>";
                     $output .= "<td>". $user->getName() ."</td>";
                     $output .= "<td>". $user->getVorname() ."</td>";
                     $output .= "\t\t\t<td ";
@@ -45,11 +57,9 @@
                     $output .= "<td>". $uebung ."</td>";
                     $output .= "<td>". $einsatz ."</td>";
                     $output .= "<td>". $unterweisung ."</td>"; //$unterweisung->getDatum()
-                    $output .= "<td><a href='viewUser.php'><img alt='anschauen' src='images/view.gif' /></a>&nbsp;
-                        <a href='editUser.php'><img alt='bearbeiten' src='images/edit.png' /></a></td>";
-                $output .= "</tr>";
-            }
-            return $output;
+//                 $output .= "</tr>";
+
+                    return $output;
         }
     }
 

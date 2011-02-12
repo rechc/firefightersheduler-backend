@@ -6,6 +6,7 @@
 ?>
     <div id="content">
         <div><h1>Userübersicht</h1></div>
+        <div align="right">neuer Benutzer<img alt="hinzuf&uuml;gen" src="images/add.gif" /></div>
         <table>
             <thead>
                 <tr>

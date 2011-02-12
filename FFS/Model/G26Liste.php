@@ -1,9 +1,9 @@
 <?php
 
-require_once('../Configuration/ExceptionText.php');
-require_once('../Configuration/Config.php');
-require_once('G26.php');
-require_once('FFSException.php');
+require_once(PATH_BASIS.'/Configuration/ExceptionText.php');
+require_once(PATH_BASIS.'/Configuration/Config.php');
+require_once(PATH_BASIS.'/Model/G26.php');
+require_once(PATH_BASIS.'/Model/FFSException.php');
 
 /**
  * Description of G26Liste
@@ -50,7 +50,7 @@ class G26Liste {
                 }
                 return $g26liste;
             } else {
-                throw new FFSException(ExceptionText::g26Liste_no_g26());
+                throw new FFSException(ExceptionText::g26_not_found());
             }
         } else {
             throw new FFSException(ExceptionText::user_ID_not_numeric());
