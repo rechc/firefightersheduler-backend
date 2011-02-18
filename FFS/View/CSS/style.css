@@ -148,7 +148,8 @@ table caption {
 	border:1px solid #000000; }
 
 thead th {
-        background: url(../images//sort_down.gif) no-repeat right #666666;
+        /* background: url(../images//sort_down.gif) no-repeat right #666666; */
+        background: #666666;
 	height: 21px;
 	color: #FFFFFF;
 	font-size: 0.8em;
