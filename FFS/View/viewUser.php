@@ -31,28 +31,16 @@
         <table>
             <thead>
                 <tr>
-                    <th>Untersuchung am</th>
+                    <th width="50px">Status</th>
+                    <th width="150px">Datum</th>
                     <th>G&uuml;ltig bis</th>
-                    <th>Bemerkungen</th>
                 </tr>
             </thead>
             <tfoot></tfoot>
             <tbody>
-                <tr>
-                    <td>01.01.2009</td>
-                    <td>01.01.2012</td>
-                    <td>Sehhilfe</td>
-                </tr>
-                <tr>
-                    <td>01.01.2006</td>
-                    <td class="noway">01.01.2009</td>
-                    <td>Sehhilfe</td>
-                </tr>
-                <tr>
-                    <td>01.01.2003</td>
-                    <td class="noway">01.01.2006</td>
-                    <td>- keine -</td>
-                </tr>
+                <?php
+                    echo PersonalList::getG26Table();
+                ?>
             </tbody>
         </table>
         <div><h1>&Uuml;bungsstrecken</h1></div>
