@@ -42,15 +42,15 @@
                     $output .= "<td>". $user->getName() ."</td>";
                     $output .= "<td>". $user->getVorname() ."</td>";
                     $output .= "\t\t\t<td ";
-//                    if ($user->get_warning_status() == 0) {
-//                        $output .= "class=\"fine\">";
-//                    } elseif ($user->get_warning_status() == 1) {
-//                        $output .= "class=\"attention\">";
-//                    } elseif ($user->get_warning_status() == 2) {
-//                        $output .= "class=\"noway\">";
-//                    } else {
-//                        $output .= "> ";
-//                    }
+                    if ($user->get_warning_status() == 0) {
+                        $output .= "class=\"fine\">";
+                    } elseif ($user->get_warning_status() == 1) {
+                        $output .= "class=\"attention\">";
+                    } elseif ($user->get_warning_status() == 2) {
+                        $output .= "class=\"noway\">";
+                    } else {
+                        $output .= "> ";
+                    }
                     $output .= "&nbsp;</td>\n";
                     $output .= "<td>". $G26 ."</td>";
                     $output .= "<td>". $strecke ."</td>";
