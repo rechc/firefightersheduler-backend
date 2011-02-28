@@ -6,7 +6,7 @@
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
     <div id="content">
-        <div><h1>Tobias Lana</h1></div>
+        <div><h1 style="background-color: red">Tobias Lana [[AUTOFILL]]</h1></div>
         <table>
             <thead>
                 <tr>
@@ -23,7 +23,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getUserData();
+                    echo PersonalList::getUserData($_SESSION["user_id"]);
                 ?>
             </tbody>
         </table>
@@ -41,7 +41,7 @@
             </thead>
             <tfoot></tfoot>
             <tbody>
-                <tr>
+                <tr style="background-color: red">
                     <td>29.10.1981</td>
                     <td><a href="mailto:t.lana@ff-riegelsberg.de">t.lana@ff-riegelsberg.de</a></td>
                     <td>LB 1</td>
@@ -63,7 +63,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getG26Table();
+                    echo PersonalList::getG26Table($_SESSION["user_id"]);
                 ?>
             </tbody>
         </table>
@@ -79,7 +79,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getStreckeTable();
+                    echo PersonalList::getStreckeTable($_SESSION["user_id"]);
                 ?>
             </tbody>
         </table>
@@ -95,7 +95,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getEinsatzTable();
+                    echo PersonalList::getEinsatzTable($_SESSION["user_id"]);
                 ?>
             </tbody>
         </table>
@@ -111,7 +111,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getUebungTable();
+                    echo PersonalList::getUebungTable($_SESSION["user_id"]);
                 ?>
             </tbody>
         </table>
@@ -127,7 +127,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getUnterweisungTable();
+                    echo PersonalList::getUnterweisungTable($_SESSION["user_id"]);
                 ?>
             </tbody>
         </table>
