@@ -18,6 +18,9 @@
                 echo PATH_BASIS;
 //                echo Exception::bad_user_login();
             }
+            if (isset($_REQUEST["pleaseLogin"])){
+                echo "bitte Melden Sie sich zuerst an";
+            }
         ?>
         <form action="../Model/Authentification/login.php" method="post">
             <div id="login">
