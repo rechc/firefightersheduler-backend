@@ -6,13 +6,13 @@
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
     <div id="content">
-        <div><h1>Ansicht - Tobias Lana</h1></div>
+        <div><h1>Tobias Lana</h1></div>
         <table>
             <thead>
                 <tr>
+                    <th width="50px">Status</th>
                     <th>Name</th>
                     <th>Vorname</th>
-                    <th>Status</th>
                     <th>G.26</th>
                     <th>Strecke</th>
                     <th>&Uuml;bung</th>
@@ -25,6 +25,30 @@
                 <?php
                     echo PersonalList::getUserData();
                 ?>
+            </tbody>
+        </table>
+        <div><h1>Stammdaten</h1></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Geb.Dat.</th>
+                    <th>Email</th>
+                    <th>LBZ</th>
+                    <th>AGT</th>
+                    <th>Lehrgang</th>
+                    <th>Rolle</th>
+                </tr>
+            </thead>
+            <tfoot></tfoot>
+            <tbody>
+                <tr>
+                    <td>29.10.1981</td>
+                    <td><a href="mailto:t.lana@ff-riegelsberg.de">t.lana@ff-riegelsberg.de</a></td>
+                    <td>LB 1</td>
+                    <td>Ja</td>
+                    <td>01.01.2000</td>
+                    <td>Admin</td>
+                </tr>
             </tbody>
         </table>
         <div><h1>G26.3 Untersuchungen</h1></div>
