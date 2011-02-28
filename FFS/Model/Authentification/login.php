@@ -4,7 +4,7 @@
     require_once('../DbConnector.php');
 //    require_once(PATH_BASIS . '/Model/DbConnector.php');
 
-    $sql = "SELECT ID, email, name, vorname, passwort " .
+    $sql = "SELECT ID, email, name, vorname, passwort, rollen_ID " .
             "FROM user " .
             "WHERE ( email = '" . $_REQUEST["Mail"] .
             "' ) AND ( " .
@@ -23,6 +23,7 @@
         $_SESSION["user_email"] = $data["email"];
         $_SESSION["user_nachname"] = $data["name"];
         $_SESSION["user_vorname"] = $data["vorname"];
+        $_SESSION["user_rolle"] = $data["rollen_ID"];
 
         header("Location: ../../View/viewUser.php");
     } else {
