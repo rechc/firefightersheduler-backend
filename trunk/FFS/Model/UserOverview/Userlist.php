@@ -28,11 +28,22 @@
 
         public static function getUserData($user){
             try{
-                $G26 = $user->getG26Liste_object()->get_array_at(0)->getGueltigBis();
-                $strecke = $user->getStreckeListe_object()->get_array_at(0)->getDatum();
-                $uebung = $user->getUebungListe_object()->get_array_at(0)->getDatum();
-                $einsatz = $user->getEinsatzListe_object()->get_array_at(0)->getDatum();
-                $unterweisung = $user->getUnterweisungListe_object()->get_array_at(0)->getDatum();
+                //dummy Daten
+                $G26 = "dummy";
+                $strecke = "dummy";
+                $uebung = "dummy";
+                $einsatz = "dummy";
+                $unterweisung = "dummy";
+                $vorname = "Vorname";
+                $nachname = "Nachname";
+
+                $vorname = $user->getVorname();
+                $nachname = $user->getName();
+//                $G26 = $user->getG26Liste_object()->get_array_at(0)->getGueltigBis();
+//                $strecke = $user->getStreckeListe_object()->get_array_at(0)->getDatum();
+//                $uebung = $user->getUebungListe_object()->get_array_at(0)->getDatum();
+//                $einsatz = $user->getEinsatzListe_object()->get_array_at(0)->getDatum();
+//                $unterweisung = $user->getUnterweisungListe_object()->get_array_at(0)->getDatum();
             } catch (Exception $e){
                 echo 'Fehler bei Zugriff auf Liste';
             }
@@ -50,8 +61,8 @@
                         $output .= "> ";
                     }
                     $output .= "&nbsp;</td>\n";
-                    $output .= "<td>". $user->getName() ."</td>\n";
-                    $output .= "<td>". $user->getVorname() ."</td>\n";
+                    $output .= "<td>". $nachname ."</td>\n";
+                    $output .= "<td>". $vorname ."</td>\n";
                     $output .= "<td>". $G26 ."</td>\n";
                     $output .= "<td>". $strecke ."</td>\n";
                     $output .= "<td>". $uebung ."</td>\n";
