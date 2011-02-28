@@ -65,10 +65,9 @@
                     <th>G&uuml;ltig bis</th>
                     <?php
                         if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
-                            echo "<th class=\"manage\">&nbsp;</th>";
+                            echo "<th class=\"manage\">&nbsp;</th>\n";
                         }
                     ?>
-
                 </tr>
             </thead>
             <tfoot></tfoot>
