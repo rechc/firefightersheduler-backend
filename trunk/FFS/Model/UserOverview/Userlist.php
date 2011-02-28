@@ -39,8 +39,6 @@
 
                 $output = "";
 //                $output .= "<tr>";
-                    $output .= "<td>". $user->getName() ."</td>";
-                    $output .= "<td>". $user->getVorname() ."</td>";
                     $output .= "\t\t\t<td ";
                     if ($user->get_warning_status() == 0) {
                         $output .= "class=\"fine\">";
@@ -52,11 +50,13 @@
                         $output .= "> ";
                     }
                     $output .= "&nbsp;</td>\n";
-                    $output .= "<td>". $G26 ."</td>";
-                    $output .= "<td>". $strecke ."</td>";
-                    $output .= "<td>". $uebung ."</td>";
-                    $output .= "<td>". $einsatz ."</td>";
-                    $output .= "<td>". $unterweisung ."</td>"; //$unterweisung->getDatum()
+                    $output .= "<td>". $user->getName() ."</td>\n";
+                    $output .= "<td>". $user->getVorname() ."</td>\n";
+                    $output .= "<td>". $G26 ."</td>\n";
+                    $output .= "<td>". $strecke ."</td>\n";
+                    $output .= "<td>". $uebung ."</td>\n";
+                    $output .= "<td>". $einsatz ."</td>\n";
+                    $output .= "<td>". $unterweisung ."</td>\n"; //$unterweisung->getDatum()
 //                 $output .= "</tr>";
 
                     return $output;
