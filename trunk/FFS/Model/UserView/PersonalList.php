@@ -14,8 +14,7 @@ class PersonalList{
 
         }
 
-        public static function getUserData(){
-            $uid = $_SESSION["user_id"];
+        public static function getUserData($uid){
             $user = User::get_user($uid);
             $table = new Table();
             $output = $table->openTR();
@@ -24,8 +23,7 @@ class PersonalList{
             return $output;
         }
 
-        public static function getG26Table(){
-            $uid = $_SESSION["user_id"];
+        public static function getG26Table($uid){
             $user = User::get_user($uid);
             $glist = $user->getG26Liste_object();
             $garray = $glist->getG26_array();
@@ -50,8 +48,7 @@ class PersonalList{
             return $output;
         }
 
-        public static function getStreckeTable(){
-            $uid = $_SESSION["user_id"];
+        public static function getStreckeTable($uid){
             $user = User::get_user($uid);
             $stlist = $user->getStreckeListe_object();
             $starray = $stlist->getStrecke_array();
@@ -76,8 +73,7 @@ class PersonalList{
             return $output;
         }
 
-        public static function getEinsatzTable(){
-            $uid = $_SESSION["user_id"];
+        public static function getEinsatzTable($uid){
             $user = User::get_user($uid);
             $elist = $user->getEinsatzListe_object();
             $earray = $elist->getEinsatz_array();
@@ -102,8 +98,7 @@ class PersonalList{
             return $output;
         }
 
-        public static function getUebungTable(){
-            $uid = $_SESSION["user_id"];
+        public static function getUebungTable($uid){
             $user = User::get_user($uid);
             $ulist = $user->getUebungListe_object();
             $uarray = $ulist->getUebung_array();
@@ -127,8 +122,7 @@ class PersonalList{
             }
             return $output;
         }
-        public static function getUnterweisungTable(){
-            $uid = $_SESSION["user_id"];
+        public static function getUnterweisungTable($uid){
             $user = User::get_user($uid);
             $uwlist = $user->getUnterweisungListe_object();
             $uwarray = $uwlist->getUnterweisung_array();
