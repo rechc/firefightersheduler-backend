@@ -44,7 +44,7 @@ class PersonalList{
                 $output .= "\t\t\t<td>".$garray_entry->getDatum()."</td>\n";
                 $output .= "\t\t\t<td>".$garray_entry->getGueltigBis()."</td>\n";
                 if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
-                    $output .= "\t\t\t<td><a href=\"".$garray_entry->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
+                    $output .= "\t\t\t<td><a href=\"editG26.php?id=".$garray_entry->getID()."&uid=".$uid."\"><img src=\"images/edit.png\"></a></td>\n";
                 }
                 $output .= "\t\t</tr>\n";
             }
@@ -72,7 +72,7 @@ class PersonalList{
                 $output .= "\t\t\t<td>".$starray_entry->getDatum()."</td>\n";
                 $output .= "\t\t\t<td>".$starray_entry->getOrt()."</td>\n";
                 if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
-                    $output .= "\t\t\t<td><a href=\"\"><img src=\"images/edit.png\"></a></td>\n";
+                    $output .= "\t\t\t<td><a href=\"editStrecke.php?id=".$starray_entry->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
                 }
                 $output .= "\t\t</tr>\n";
             }
@@ -100,7 +100,7 @@ class PersonalList{
                 $output .= "\t\t\t<td>".$earray_entry->getDatum()."</td>\n";
                 $output .= "\t\t\t<td>".$earray_entry->getOrt()."</td>\n";
                 if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
-                    $output .= "\t\t\t<td><a href=\"\"><img src=\"images/edit.png\"></a></td>\n";
+                    $output .= "\t\t\t<td><a href=\"editEinsatz.php?id=".$earray_entry->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
                 }
                 $output .= "\t\t</tr>\n";
             }
@@ -128,7 +128,7 @@ class PersonalList{
                 $output .= "\t\t\t<td>".$uarray_entry->getDatum()."</td>\n";
                 $output .= "\t\t\t<td>".$uarray_entry->getOrt()."</td>\n";
                 if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
-                    $output .= "\t\t\t<td><a href=\"\"><img src=\"images/edit.png\"></a></td>\n";
+                    $output .= "\t\t\t<td><a href=\"editUebung.php?id=".$uarray_entry->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
                 }
                 $output .= "\t\t</tr>\n";
             }
@@ -155,7 +155,7 @@ class PersonalList{
                 $output .= "\t\t\t<td>".$uwarray_entry->getDatum()."</td>\n";
                 $output .= "\t\t\t<td>".$uwarray_entry->getOrt()."</td>\n";
                 if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
-                    $output .= "\t\t\t<td><a href=\"\"><img src=\"images/edit.png\"></a></td>\n";
+                    $output .= "\t\t\t<td><a href=\"editUnterweisung.php?id=".$uwarray_entry->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
                 }
                 $output .= "\t\t</tr>\n";
             }
