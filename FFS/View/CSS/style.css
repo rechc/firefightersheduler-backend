@@ -161,6 +161,9 @@ thead th {
 	text-align: center;
         border-right: 1px groove #000000;}
 
+thead th.manage { width: 25px }
+
+
 tbody tr {	background: #ffffff; }
 
 tbody tr.odd {	background: #f0f0f0; }
