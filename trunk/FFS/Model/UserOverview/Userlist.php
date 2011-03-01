@@ -19,7 +19,7 @@
             foreach($user_array as $user){
                 $output .= Table::getOpenTag();
                 $output .= Userlist::getUserData($user);
-                $output .= "<td><a href='viewUser.php'><img alt='anschauen' src='images/view.gif' /></a>&nbsp;
+                $output .= "<td><a href='viewUser.php?uid=4'><img alt='anschauen' src='images/view.gif' /></a>&nbsp;
                             <a href='editUser.php'><img alt='bearbeiten' src='images/edit.png' /></a></td>";
                 $output .= Table::getCloseTag();
             }
@@ -29,21 +29,21 @@
         public static function getUserData($user){
             try{
                 //dummy Daten
-                $G26 = "dummy";
-                $strecke = "dummy";
-                $uebung = "dummy";
-                $einsatz = "dummy";
-                $unterweisung = "dummy";
-                $vorname = "Vorname";
-                $nachname = "Nachname";
+//                $G26 = "dummy";
+//                $strecke = "dummy";
+//                $uebung = "dummy";
+//                $einsatz = "dummy";
+//                $unterweisung = "dummy";
+//                $vorname = "Vorname";
+//                $nachname = "Nachname";
 
                 $vorname = $user->getVorname();
                 $nachname = $user->getName();
-//                $G26 = $user->getG26Liste_object()->get_array_at(0)->getGueltigBis();
-//                $strecke = $user->getStreckeListe_object()->get_array_at(0)->getDatum();
-//                $uebung = $user->getUebungListe_object()->get_array_at(0)->getDatum();
-//                $einsatz = $user->getEinsatzListe_object()->get_array_at(0)->getDatum();
-//                $unterweisung = $user->getUnterweisungListe_object()->get_array_at(0)->getDatum();
+                $G26 = $user->getG26Liste_object()->get_array_at(0);//->getGueltigBis();
+                $strecke = $user->getStreckeListe_object()->get_array_at(0);//->getDatum();
+                $uebung = $user->getUebungListe_object()->get_array_at(0);//->getDatum();
+                $einsatz = $user->getEinsatzListe_object()->get_array_at(0);//->getDatum();
+                $unterweisung = $user->getUnterweisungListe_object()->get_array_at(0);//->getDatum();
             } catch (Exception $e){
                 echo 'Fehler bei Zugriff auf Liste';
             }
