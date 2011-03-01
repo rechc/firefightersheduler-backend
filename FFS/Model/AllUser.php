@@ -14,14 +14,30 @@
      * Liefert ein Array aller User (ohne passwort)
      * @return User-ArrayObject
      */
-    public static function get_userarray_for_manager_view(){
-         $sql = "SELECT ID, email, name, vorname, gebDat, lbz_ID, agt, rollen_ID
-                 FROM user";
+//    public static function get_userarray_for_manager_view(){
+//         $sql = "SELECT ID, email, name, vorname, gebDat, lbz_ID, agt, rollen_ID
+//                 FROM user";
+//
+//         $dbConnector = DbConnector::getInstance();
+//         $result = $dbConnector->execute_sql($sql);
+//
+//         return User::parse_result_list_as_object($result);
+//     }
+
+     public static function get_userarray_for_manager_view(){
+         $sql = "SELECT ID FROM user";
 
          $dbConnector = DbConnector::getInstance();
          $result = $dbConnector->execute_sql($sql);
 
-         return User::parse_result_list_as_object($result);
+         $i = 0;
+         $user_array = new ArrayObject(); //array();
+         while($ID = mysql_fetch_array($result)){
+             $user = User::get_user($i+1);  //WICHTIG i muss zu $ID
+             $user_array[] = $user;
+             $i++;
+         }
+         return $user_array;
      }
  }
 ?>
