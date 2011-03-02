@@ -133,13 +133,11 @@ class User {
                 $user->setRollen_ID($data["rollen_ID"]);
 
                 //folgend aus anderen tabellen
-                if ($result == 0){ //WICHTIG: nur zum Bug-Fix gesetzt. Muss raus
                     $user->setG26Liste_object(G26Liste::load(($data["ID"])));
                     $user->setUnterweisungListe_object(UnterweisungListe::load($data["ID"]));
                     $user->setUebungListe_object(UebungListe::load($data["ID"]));
                     $user->setEinsatzListe_object(EinsatzListe::load($data["ID"]));
                     $user->setStreckeListe_object(StreckeListe::load($data["ID"]));
-                }
 
                 $user_array->append($user);
             }
