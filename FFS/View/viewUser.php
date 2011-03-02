@@ -23,7 +23,12 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getUserData($_SESSION["user_id"]);
+                    if (isset($_REQUEST["uid"]))
+                        $uid = $_REQUEST["uid"];
+                    else
+                        $uid = $_SESSION["user_id"];
+                    
+                    echo PersonalList::getUserData($uid);
                 ?>
             </tbody>
         </table>
