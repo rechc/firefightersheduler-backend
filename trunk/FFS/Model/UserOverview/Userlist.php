@@ -19,7 +19,7 @@
             foreach($user_array as $user){
                 $output .= Table::getOpenTag();
                 $output .= Userlist::getUserData($user);
-                $output .= "<td><a href='viewUser.php?uid=4'><img alt='anschauen' src='images/view.gif' /></a>&nbsp;
+                $output .= "<td><a href='viewUser.php?uid=" . $user->getID() . "'><img alt='anschauen' src='images/view.gif' /></a>&nbsp;
                             <a href='editUser.php'><img alt='bearbeiten' src='images/edit.png' /></a></td>";
                 $output .= Table::getCloseTag();
             }

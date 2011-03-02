@@ -22,7 +22,7 @@
 
          $user_array = new ArrayObject();
          while($data = mysql_fetch_array($result)){
-             $user = User::get_user(1);  //WICHTIG i muss zu $data["ID"]
+             $user = User::get_user(2);  //WICHTIG 1 muss zu $data["ID"]
              $user_array->append($user);
          }
          return $user_array;
