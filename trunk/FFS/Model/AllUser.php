@@ -11,31 +11,19 @@
 
     /**
      * get_userarray_for_manager_view
-     * Liefert ein Array aller User (ohne passwort)
+     * Liefert ein Array aller User
      * @return User-ArrayObject
      */
-//    public static function get_userarray_for_manager_view(){
-//         $sql = "SELECT ID, email, name, vorname, gebDat, lbz_ID, agt, rollen_ID
-//                 FROM user";
-//
-//         $dbConnector = DbConnector::getInstance();
-//         $result = $dbConnector->execute_sql($sql);
-//
-//         return User::parse_result_list_as_object($result);
-//     }
-
      public static function get_userarray_for_manager_view(){
          $sql = "SELECT ID FROM user";
 
          $dbConnector = DbConnector::getInstance();
          $result = $dbConnector->execute_sql($sql);
 
-         $i = 0;
-         $user_array = new ArrayObject(); //array();
-         while($ID = mysql_fetch_array($result)){
-             $user = User::get_user($i+1);  //WICHTIG i muss zu $ID
-             $user_array[] = $user;
-             $i++;
+         $user_array = new ArrayObject();
+         while($data = mysql_fetch_array($result)){
+             $user = User::get_user(1);  //WICHTIG i muss zu $data["ID"]
+             $user_array->append($user);
          }
          return $user_array;
      }

@@ -39,11 +39,11 @@
 
                 $vorname = $user->getVorname();
                 $nachname = $user->getName();
-                $G26 = $user->getG26Liste_object()->get_array_at(0);//->getGueltigBis();
-                $strecke = $user->getStreckeListe_object()->get_array_at(0);//->getDatum();
-                $uebung = $user->getUebungListe_object()->get_array_at(0);//->getDatum();
-                $einsatz = $user->getEinsatzListe_object()->get_array_at(0);//->getDatum();
-                $unterweisung = $user->getUnterweisungListe_object()->get_array_at(0);//->getDatum();
+                $G26 = $user->getG26Liste_object()->get_array_at(0)->getGueltigBis();
+                $strecke = $user->getStreckeListe_object()->get_array_at(0)->getDatum();
+                $uebung = $user->getUebungListe_object()->get_array_at(0)->getDatum();
+                $einsatz = $user->getEinsatzListe_object()->get_array_at(0)->getDatum();
+                $unterweisung = $user->getUnterweisungListe_object()->get_array_at(0)->getDatum();
             } catch (Exception $e){
                 echo 'Fehler bei Zugriff auf Liste';
             }

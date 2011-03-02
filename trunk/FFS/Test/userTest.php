@@ -1,9 +1,11 @@
 <?php
+include_once '../global.inc.php';
 require_once('../Configuration/Config.php');
 require_once('../Model/User.php');
-//require_once('../Model/AllUser.php');
-//require_once('../Model/UnterweisungListe.php');
-//require_once('../Model/Unterweisung.php');
+require_once('../Model/AllUser.php');
+require_once('../Model/UnterweisungListe.php');
+require_once('../Model/Unterweisung.php');
+
 
 //schnelle unsaubere tests
 
