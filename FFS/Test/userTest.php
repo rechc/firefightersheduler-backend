@@ -10,6 +10,7 @@ require_once('../Model/Unterweisung.php');
 //schnelle unsaubere tests
 
 function test_ausgabe($user){
+    
     echo $user->getEmail();
     echo "<br>";
     echo $user->getName();
