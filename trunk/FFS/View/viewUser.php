@@ -4,9 +4,14 @@
     require_once (PATH_BASIS . '/Model/UserView/PersonalList.php');
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
+    require_once (PATH_BASIS . '/Controller/SessionHelper.php');
 ?>
     <div id="content">
-        <div><h1 style="background-color: red">Tobias Lana [[AUTOFILL]]</h1></div>
+        <div><h1 style="background-color: red">
+                <?php
+                echo SessionHelper::getCurrentUserName();
+                ?>
+             </h1></div>
         <table>
             <thead>
                 <tr>

@@ -24,6 +24,17 @@ class SessionHelper {
         }
     }
 
+    /**
+     *
+     * @return <type> 
+     */
+    public static function getCurrentUserName() {
+        $output.= $_SESSION["user_vorname"];
+        $output .= " ";
+        $output.= $_SESSION["user_nachname"];
+        return $output;
+    }
+
 }
 
 ?>
