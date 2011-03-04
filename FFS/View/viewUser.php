@@ -52,12 +52,15 @@
             <tfoot></tfoot>
             <tbody>
                 <tr style="background-color: red">
-                    <td>29.10.1981</td>
+                    <?php
+                        echo PersonalList::getStammDaten();
+                    ?>
+                 <!---   <td>29.10.1981</td>
                     <td><a href="mailto:t.lana@ff-riegelsberg.de">t.lana@ff-riegelsberg.de</a></td>
                     <td>LB 1</td>
                     <td>Ja</td>
                     <td>01.01.2000</td>
-                    <td>Admin</td>
+                    <td>Admin</td>  --->
                 </tr>
             </tbody>
         </table>
