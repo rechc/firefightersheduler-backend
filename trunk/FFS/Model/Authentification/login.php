@@ -1,5 +1,7 @@
 <?php
     session_start ();
+    // TODO die Session sollte komplett gelöscht werden bevor werte zugewiesen werden, wegen session injektions
+     
     include_once '../../global.inc.php';
     require_once('../DbConnector.php');
 //    require_once(PATH_BASIS . '/Model/DbConnector.php');
