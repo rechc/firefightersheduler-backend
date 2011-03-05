@@ -7,9 +7,14 @@
     require_once (PATH_BASIS . '/Controller/SessionHelper.php');
 ?>
     <div id="content">
-        <div><h1 style="background-color: red">
+        <div><h1>
                 <?php
-                echo SessionHelper::getCurrentUserName();
+                    if (isset($_REQUEST["uid"]))
+                        $uid = $_REQUEST["uid"];
+                    else
+                        $uid = $_SESSION["user_id"];
+                    $user=User::get_user($uid);
+                    echo $user->getVorname()." ".$user->getName();
                 ?>
              </h1></div>
         <table>
@@ -28,11 +33,6 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    if (isset($_REQUEST["uid"]))
-                        $uid = $_REQUEST["uid"];
-                    else
-                        $uid = $_SESSION["user_id"];
-                    
                     echo PersonalList::getUserData($uid);
                 ?>
             </tbody>
@@ -45,7 +45,6 @@
                     <th>Email</th>
                     <th>LBZ</th>
                     <th>AGT</th>
-                    <th>Lehrgang</th>
                     <th>Rolle</th>
                     <?php
                         if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
@@ -56,16 +55,10 @@
             </thead>
             <tfoot></tfoot>
             <tbody>
-                <tr style="background-color: red">
+                <tr>
                     <?php
-                        echo PersonalList::getStammDaten();
+                        echo PersonalList::getStammDaten($uid);
                     ?>
-                 <!---   <td>29.10.1981</td>
-                    <td><a href="mailto:t.lana@ff-riegelsberg.de">t.lana@ff-riegelsberg.de</a></td>
-                    <td>LB 1</td>
-                    <td>Ja</td>
-                    <td>01.01.2000</td>
-                    <td>Admin</td>  --->
                 </tr>
             </tbody>
         </table>
@@ -86,7 +79,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getG26Table($_SESSION["user_id"]);
+                    echo PersonalList::getG26Table($uid);
                 ?>
             </tbody>
         </table>
@@ -98,7 +91,7 @@
                     <th width="150px">Datum</th>
                     <th>Ort</th>
                     <?php
-                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
+                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                             echo "<th class=\"manage\">&nbsp;</th>";
                         }
                     ?>
@@ -107,7 +100,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getStreckeTable($_SESSION["user_id"]);
+                    echo PersonalList::getStreckeTable($uid);
                 ?>
             </tbody>
         </table>
@@ -119,7 +112,7 @@
                     <th width="150px">Datum</th>
                     <th>Ort</th>
                     <?php
-                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
+                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                             echo "<th class=\"manage\">&nbsp;</th>";
                         }
                     ?>
@@ -128,7 +121,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getEinsatzTable($_SESSION["user_id"]);
+                    echo PersonalList::getEinsatzTable($uid);
                 ?>
             </tbody>
         </table>
@@ -140,7 +133,7 @@
                     <th width="150px">Datum</th>
                     <th>Ort</th>
                     <?php
-                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
+                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                             echo "<th class=\"manage\">&nbsp;</th>";
                         }
                     ?>
@@ -149,7 +142,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getUebungTable($_SESSION["user_id"]);
+                    echo PersonalList::getUebungTable($uid);
                 ?>
             </tbody>
         </table>
@@ -161,7 +154,7 @@
                     <th width="150px">Datum</th>
                     <th>Ort</th>
                     <?php
-                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
+                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                             echo "<th class=\"manage\">&nbsp;</th>";
                         }
                     ?>
@@ -170,7 +163,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getUnterweisungTable($_SESSION["user_id"]);
+                    echo PersonalList::getUnterweisungTable($uid);
                 ?>
             </tbody>
         </table>
