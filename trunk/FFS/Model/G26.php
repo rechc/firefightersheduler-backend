@@ -54,6 +54,34 @@ class G26 {
         }
     }
 
+        /**
+     * load
+     * laed das Objekt aus der DB anhand seiner ID
+     *
+     * @param <type> $ID Die Id des Datenbankeintrags
+     * @return G26-Objekt
+     */
+    public static function load_by_g26id($ID) {
+        if ((is_numeric($ID) or $ID == NULL)) {
+            $sql = "SELECT *
+            FROM g26
+            WHERE ID = '$ID' ";
+
+            $dbConnector = DbConnector::getInstance();
+            $result = $dbConnector->execute_sql($sql);
+
+            if (mysql_num_rows($result) > 0) {
+                $data = mysql_fetch_array($result);
+
+                return G26::parse_result_as_objekt($data);
+            } else {
+                throw new FFSException(ExceptionText::g26_not_found());
+            }
+        } else {
+            throw new FFSException(ExceptionText::g26_ID_not_numeric());
+        }
+    }
+
     /**
      * parse_result_as_objekt
      * erstellt aus einer Datenbankzeile ein Objekt der Klasse
