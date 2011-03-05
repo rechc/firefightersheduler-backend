@@ -47,7 +47,7 @@
                     <th>AGT</th>
                     <th>Rolle</th>
                     <?php
-                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
+                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                             echo "<th class=\"manage\">&nbsp;</th>";
                         }
                     ?>
@@ -70,7 +70,7 @@
                     <th width="150px">Datum</th>
                     <th>G&uuml;ltig bis</th>
                     <?php
-                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_id"] == 50) {
+                        if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                             echo "<th class=\"manage\">&nbsp;</th>\n";
                         }
                     ?>
