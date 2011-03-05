@@ -19,8 +19,7 @@ class PersonalList {
 
     }
 
-    public static function getUserData($uid) {
-        $user = User::get_user($uid);
+    public static function getUserData($user) {
         $table = new Table();
         $output = $table->openTR();
         $output = Userlist::getUserData($user);
@@ -32,9 +31,8 @@ class PersonalList {
      *
      * @return <type> 
      */
-    public static function getStammDaten($uid) {
+    public static function getStammDaten($user) {
         $output = "";
-        $user = User::get_user($uid);
         if ($user != NULL){
             $output .= "<td>";
             $output .= $user->getGebDat();
@@ -58,8 +56,7 @@ class PersonalList {
         return $output;
     }
 
-    public static function getG26Table($uid) {
-        $user = User::get_user($uid);
+    public static function getG26Table($user) {
         $glist = $user->getG26Liste_object();
         $garray = $glist->getG26_array();
         $output = "";
@@ -86,8 +83,7 @@ class PersonalList {
         return $output;
     }
 
-    public static function getStreckeTable($uid) {
-        $user = User::get_user($uid);
+    public static function getStreckeTable($user) {
         $stlist = $user->getStreckeListe_object();
         $starray = $stlist->getStrecke_array();
         $output = "";
@@ -114,8 +110,7 @@ class PersonalList {
         return $output;
     }
 
-    public static function getEinsatzTable($uid) {
-        $user = User::get_user($uid);
+    public static function getEinsatzTable($user) {
         $elist = $user->getEinsatzListe_object();
         $earray = $elist->getEinsatz_array();
         $output = "";
@@ -142,8 +137,7 @@ class PersonalList {
         return $output;
     }
 
-    public static function getUebungTable($uid) {
-        $user = User::get_user($uid);
+    public static function getUebungTable($user) {
         $ulist = $user->getUebungListe_object();
         $uarray = $ulist->getUebung_array();
         $output = "";
@@ -170,8 +164,7 @@ class PersonalList {
         return $output;
     }
 
-    public static function getUnterweisungTable($uid) {
-        $user = User::get_user($uid);
+    public static function getUnterweisungTable($user) {
         $uwlist = $user->getUnterweisungListe_object();
         $uwarray = $uwlist->getUnterweisung_array();
         $output = "";
