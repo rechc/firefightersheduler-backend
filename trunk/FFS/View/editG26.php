@@ -9,7 +9,11 @@
     <div id="content">
         <div><h1>G26 Untersuchung von uid.name bearbeiten <?php echo $_GET["id"]; ?></h1></div>
         <?php
-
+            if (isset($_REQUEST["uid"]))
+                        $uid = $_REQUEST["uid"];
+                    else
+                        $uid = $_SESSION["user_id"];
+            $user=User::get_user($uid);
             $g26    = G26::load_by_g26id($_GET["id"]);
             $datum  = $g26->getDatum();
             $gueltig= $g26->getGueltigBis();
@@ -49,7 +53,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getG26Table($_SESSION["user_id"]);
+                    echo PersonalList::getG26Table($user);
                 ?>
             </tbody>
         </table>
