@@ -1,11 +1,13 @@
 <?php
+include_once '../global.inc.php';
 require_once('../Model/Strecke.php');
 require_once('../Model/StreckeListe.php');
 
 
+
 //schnelle unsaubere tests
 function laden_liste(){
-    $ueblist = StreckeListe::load(1);
+    $ueblist = StreckeListe::getAll();
 
     $array = $ueblist->getStrecke_array();
     if ($array[0] != NULL){echo "ungleich null",'<br>';}else{echo "eintrag eins geleich null ",'<br>';}

@@ -24,6 +24,30 @@ class EinsatzListe {
         $this->einsatz_array = new ArrayObject();
     }
 
+     /**
+     * getAll
+     * liefert alle Datensätze aus der DB sortiert nach Datum
+     * @return EinsatzListe
+     */
+    public static function getAll() {
+        $sql = "SELECT * FROM einsatz
+            ORDER BY datum DESC;";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+
+        if (mysql_num_rows($result) > 0) {// wenn mehr als 0 eintraege
+            $einsatzliste = new EinsatzListe;
+
+            while ($row = mysql_fetch_array($result)) { //sequentielles durchgehen der zeilen
+                $einsatz = Einsatz::parse_result_as_objekt($row);
+                $einsatzliste->append_einsatz($einsatz);
+            }
+            return $einsatzliste;
+        } else {
+            throw new FFSException(ExceptionText::einsatzListe_no_einsatz());
+        }
+    }
+
     /**
      * load
      * laed zu der Uebergebenen UserID alle Einsatzen

@@ -24,6 +24,30 @@ class UebungListe {
         $this->uebung_array = new ArrayObject();
     }
 
+     /**
+     * getAll
+     * liefert alle Datensätze aus der DB sortiert nach Datum
+     * @return UebungListe
+     */
+    public static function getAll() {
+        $sql = "SELECT * FROM uebung
+            ORDER BY datum DESC;";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+
+        if (mysql_num_rows($result) > 0) {// wenn mehr als 0 eintraege
+            $uebungliste = new UebungListe;
+
+            while ($row = mysql_fetch_array($result)) { //sequentielles durchgehen der zeilen
+                $uebung = Uebung::parse_result_as_objekt($row);
+                $uebungliste->append_strecke($uebung);
+            }
+            return $uebungliste;
+        } else {
+            throw new FFSException(ExceptionText::uebungListe_no_uebung());
+        }
+    }
+
     /**
      * load
      * laed zu der Uebergebenen UserID alle Uebungen
