@@ -27,6 +27,30 @@ class StreckeListe {
     }
 
     /**
+     * getAll
+     * liefert alle Datensätze aus der DB sortiert nach Datum
+     * @return StreckeListe
+     */
+    public static function getAll() {
+        $sql = "SELECT * FROM strecke
+            ORDER BY datum DESC;";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+
+        if (mysql_num_rows($result) > 0) {// wenn mehr als 0 eintraege
+            $streckeliste = new StreckeListe;
+
+            while ($row = mysql_fetch_array($result)) { //sequentielles durchgehen der zeilen
+                $strecke = Strecke::parse_result_as_objekt($row);
+                $streckeliste->append_strecke($strecke);
+            }
+            return $streckeliste;
+        } else {
+            throw new FFSException(ExceptionText::streckeListe_no_strecke());
+        }
+    }
+
+    /**
      * load
      * laed zu der Uebergebenen UserID alle Streckeen
      * und fuegt sie dem strecke_array hinzu.
@@ -69,7 +93,7 @@ class StreckeListe {
      * @return <type> Objekt
      */
     public function get_array_at($index) {
-        if (!empty ($this->strecke_array[$index]))
+        if (!empty($this->strecke_array[$index]))
             return $this->strecke_array[$index];
         else
             return "unbekannt";

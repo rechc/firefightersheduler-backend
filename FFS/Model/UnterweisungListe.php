@@ -24,6 +24,30 @@ class UnterweisungListe {
         $this->unterweisung_array = new ArrayObject();
     }
 
+     /**
+     * getAll
+     * liefert alle Datensätze aus der DB sortiert nach Datum
+     * @return UnterweisungListe
+     */
+    public static function getAll() {
+        $sql = "SELECT * FROM unterweisung
+            ORDER BY datum DESC;";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+
+        if (mysql_num_rows($result) > 0) {// wenn mehr als 0 eintraege
+            $unterweisungliste = new UnterweisungListe;
+
+            while ($row = mysql_fetch_array($result)) { //sequentielles durchgehen der zeilen
+                $unterweisung = Unterweisung::parse_result_as_objekt($row);
+                $unterweisungliste->append_unterweisung($unterweisung);
+            }
+            return $unterweisungliste;
+        } else {
+            throw new FFSException(ExceptionText::unterweisungListe_no_unterweisung());
+        }
+    }
+
     /**
      * load
      * laed zu der Uebergebenen UserID alle Unterweisungen
