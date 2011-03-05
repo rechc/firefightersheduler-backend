@@ -195,6 +195,8 @@ tbody td.attention { background: url(../images//icon-ampel-gelb.gif) no-repeat c
 tbody td.noway { background: url(../images//icon-ampel-rot.gif) no-repeat center;
                 width: 50px}
 
+tbody td img {border: none}
+
 tbody a {
 	color: #000000;
 	font-weight: bold;
