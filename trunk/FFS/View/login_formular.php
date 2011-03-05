@@ -22,7 +22,7 @@
                 echo "bitte Melden Sie sich zuerst an";
             }
         ?>
-        <form action="../Model/Authentification/Authorization/login.php" method="post">
+        <form action="../Model/Authentification/login.php" method="post">
             <div id="login">
                 <div id="pos">
                 <h1>Login</h1>
