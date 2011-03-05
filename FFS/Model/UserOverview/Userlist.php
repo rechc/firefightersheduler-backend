@@ -18,10 +18,10 @@
             $output = "";
 
             foreach($user_array as $user){
-                $output .= Table::getOpenTag();
+                $output .= "<tr onClick=document.location.href='viewUser.php?uid=" . $user->getID(). "'>";
                 $output .= Userlist::getUserData($user);
                 $output .= "<td><a href='viewUser.php?uid=" . $user->getID() . "'><img alt='anschauen' src='images/view.gif' /></a>";
-                $output .= Table::getCloseTag();
+                $output .= "</tr>";
             }
             return $output;
         }
@@ -49,7 +49,6 @@
             }
 
                 $output = "";
-//                $output .= "<tr>";
                     $output .= "\t\t\t<td ";
                     if ($user->get_warning_status() == 0) {
                         $output .= "class=\"fine\">";
@@ -67,8 +66,7 @@
                     $output .= "<td>". $strecke ."</td>\n";
                     $output .= "<td>". $uebung ."</td>\n";
                     $output .= "<td>". $einsatz ."</td>\n";
-                    $output .= "<td>". $unterweisung ."</td>\n"; //$unterweisung->getDatum()
-//                 $output .= "</tr>";
+                    $output .= "<td>". $unterweisung ."</td>\n"; 
 
                     return $output;
         }

@@ -17,6 +17,10 @@
                     echo $user->getVorname()." ".$user->getName();
                 ?>
              </h1></div>
+        <?php
+            if(SessionHelper::isAdminOrAGW())
+                echo "<div align='right'><a href='.php'>Benutzer löschen<img alt='' src='images/delete.gif' width='16' high='16' /></a></div>";
+        ?>
         <table>
             <thead>
                 <tr>
@@ -37,7 +41,12 @@
                 ?>
             </tbody>
         </table>
-        <div><h1>Stammdaten</h1></div>
+        <div><br><h1>Stammdaten</h1>
+        <?php
+            if(SessionHelper::isAdminOrAGW())
+                echo "<div align='right'><a href='.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+        ?>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -62,7 +71,11 @@
                 </tr>
             </tbody>
         </table>
-        <div><h1>G26.3 Untersuchungen</h1></div>
+        <div><br><h1>G26.3 Untersuchungen</h1></div>
+        <?php
+            if(SessionHelper::isAdminOrAGW())
+                echo "<div align='right'><a href='editG26.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+        ?>
         <table>
             <thead>
                 <tr>
@@ -83,7 +96,12 @@
                 ?>
             </tbody>
         </table>
-        <div><h1>&Uuml;bungsstrecken</h1></div>
+        <div><br><h1>&Uuml;bungsstrecken</h1>
+        <?php
+            if(SessionHelper::isAdminOrAGW())
+                echo "<div align='right'><a href='.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+        ?>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -104,7 +122,12 @@
                 ?>
             </tbody>
         </table>
-        <div><h1>Eins&auml;tze</h1></div>
+        <div><br><h1>Eins&auml;tze</h1>
+        <?php
+            if(SessionHelper::isAdminOrAGW())
+                echo "<div align='right'><a href='.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+        ?>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -125,7 +148,12 @@
                 ?>
             </tbody>
         </table>
-        <div><h1>Einsatz&uuml;bungen</h1></div>
+        <div><br><h1>Einsatz&uuml;bungen</h1>
+        <?php
+            if(SessionHelper::isAdminOrAGW())
+                echo "<div align='right'><a href='.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+        ?>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -146,7 +174,12 @@
                 ?>
             </tbody>
         </table>
-        <div><h1>Unterweisungen</h1></div>
+        <div><br><h1>Unterweisungen</h1>
+        <?php
+            if(SessionHelper::isAdminOrAGW())
+                echo "<div align='right'><a href='.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+        ?>
+        </div>
         <table>
             <thead>
                 <tr>

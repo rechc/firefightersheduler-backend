@@ -18,7 +18,7 @@
             $datum  = $g26->getDatum();
             $gueltig= $g26->getGueltigBis();
         ?>
-        <form action="../Model/Authentification/login.php" method="post">
+        <form action="../Model/Authentification/Authorization/login.php" method="post">
             <div>
                 <table>
                     <tr>

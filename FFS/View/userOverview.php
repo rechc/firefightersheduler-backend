@@ -1,17 +1,13 @@
 <?php
     include_once '../global.inc.php';
     require_once PATH_BASIS .'/Model/Authentification/checkuser.php';
+    require_once PATH_BASIS .'/Model/Authentification/authorizationCheck.php';
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
-
-    //Test ob Berechtigung vorhanden
-    if ($_SESSION["user_rolle"] != 40 & $_SESSION["user_rolle"] != 50) {
-            header ("Location: wrongAuthorization.php");
-    }
 ?>
     <div id="content">
         <div><h1>Userübersicht</h1></div>
-        <div align="right">neuer Benutzer<img alt="hinzuf&uuml;gen" src="images/add.gif" /></div>
+        <div align="right"><a href="newUser.php">neuer Benutzer<img alt="hinzuf&uuml;gen" src="images/add.gif" /></a></div>
         <table>
             <thead>
                 <tr>
