@@ -33,7 +33,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getUserData($uid);
+                    echo PersonalList::getUserData($user);
                 ?>
             </tbody>
         </table>
@@ -57,7 +57,7 @@
             <tbody>
                 <tr>
                     <?php
-                        echo PersonalList::getStammDaten($uid);
+                        echo PersonalList::getStammDaten($user);
                     ?>
                 </tr>
             </tbody>
@@ -79,7 +79,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getG26Table($uid);
+                    echo PersonalList::getG26Table($user);
                 ?>
             </tbody>
         </table>
@@ -100,7 +100,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getStreckeTable($uid);
+                    echo PersonalList::getStreckeTable($user);
                 ?>
             </tbody>
         </table>
@@ -121,7 +121,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getEinsatzTable($uid);
+                    echo PersonalList::getEinsatzTable($user);
                 ?>
             </tbody>
         </table>
@@ -142,7 +142,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getUebungTable($uid);
+                    echo PersonalList::getUebungTable($user);
                 ?>
             </tbody>
         </table>
@@ -163,7 +163,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getUnterweisungTable($uid);
+                    echo PersonalList::getUnterweisungTable($user);
                 ?>
             </tbody>
         </table>
