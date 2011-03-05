@@ -7,7 +7,6 @@
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
     <div id="content">
-        <div><h1>G26 Untersuchung von uid.name bearbeiten <?php echo $_GET["id"]; ?></h1></div>
         <?php
             if (isset($_REQUEST["uid"]))
                         $uid = $_REQUEST["uid"];
