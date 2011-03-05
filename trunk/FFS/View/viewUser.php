@@ -6,6 +6,9 @@
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
     require_once (PATH_BASIS . '/Controller/SessionHelper.php');
 ?>
+<head>
+    <script type="text/javascript" src="../Model/JavaScript/jsDeleteUser.js"></script>;
+</head>
     <div id="content">
         <div><h1>
                 <?php
@@ -19,7 +22,7 @@
              </h1></div>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='.php'>Benutzer löschen<img alt='' src='images/delete.gif' width='16' high='16' /></a></div>";
+                echo "<div align='right'><a href='JavaScript:getMessage()'>Benutzer löschen<img alt='' src='images/delete.gif' width='16' high='16' /></a></div>";
         ?>
         <table>
             <thead>
@@ -44,7 +47,7 @@
         <div><br><h1>Stammdaten</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
         ?>
         </div>
         <table>
@@ -99,7 +102,7 @@
         <div><br><h1>&Uuml;bungsstrecken</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
         ?>
         </div>
         <table>
@@ -125,7 +128,7 @@
         <div><br><h1>Eins&auml;tze</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
         ?>
         </div>
         <table>
@@ -151,7 +154,7 @@
         <div><br><h1>Einsatz&uuml;bungen</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
         ?>
         </div>
         <table>
@@ -177,7 +180,7 @@
         <div><br><h1>Unterweisungen</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
         ?>
         </div>
         <table>
