@@ -5,8 +5,6 @@
           <li><a href="viewUser.php">Meine Daten</a></li>
           <li><a href="addData.php">Daten hinzuf&uuml;gen</a></li>
           <!-- <li><a href="login.php">Login</a></li> -->
-        </ul>
-        <ul id="logout">
-            <li><a href="../Model/Authentification/logout.php">Logout</a></li>
+          <li class="right"><a href="../Model/Authentification/logout.php">Logout</a></li>
         </ul>
     </div>

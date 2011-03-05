@@ -101,6 +101,11 @@ foot
     list-style: none;
     background-color:  #666666;
 }
+
+#buttonbar li.right {
+    float:right;
+}
+
 #buttonbar a {
     float: left; 
     /*width: 6em;*/
