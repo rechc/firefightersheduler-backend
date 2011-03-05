@@ -35,6 +35,14 @@ class SessionHelper {
         return $output;
     }
 
+    public static function isAdminOrAGW(){
+        $user = SessionHelper::getCurrentUser();
+         if (($user->is_agw()) | ($user->is_admin())) {
+             return true;
+         }
+         return false;
+    }
+
 }
 
 ?>
