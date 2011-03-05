@@ -76,7 +76,7 @@ class PersonalList {
             $output .= "\t\t\t<td>" . $garray_entry->getDatum() . "</td>\n";
             $output .= "\t\t\t<td>" . $garray_entry->getGueltigBis() . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"editG26.php?id=" . $garray_entry->getID() . "&uid=" . $uid . "\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"editG26.php?id=" . $garray_entry->getID() . "&uid=" . $user->getID() . "\"><img src=\"images/edit.png\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
         }
