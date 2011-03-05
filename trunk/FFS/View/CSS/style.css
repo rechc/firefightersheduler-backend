@@ -207,31 +207,6 @@ tbody a {
 	font-weight: bold;
 	text-decoration: none; }
 
-tbody a:hover {
-	color: #ffffff;
-	text-decoration: underline; }
-
-tbody tr:hover th {
-	/* background: #800000 url(images/arrow_red.gif) left center no-repeat;
-	background-position: 5px; */
-	color: #ffffff; }
-
-tbody tr.odd:hover th {
-	/* background: #000000 url(images/arrow_black.gif) left center no-repeat;
-	background-position: 5px; */
-	color: #ffffff; }
-
-tbody tr:hover th a, tr.odd:hover th a	{
-		 color: #ffffff; }
-
-tbody tr:hover td, tr:hover td a, tr.odd:hover td, tr.odd:hover td a {
-	background: #800000;
-	color: #ffffff;	 }
-
-tbody tr.odd:hover td, tr.odd:hover td a{
-	background: #000000;
-	color: #ffffff;	 }
-
 tfoot th, tfoot td {
 	/* background: #ffffff url(images/bg_footer.gif) repeat-x bottom; */
 	font-size: 0.8em;
