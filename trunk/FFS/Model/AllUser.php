@@ -15,7 +15,7 @@
      * @return User-ArrayObject
      */
      public static function get_userarray_for_manager_view(){
-         $sql = "SELECT ID FROM user WHERE agt=1";
+         $sql = "SELECT ID FROM user WHERE agt=1"; // später fixen 
 
          $dbConnector = DbConnector::getInstance();
          $result = $dbConnector->execute_sql($sql);
