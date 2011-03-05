@@ -13,6 +13,7 @@
         public function __construct(){}
 
         public static function getUserTable(){
+         
             $user_array=AllUser::get_userarray_for_manager_view();
             $output = "";
 

@@ -3,6 +3,11 @@
     require_once PATH_BASIS .'/Model/Authentification/checkuser.php';
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
+
+    //Test ob Berechtigung vorhanden
+    if ($_SESSION["user_rolle"] != 40 & $_SESSION["user_rolle"] != 50) {
+            header ("Location: wrongAuthorization.php");
+    }
 ?>
     <div id="content">
         <div><h1>Userübersicht</h1></div>
