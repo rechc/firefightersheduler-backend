@@ -329,13 +329,6 @@ class User {
         return false;
     }
 
-    //TODO @Rech brauchst du die methode als static ? wenn ja sag bescheid dann muss ich sie anpassen ansonsten nutz die delete_with_dependencys()
-    public static function deleteUser($ID) {
-        $sql = "DELETE FROM user WHERE id=" . $ID;
-        $dbConnector = DbConnector::getInstance();
-        $result = $dbConnector->execute_sql($sql);
-    }
-
     /**
      * erwartet einen vollen (betrunkenen) Benutzer ^^
      * wem was nicht an der Ausgabe gefaellt, schoener machen ohne zu fragen
