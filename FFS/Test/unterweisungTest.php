@@ -1,4 +1,5 @@
 <?php
+include_once '../global.inc.php';
 require_once('../Model/Unterweisung.php');
 require_once('../Model/UnterweisungListe.php');
 
@@ -20,7 +21,7 @@ function laden(){
 
 
 function laden_liste(){
-    $unterwlist = UnterweisungListe::load(1);
+    $unterwlist = UnterweisungListe::getAll();
 
     $array = $unterwlist->getUnterweisung_array();
     if ($array[0] != NULL){echo "ungleich null",'<br>';}else{echo "eintrag eins geleich null ",'<br>';}
@@ -33,6 +34,6 @@ function laden_liste(){
 
 
 //laden_liste();
-laden();
+laden_liste();
 
 ?>
