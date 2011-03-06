@@ -8,31 +8,66 @@
 ?>
     <div id="content">
         <?php
-            $uid = $_REQUEST["uid"];            
-            $g26id  = $_GET["id"];
-            $g26    = G26::load_by_g26id($g26id);
-            if (isset($_POST["aendern"])) {
-                $g26->setDatum($_POST["datum"]);
-                $g26->setGueltigBis($_POST["gueltigBis"]);
-                $g26->save();
-                $datum  = $g26->getDatum();
-                $gueltig= $g26->getGueltigBis();
-            } elseif (isset($_POST["neu"])) {
-                $g26 = new G26();
-                $g26->setUserID($uid);
-                $g26->setDatum($_POST["datum"]);
-                $g26->setGueltigBis($_POST["gueltigBis"]);
-                $g26->create_db_entry();
-                $datum  = $g26->getDatum();
-                $gueltig= $g26->getGueltigBis();     
-            } else {
-                $datum  = $g26->getDatum();
-                $gueltig= $g26->getGueltigBis();
+            if (isset ($_REQUEST["uid"])) {
+                $uid    = $_REQUEST["uid"];
             }
+            // Abfrage welche Funktion
+            if (isset ($_REQUEST["func"])) {
+                $func = $_REQUEST["func"];
+                if ($func == "edit" || $func == "new" || $func == "del") {
+                    $function = $func;
+                }
+            } else {
+                $function = "edit";
+            }
+            // verschiedene Funktionen
+            // Start edit Funktion
+            if ($function == "edit") {
+                $g26 = G26::load_by_g26id($_GET["id"]);
+                $id = $g26->getID();
+                $uid = $g26->getUserID();
+                if ($_POST["submit"] == "edit") {
+                    $g26->setDatum($_POST["datum"]);
+                    $g26->setGueltigBis($_POST["gueltigBis"]);
+                    $g26->save();
+                }
+                $datum  = $g26->getDatum();
+                $gueltig= $g26->getGueltigBis(); 
+            }
+            // Ende edit
+            // Start new Funktion
+            if ($function == "new") {
+                if ($_POST["submit"] == "new") {
+                    $g26 = new G26();
+                    $g26->setUserID($_POST["uid"]);
+                    $g26->setDatum($_POST["datum"]);
+                    $g26->setGueltigBis($_POST["gueltigBis"]);
+                    $g26->create_db_entry();
+                    // $id = $g26->getID(); // geht nicht weil nach DB Insert keine ID gesetzt wird
+                    $uid = $g26->getUserID();
+                    $datum  = $g26->getDatum();
+                    $gueltig= $g26->getGueltigBis();
+                } else {
+                    $id     = NULL;
+                    $datum  = "JJJJ-MM-TT";
+                    $gueltig= "JJJJ-MM-TT"; 
+                } 
+            }
+
             $user=User::get_user($uid);
 
         ?>
-        <div><h1>Erfasste Untersuchung ändern</h1></div>
+        <div><h1>
+            <?php 
+                if ($function == "edit") { 
+                    echo "Ändern";
+                } elseif ($function == "new") {
+                    echo "Hinzufügen";
+                } elseif ($function == "del") {
+                    echo "Löschen";
+                }
+            ?>
+        </h1></div>
         <form action="" method="post">
             <div>
                 <table>
@@ -45,14 +80,26 @@
                         <td><input type="text" name="gueltigBis" value="<?php echo $gueltig ?>"></td>
                     </tr>
                     <tr>
-                        <td><input type="hidden" name="id" value="<?php echo $g26id ?>">&nbsp;</td>
-                        <td><input type="submit" name="aendern" value="Änderungen speichern">&nbsp;
-                            <input type="submit" name="neu" value="Neuer Datensatz"></td>
+                        <td><input type="hidden" name="id" value="<?php echo $g26id ?>">
+                            <input type="hidden" name="uid" value="<?php echo $uid ?>">&nbsp;</td>
+                        <td>
+                            <?php
+                                if ($function == "edit") {
+                                    echo "<input type=\"submit\" name=\"submit\" value=\"edit\">\n";
+                                } elseif ($function == "new") {
+                                    echo "<input type=\"submit\" name=\"submit\" value=\"new\">\n";
+                                }
+                            ?>
+                         &nbsp;</td>
                     </tr>
                 </table>
             </div>
         </form>
         <div><h1>&Uuml;bersicht</h1></div>
+        <?php
+            if(SessionHelper::isAdminOrAGW())
+                echo "<div align='right'><a href='editG26.php?uid=".$uid."&func=new'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+        ?>
         <table>
             <thead>
                 <tr>

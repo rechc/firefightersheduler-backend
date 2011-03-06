@@ -18,7 +18,7 @@
                         $uid = $_SESSION["user_id"];
                     $user=User::get_user($uid);
                     echo $user->getVorname()." ".$user->getName();
-                    echo "\n PW md5: ".md5($user->getPassword());
+                    // echo "\n PW md5: ".md5($user->getPassword());
                 ?>
              </h1></div>
         <?php
@@ -45,12 +45,7 @@
                 ?>
             </tbody>
         </table>
-        <div><br><h1>Stammdaten</h1>
-        <?php
-            if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='addData.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
-        ?>
-        </div>
+        <div><br><h1>Stammdaten</h1></div>
         <table>
             <thead>
                 <tr>
@@ -78,7 +73,7 @@
         <div><br><h1>G26.3 Untersuchungen</h1></div>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='editG26.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='editG26.php?uid=".$uid."&func=new'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
         ?>
         <table>
             <thead>
