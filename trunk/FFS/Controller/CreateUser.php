@@ -2,7 +2,7 @@
 /*
  * Description
  *
- *@author Rech Christian
+ *@author Rech Christian, bla
  *@version alpha
  */
     require_once '../Model/User.php';
