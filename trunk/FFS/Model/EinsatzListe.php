@@ -91,9 +91,7 @@ class EinsatzListe {
      * @return <type> Objekt
      */
     public function get_array_at($index) {
-        if (!empty ($this->einsatz_array[$index]))
-            return $this->einsatz_array[$index];
-        return "unbekannt";
+        return $this->einsatz_array[$index];
     }
 
     /**

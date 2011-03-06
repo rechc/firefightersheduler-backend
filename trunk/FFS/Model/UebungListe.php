@@ -93,7 +93,7 @@ class UebungListe {
     public function get_array_at($index) {
         if (!empty ($this->uebung_array[$index]))
             return $this->uebung_array[$index];
-        return "unbekannt";
+        return NULL;
     }
 
     /**
