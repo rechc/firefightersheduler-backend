@@ -11,8 +11,8 @@
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <title>FFS Benutzer</title>
                 <link rel="stylesheet" type="text/css" href="css/users.css" />
-                <script type="text/javascript" src="../Model/JavaScript/jsXMLHttpRequestHandle.js"></script>
-                <script type="text/javascript" src="../Model/JavaScript/jsUserManager.js"></script>
+                <script type="text/javascript" src="../Controller/JavaScript/jsXMLHttpRequestHandle.js"></script>
+                <script type="text/javascript" src="../Controller/JavaScript/jsUserManager.js"></script>
             </head>
             <body>
                 <h1>Benutzer erstellen </h1>
