@@ -65,7 +65,7 @@ function testusrg26(){
 
     //$user = User::get_user_by_login($email, $password);
     $ID = "2 OR 1";
-    $ID = "1";
+    $ID = "3";
     $user = User::get_user($ID);
     $user->debug_output_full_user();
     //test_ausgabe($user);
