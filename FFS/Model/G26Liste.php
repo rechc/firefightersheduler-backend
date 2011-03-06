@@ -65,10 +65,7 @@ class G26Liste {
      * @return <type> Objekt
      */
     public function get_array_at($index) {
-        if (!empty ($this->g26_array[$index]))
-            return $this->g26_array[$index];
-        else
-            return "unbekannt";
+        return $this->g26_array[$index];
     }
 
     /**

@@ -93,7 +93,7 @@ class UnterweisungListe {
     public function get_array_at($index) {
         if (!empty ($this->unterweisung_array[$index]))
             return $this->unterweisung_array[$index];
-        return "unbekannt";
+        return NULL;
     }
 
     /**
