@@ -96,7 +96,7 @@ class StreckeListe {
         if (!empty($this->strecke_array[$index]))
             return $this->strecke_array[$index];
         else
-            return NULL;
+            return false;
     }
 
     /**

@@ -45,7 +45,7 @@ class Userlist {
             // TODO hier prüfungen
             //g26
             $g26array = $user->getG26Liste_object()->get_array_at(0);
-            if ($g26array != NULL) {
+            if ($g26array != false) {
                 $G26 = $g26array->getGueltigBis();
             } else {
                 $G26 = "unbekannt";
@@ -53,7 +53,7 @@ class Userlist {
 
             //strecke
             $streckearray = $user->getStreckeListe_object()->get_array_at(0);
-            if ($streckearray != NULL) {
+            if ($streckearray != false) {
                 $strecke = $streckearray->getDatum();
             } else {
                 $strecke = "unbekannt";
@@ -61,7 +61,7 @@ class Userlist {
 
             //uebung
             $uebungarray = $user->getUebungListe_object()->get_array_at(0);
-            if ($uebungarray != NULL) {
+            if ($uebungarray != false) {
                 $uebung = $uebungarray->getDatum();
             } else {
                 $uebung = "unbekannt";
