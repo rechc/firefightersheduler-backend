@@ -133,11 +133,31 @@ class User {
                 $user->setRollen_ID($data["rollen_ID"]);
 
                 //folgend aus anderen tabellen
+                try {
                     $user->setG26Liste_object(G26Liste::load(($data["ID"])));
+                } catch (FFSException $exc) {
+                     $user->setG26Liste_object(new G26Liste());
+                }
+                try {
                     $user->setUnterweisungListe_object(UnterweisungListe::load($data["ID"]));
+                } catch (FFSException $exc) {
+                    $user->setUnterweisungListe_object(new UnterweisungListe);
+                }
+                try {
                     $user->setUebungListe_object(UebungListe::load($data["ID"]));
+                } catch (FFSException $exc) {
+                    $user->setUebungListe_object(new UebungListe);
+                }
+                try {
                     $user->setEinsatzListe_object(EinsatzListe::load($data["ID"]));
+                } catch (FFSException $exc) {
+                    $user->setEinsatzListe_object(new EinsatzListe);
+                }
+                try {
                     $user->setStreckeListe_object(StreckeListe::load($data["ID"]));
+                } catch (FFSException $exc) {
+                    $user->setStreckeListe_object(new StreckeListe);
+                }
 
                 $user_array->append($user);
             }
