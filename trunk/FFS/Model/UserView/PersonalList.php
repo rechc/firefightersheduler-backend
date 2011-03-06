@@ -190,6 +190,18 @@ class PersonalList {
         }
         return $output;
     }
+    public static function getStreckeList() {
+        $streckeliste = StreckeListe::getAll();
+        $streckearray = $streckeliste->getStrecke_array();
+        $output = "";
+        foreach ($streckearray as $strecke) {
+            $ID     = $strecke->getID();
+            $datum  = $strecke->getDatum();
+            $ort    = $strecke->getOrt();
+            $output .= "<option value=\"".$ID."\">".$datum." ".$ort."</option>\n";
+        }
+        return $output;
+    }
 
 }
 
