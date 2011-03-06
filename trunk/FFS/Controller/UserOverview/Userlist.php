@@ -69,7 +69,7 @@ class Userlist {
 
             //einsatz
             $einsatzarray = $user->getEinsatzListe_object()->get_array_at(0);
-            if ($einsatzarray != NULL) {
+            if ($einsatzarray != false) {
                 $einsatz = $einsatzarray->getDatum();
             } else {
                 $einsatz = "unbekannt";
@@ -77,7 +77,7 @@ class Userlist {
 
             //unterweisung
             $unterweisungarray = $user->getUnterweisungListe_object()->get_array_at(0);
-            if ($unterweisungarray != NULL) {
+            if ($unterweisungarray != false) {
                 $unterweisung = $unterweisungarray->getDatum();
             } else {
                 $unterweisung = "unbekannt";
