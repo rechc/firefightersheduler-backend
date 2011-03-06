@@ -104,6 +104,8 @@ foot
 
 #buttonbar li.right {
     float:right;
+    padding-right: 7px;
+/*    width: 150px;*/
 }
 
 #buttonbar a {
@@ -133,6 +135,10 @@ foot
 
 #loginform div{
     padding: 0.2em 0;
+}
+
+a{
+    color: #000000;
 }
 
 table {
@@ -212,4 +218,4 @@ tfoot th, tfoot td {
 	font-size: 0.8em;
 	color: #ffffff;
 	height: 21px;
-	}
+}
