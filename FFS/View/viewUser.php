@@ -7,7 +7,7 @@
     require_once (PATH_BASIS . '/Controller/SessionHelper.php');
 ?>
 <head>
-    <script type="text/javascript" src="../Model/JavaScript/jsDeleteUser.js"></script>;
+    <script type="text/javascript" src="../Model/JavaScript/jsDeleteUser.js"></script>
 </head>
     <div id="content">
         <div><h1>
