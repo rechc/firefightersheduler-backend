@@ -1,6 +1,5 @@
 <?php
     require_once(PATH_BASIS.'/Model/AllUser.php');
-    require_once(PATH_BASIS.'/Model/Table.php');
     
     /**
      * author christian 
