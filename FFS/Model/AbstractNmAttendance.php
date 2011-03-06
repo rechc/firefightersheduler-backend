@@ -10,7 +10,7 @@
  *
  * @author awagen
  */
-abstract class AbstractNmAttendance {
+abstract class AbstractNmAttendance {// TODO delete
 
     private $ID;
     private $ort;
