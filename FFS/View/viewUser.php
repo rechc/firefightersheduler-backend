@@ -18,6 +18,7 @@
                         $uid = $_SESSION["user_id"];
                     $user=User::get_user($uid);
                     echo $user->getVorname()." ".$user->getName();
+                    echo "\n PW md5: ".md5($user->getPassword());
                 ?>
              </h1></div>
         <?php
