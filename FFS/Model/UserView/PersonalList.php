@@ -20,10 +20,9 @@ class PersonalList {
     }
 
     public static function getUserData($user) {
-        $table = new Table();
-        $output = $table->openTR();
-        $output = Userlist::getUserData($user);
-        $output .= $table->closeTR();
+        $output = "<tr>";
+        $output .= Userlist::getUserData($user);
+        $output .= "</tr>";
         return $output;
     }
 
