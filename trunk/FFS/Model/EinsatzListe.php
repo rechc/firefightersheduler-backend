@@ -116,6 +116,7 @@ class EinsatzListe {
      * (geht von einer sortierten Liste aus)
      */
     public function get_warning_status() {
+        if ($this->einsatz_array[0] == NULL){return Config::red();}
         if (is_a($this->einsatz_array[0], "Einsatz")) {
             return $this->einsatz_array[0]->get_warning_status();
         } else {
