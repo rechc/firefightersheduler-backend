@@ -2,8 +2,8 @@
 
 require_once('DbConnector.php');
 require_once('FFSException.php');
-require_once('../Configuration/Config.php');
-require_once('../Configuration/ExceptionText.php');
+require_once(PATH_BASIS . '/Configuration/Config.php');
+require_once(PATH_BASIS . '/Configuration/ExceptionText.php');
 
 /**
  * Description of Einsatz

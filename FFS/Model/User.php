@@ -1,7 +1,6 @@
 <?php
-
 require_once('DbConnector.php');
-require_once('../Configuration/Config.php');
+require_once(PATH_BASIS . '/Configuration/Config.php');
 require_once('G26.php');
 require_once('G26Liste.php');
 require_once('Uebung.php');
@@ -73,10 +72,11 @@ class User {
      * @return User-Objekt 
      */
     public static function get_user_by_login($email, $password) {
+        $pwmd5 = md5($password);
         $sql = "SELECT ID, email, name, vorname, gebDat, lbz_ID, agt, rollen_ID 
                 FROM user 
-                WHERE ( email like ' $email' ) AND ( 
-                    passwort = ' $password ')";
+                WHERE ( email = '$email' ) AND (
+                    passwort = '$pwmd5');";
 
         $dbConnector = DbConnector::getInstance();
         $result = $dbConnector->execute_sql($sql);
@@ -186,12 +186,14 @@ class User {
 
     /**
      * save_pw
-     * speichert ein neues Passwort
+     * speichert ein neues Passwort als md5, erwartet einen String.
      * ohneabhaengige Listen wie G26
      */
     public function save_pw() {
+        $pwmd5 = md5($this->password);
+
         $sql = "UPDATE user
-            SET password = '$this->password'
+            SET password = '$pwmd5'
             WHERE ID = '$this->ID'";
 
         $dbConnector = DbConnector::getInstance();
@@ -201,16 +203,18 @@ class User {
     /**
      * create_db_entry
      * erstellt einen neuen Eintrag mit dem aktuellen Benutzer
+     * das passowrt wird zu einem md5 umgewandelt
      */
     public function create_db_entry() {
         if (($this->name != NULL) and ($this->vorname != NULL) and
                 ($this->email != NULL) and ($this->password != NULL) and
                 ($this->rollen_ID != NULL) and ($this->gebDat != NULL) and
                 ($this->lbz_ID != NULL) and ( $this->agt != NULL)) {
+            $pwmd5 = md5($this->password);
             $sql = "INSERT INTO user ( name, vorname, email,  passwort , rollen_ID,
                     gebDat, lbz_ID, agt)
                 VALUES ( '$this->name', '$this->vorname', '$this->email',
-                    '$this->password', '$this->rollen_ID', '$this->gebDat',
+                    '$pwmd5', '$this->rollen_ID', '$this->gebDat',
                     '$this->lbz_ID', '$this->agt' )";
 
             $dbConnector = DbConnector::getInstance();

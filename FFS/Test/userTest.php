@@ -82,8 +82,12 @@ try {
 } catch (Exception $exc) {
     echo $exc;
 }*/
-testusrg26();
+//testusrg26();
+//echo md5(4711);
+$email = "a.nalbach@ff-riegelsberg.de";
+$password = 4711;
+User::get_user_by_login($email, $password);
 
-
+//echo md5($password);
 
 ?>
