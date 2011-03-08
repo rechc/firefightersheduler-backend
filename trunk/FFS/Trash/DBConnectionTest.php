@@ -49,6 +49,7 @@
             //Optional
             $anzahl = mysql_num_rows($adressen_query);
             echo "<br>Anzahl der Datensätze: $anzahl";
+            echo "<br>" . "b52340b4de4566b804c9880aa0b4af5f = md5 von 4711";
         ?>
     </body>
 </html>
