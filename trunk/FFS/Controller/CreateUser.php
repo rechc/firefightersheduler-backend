@@ -6,6 +6,7 @@
  *@version alpha
  */
     require_once PATH_BASIS . '/Model/User.php';
+    require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
 
  class CreateUser{
     public static function checkEntry(){
