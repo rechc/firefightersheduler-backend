@@ -21,25 +21,44 @@
 <!--                        Benutzer-ID: <input type ="text" name="id" id="id" value="" readonly>-->
                         <table border="0">
                             <tr>
-                                <td><div>Name: <input type ="text" name="lastname" id="lastname" value=""></div></td>
-                                <td><div>Vorname: <input type ="text" name="firstname" id="firstname" value=""></div></td>
+                                <div>
+                                    <td>Name: </td>
+                                    <td><input type ="text" name="lastname" id="lastname" value=""></td>
+                                </div>
+                                <div>
+                                    <td>Vorname: </td>
+                                    <td><input type ="text" name="firstname" id="firstname" value=""></td>
+                                </div>
                             </tr>
                             <tr>
-                                <td><div>E-Mail: <input type ="text" name ="email" id="email"></div></td>
-                                <td><div>Geburtsdatum: <input type ="text" name="bday" id="bday"></div></td>
+                                <div>
+                                    <td>E-Mail: </td>
+                                    <td><input type ="text" name ="email" id="email"></td>
+                                </div>
+                                <div>
+                                    <td>Geburtsdatum: </td>
+                                    <td><input type ="text" name="bday" id="bday"></td>
+                                </div>
                             </tr>
                             <tr>
-                                <td><div>Passwort: <input type ="password" name ="password" id="user_password"></div></td>
-                                <td><div>Passwort bestätigen: <input type ="password" name="password_confirm" id="password_confirm"></div></td>
+                                <div>
+                                    <td>Passwort: </td>
+                                    <td><input type ="password" name ="password" id="user_password"></td>
+                                </div>
+                            <div>
+                                <td>Passwort bestätigen:
+                                <td><input type ="password" name="password_confirm" id="password_confirm"></td>
+                            </div>
                             </tr>
                             <tr>
+                                    <td> Geschlecht: </td>
+                                    <td>
+                                         männlich <input type="radio" value="maennlisch" name="Geschlecht" id="man">
+                                         weiblich <input type="radio" value="weiblisch" name="Geschlecht" id="woman">
+                                    </td>
+                                <td>Rolle:</td>
                                 <td>
-                                    <div>Geschlecht:
-                                          männlich <input type="radio" value="maennlisch" name="Geschlecht" id="man">
-                                          weiblich <input type="radio" value="weiblisch" name="Geschlecht" id="woman">
-                                     </div>
-                                </td>
-                                <td>Rolle:<select name="rolle" id="rolle">
+                                    <select name="rolle" id="rolle">
                                         <option value="agw">normal (10)</option>
                                         <option value="agw">AGW (40)</option>
                                         <option value="admin">Administrator (50)</option>
@@ -47,7 +66,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td colspan="4">
                                     <div>
                                         <input type="submit" value="hinzufügen" name="ok" id="ok">
 <!--                                        <input type="button" value="löschen" name="delete" id="delete" onClick="document.location.href='javascript:sendDeleteUserRequest(document.getElementById(id))'">-->
