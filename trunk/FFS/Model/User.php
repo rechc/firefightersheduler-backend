@@ -353,6 +353,31 @@ class User {
         return false;
     }
 
+
+    /**
+     * send_mail
+     * 
+     * @param <type> $subject Betreffzeile
+     * @param <type> $message Nachricht
+     */
+    public function send_mail($subject, $message){
+        //TODO implement
+          mail("mapsmail@gmx.de", $subject, $message,
+            "From: \"Domain\" <from_email_address>\r\n" .
+            "X-Mailer: PHP/" . phpversion());
+
+
+    }
+
+    /**
+     * send_new_password
+     */
+    public function send_new_password(){
+        //TODO implement
+    }
+
+
+
     /**
      * erwartet einen vollen (betrunkenen) Benutzer ^^
      * wem was nicht an der Ausgabe gefaellt, schoener machen ohne zu fragen
