@@ -16,8 +16,8 @@ class SessionHelper {
      * @return <type> User Objekt
      */
     public static function getCurrentUser() {
-        $current_uid = $_SESSION["user_id"];
-        if ($current_uid != NULL) {
+        if (SessionHelper::isLoggedIn()) {
+            $current_uid = $_SESSION["user_id"];
             return User::get_user($current_uid);
         } else {
             return NULL; // TODO redirect to Loginpage
@@ -37,10 +37,19 @@ class SessionHelper {
 
     public static function isAdminOrAGW(){
         $user = SessionHelper::getCurrentUser();
-         if (($user->is_agw()) | ($user->is_admin())) {
+        if (empty ($user))
+            return false;
+        
+         if (($user->is_agw()) | ($user->is_admin()) && SessionHelper::isLoggedIn()) {
              return true;
          }
          return false;
+    }
+
+    public static function  isLoggedIn(){
+        if (empty ($_SESSION["user_id"]))
+            return false;
+        return true;
     }
 
 }

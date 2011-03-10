@@ -6,7 +6,7 @@
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
     <div id="content">
-        <div><h1>Userübersicht</h1></div>
+        <div><h1>Benutzerübersicht</h1></div>
         <div align="right"><a href="newUser.php">neuer Benutzer<img alt="hinzuf&uuml;gen" src="images/add.gif" /></a></div>
         <table>
             <thead>

@@ -29,15 +29,21 @@
                                 <td><div>Geburtsdatum: <input type ="text" name="bday" id="bday"></div></td>
                             </tr>
                             <tr>
-                                <td><div>Passwort: <input type ="text" name ="password" id="password"></div></td>
-                                <td><div>Passwort bestätigen: <input type ="text" name="password_confirm" id="password_confirm"></div></td>
+                                <td><div>Passwort: <input type ="password" name ="password" id="user_password"></div></td>
+                                <td><div>Passwort bestätigen: <input type ="password" name="password_confirm" id="password_confirm"></div></td>
                             </tr>
                             <tr>
-                                <td colspan="2">
+                                <td>
                                     <div>Geschlecht:
                                           männlich <input type="radio" value="maennlisch" name="Geschlecht" id="man">
                                           weiblich <input type="radio" value="weiblisch" name="Geschlecht" id="woman">
                                      </div>
+                                </td>
+                                <td>Rolle:<select name="rolle" id="rolle">
+                                        <option value="agw">normal (10)</option>
+                                        <option value="agw">AGW (40)</option>
+                                        <option value="admin">Administrator (50)</option>
+                                    </select>
                                 </td>
                             </tr>
                             <tr>
