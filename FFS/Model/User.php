@@ -364,7 +364,7 @@ class User {
      */
     public function send_mail($subject, $message) {
         //TODO funktioniert nicht...
-        $senderemail = Config::emailadresse();
+        $senderemail = Config::emailAdresseServer();
         $header = "From: FFSScheduler <" . $senderemail . ">\r\n";
         mail($this->email, $subject, $message, $header);
     }
@@ -376,8 +376,9 @@ class User {
      */
     public function generate_and_send_new_password() {
         try {
-            $newpw = HelpFunctions::generate_string(rand(7,11));
-            $message = "Hallo " . $this->vorname . " " . $this->name . Config::newPasswordTexta() . $newpw . Config::newPasswordTextb();
+            $newpw = HelpFunctions::generate_string(rand(7, 11));
+            $name = $this->vorname . " " . $this->name;
+            $message = Config::newPasswordText($name, $newpw);
             $this->setPassword($newpw);
             $this->save_pw();
             $this->send_mail(Config::newPasswordSubject(), $message);
@@ -505,7 +506,11 @@ class User {
     }
 
     public function setEmail($email) {
-        $this->email = $email;
+        if (!preg_match("/^[A-Z0-9._%+-ÄÖÜäöü]+@[A-Z0-9.-ÄÖÜäöü]+\.[A-Z]{2,6}$/i", $email)) {
+            $this->email = $email;
+        } else {
+            throw new FFSException(Config::wrongEmail());
+        }
     }
 
     public function setPassword($password) {
