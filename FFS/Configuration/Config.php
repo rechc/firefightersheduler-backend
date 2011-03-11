@@ -16,6 +16,24 @@ class Config {
     public static function xx(){}
 
     // --------- for user ---------
+
+    public static function emailadresse(){
+        return "testmail@ghsdjglsd.ko";
+    }
+
+    public static function newPasswordTexta(){
+        return "Ihr neues Passwort lautet ";
+    }
+
+    public static function newPasswordTextb(){
+        return "Bitte passen Sie das Passwort ihren wünschen neu an. \n
+            Mit freundlichen Grüßen \n ihr FFSScheduler-Team";
+    }
+
+    public static function newPasswordSubject(){
+        return "neues Passwort";
+    }
+
     public static function admin_role_id(){
         return 50;
     }
