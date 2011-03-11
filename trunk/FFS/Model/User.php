@@ -361,19 +361,27 @@ class User {
      * @param <type> $message Nachricht
      */
     public function send_mail($subject, $message){
-        //TODO implement
-          mail("mapsmail@gmx.de", $subject, $message,
-            "From: \"Domain\" <from_email_address>\r\n" .
-            "X-Mailer: PHP/" . phpversion());
-
-
+        //TODO funktioniert nicht...
+        $senderemail = Config::emailadresse();
+        $header = "From: FFSScheduler <" . $senderemail . ">\r\n";
+        mail($this->email, $subject, $message, $header);
     }
 
     /**
-     * send_new_password
+     * 
      */
-    public function send_new_password(){
-        //TODO implement
+    public function generate_and_send_new_password(){
+        try {
+            $newpw = uniqid();
+            $message = "Hallo ". $this->vorname . " " . $this->name . Config::newPasswordTexta() . $newpw . Config::newPasswordTextb();
+           
+            $this->setPassword($newpw);
+            $this->save_pw();
+            $this->send_mail(Config::newPasswordSubject(),$message);
+            
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
 
