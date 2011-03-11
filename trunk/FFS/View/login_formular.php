@@ -35,14 +35,14 @@
                         <tr class="input">
                             <td>Kennwort:</td>
                             <td><input type="password" name="Pwd" class="input-field"></td>
-                            <td><a href="JavaScript:password()">passwort vergessen</a></td>
+                            <td><a href="JavaScript:password()">Passwort vergessen</a></td>
                         </tr>
                     </table>
                     <p class="button">
                         <input type="submit" value="Login" id="login-button">
                     </p>
                     <p class="button">
-                        <a href="../Trash/DBConnectionTest.php">user + passwort table (only for test)</a>
+                        <a href="../Trash/DBConnectionTest.php">user + password table (only for test)</a>
                     </p>
                 </div>
             </div>
