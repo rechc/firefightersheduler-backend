@@ -1,4 +1,5 @@
 <?php
+
 require_once('DbConnector.php');
 require_once(PATH_BASIS . '/Configuration/Config.php');
 require_once('G26.php');
@@ -11,6 +12,7 @@ require_once('Einsatz.php');
 require_once('EinsatzListe.php');
 require_once('Strecke.php');
 require_once('StreckeListe.php');
+require_once ('HelpFunctions.php');
 
 /**
  * Description of User
@@ -20,6 +22,7 @@ require_once('StreckeListe.php');
  * 
  */
 class User {
+
     // joins überprüfen , performance
     // todo email validierung
 
@@ -117,10 +120,10 @@ class User {
         return $user_array[0];
     }
 
-    public static function parse_result_list_as_object($result){
+    public static function parse_result_list_as_object($result) {
         if (mysql_num_rows($result) > 0) {
             $user_array = new ArrayObject();
-            while($data = mysql_fetch_array($result)){
+            while ($data = mysql_fetch_array($result)) {
                 $user = new User();
                 $user->setID($data["ID"]);
                 $user->setEmail($data["email"]);
@@ -136,7 +139,7 @@ class User {
                 try {
                     $user->setG26Liste_object(G26Liste::load(($data["ID"])));
                 } catch (FFSException $exc) {
-                     $user->setG26Liste_object(new G26Liste());
+                    $user->setG26Liste_object(new G26Liste());
                 }
                 try {
                     $user->setUnterweisungListe_object(UnterweisungListe::load($data["ID"]));
@@ -353,14 +356,13 @@ class User {
         return false;
     }
 
-
     /**
      * send_mail
      * 
      * @param <type> $subject Betreffzeile
      * @param <type> $message Nachricht
      */
-    public function send_mail($subject, $message){
+    public function send_mail($subject, $message) {
         //TODO funktioniert nicht...
         $senderemail = Config::emailadresse();
         $header = "From: FFSScheduler <" . $senderemail . ">\r\n";
@@ -368,23 +370,21 @@ class User {
     }
 
     /**
-     * 
+     * generate_and_send_new_password
+     * generiert ein neues Passwort, speichert dies in der DB und sendet es dem
+     * User per Email
      */
-    public function generate_and_send_new_password(){
+    public function generate_and_send_new_password() {
         try {
-            $newpw = uniqid();
-            $message = "Hallo ". $this->vorname . " " . $this->name . Config::newPasswordTexta() . $newpw . Config::newPasswordTextb();
-           
+            $newpw = HelpFunctions::generate_string(rand(7,11));
+            $message = "Hallo " . $this->vorname . " " . $this->name . Config::newPasswordTexta() . $newpw . Config::newPasswordTextb();
             $this->setPassword($newpw);
             $this->save_pw();
-            $this->send_mail(Config::newPasswordSubject(),$message);
-            
+            $this->send_mail(Config::newPasswordSubject(), $message);
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
     }
-
-
 
     /**
      * erwartet einen vollen (betrunkenen) Benutzer ^^
