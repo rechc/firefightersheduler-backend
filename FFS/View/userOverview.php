@@ -11,9 +11,9 @@
         <table>
             <thead>
                 <tr>
+                    <th>Status</th>
                     <th>Name</th>
                     <th>Vorname</th>
-                    <th>Status</th>
                     <th>G.26</th>
                     <th>Strecke</th>
                     <th>&Uuml;bung</th>

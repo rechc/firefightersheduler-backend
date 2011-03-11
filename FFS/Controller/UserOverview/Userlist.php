@@ -30,19 +30,10 @@ class Userlist {
 
     public static function getUserData($user) {
         try {
-            //dummy Daten
-//                $G26 = "dummy";
-//                $strecke = "dummy";
-//                $uebung = "dummy";
-//                $einsatz = "dummy";
-//                $unterweisung = "dummy";
-//                $vorname = "Vorname";
-//                $nachname = "Nachname";
-
             $vorname = $user->getVorname();
             $nachname = $user->getName();
 
-            // TODO hier prüfungen
+            //ToDo prüfen
             //g26
             $g26array = $user->getG26Liste_object()->get_array_at(0);
             if ($g26array != false) {
@@ -51,7 +42,6 @@ class Userlist {
                 $G26 = "unbekannt";
             }
 
-            //strecke
             $streckearray = $user->getStreckeListe_object()->get_array_at(0);
             if ($streckearray != false) {
                 $strecke = $streckearray->getDatum();
