@@ -20,7 +20,7 @@ class Config {
     }
 
     public static function emailAdresseServer() {
-        return "testmail@ghsdjglsd.ko";
+        return "agtmanager@ff-riegelsberg.de";
     }
 
     // --------- for user ---------
