@@ -13,6 +13,7 @@ require_once('EinsatzListe.php');
 require_once('Strecke.php');
 require_once('StreckeListe.php');
 require_once ('HelpFunctions.php');
+require_once(PATH_BASIS . '/Trash/class.phpmailer.php');
 
 /**
  * Description of User
@@ -363,10 +364,50 @@ class User {
      * @param <type> $message Nachricht
      */
     public function send_mail($subject, $message) {
-        //TODO funktioniert nicht...
-        $senderemail = Config::emailAdresseServer();
+        //TODO funktioniert nicht... http://www.feuerwehr-saar.de  mailout.hier-bitte-ihren-domainnamen-einsetzen.de
+        ini_set("SMTP", "mailout.ff-riegelsberg.de");
+        ini_set('sendmail_from', 'agtmanager@ff-riegelsberg.de'); // keine auswirkungen gehabt
+        $senderemail = "agtmanager@ff-riegelsberg.de";//Config::emailAdresseServer();
         $header = "From: FFSScheduler <" . $senderemail . ">\r\n";
-        mail($this->email, $subject, $message, $header);
+        mail($this->email, $subject, $message, $header, "-f agtmanager@ff-riegelsberg.de"); // http://faq.hosteurope.de/index.php?cpid=2804&in_object=2&searchword=php+mail
+    }
+
+    /**
+     * geht au net
+     * @param <type> $subject
+     * @param <type> $message
+     */
+    public function send_mail_library($subject, $message) {
+        $mail = new PHPMailer();
+
+        $mail->IsSMTP();                                   // per SMTP verschicken
+        $mail->Host = "mailout.ff-riegelsberg.de"; // SMTP-Server
+        $mail->SMTPAuth = true;     // SMTP mit Authentifizierung benutzen
+        $mail->Username = "agtmanager@ff-riegelsberg.de";  // SMTP-Benutzername
+        $mail->Password = "atemschutz"; // SMTP-Passwort
+
+        $mail->From = "agtmanager@ff-riegelsberg.de";
+        $mail->FromName = "Max Mustermann";
+        $mail->AddAddress("mapsmail@gmx.de", "Herr Beispiel");
+        //$mail->AddReplyTo("noreply@kundenserver.de", "Information");
+
+        $mail->WordWrap = 50;                              // Zeilenumbruch einstellen
+        // $mail->AddAttachment("/var/tmp/file.tar.gz");      // Attachment
+        // $mail->AddAttachment("/tmp/image.jpg", "new.jpg");
+        //$mail->IsHTML(true);                               // als HTML-E-Mail senden
+
+        $mail->Subject = "Test mit PHPMailer";
+        $mail->Body = "Test mit <b>PHPMailer</b>";
+        $mail->AltBody = "Hallo Empfaenger, dies ist ein Test mit dem PHPMailer unter
+                    Linux und mit PHP ";
+
+        if (!$mail->Send()) {
+            echo "Die Nachricht konnte nicht versandt werden <p>";
+            echo "Mailer Error: " . $mail->ErrorInfo;
+            exit;
+        }
+
+        echo "Die Nachricht wurde erfolgreich versandt";
     }
 
     /**
