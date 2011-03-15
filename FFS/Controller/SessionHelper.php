@@ -46,6 +46,28 @@ class SessionHelper {
          return false;
     }
 
+    public static function isAdmin(){
+        $user = SessionHelper::getCurrentUser();
+        if (empty ($user))
+            return false;
+
+         if (($user->is_admin()) && SessionHelper::isLoggedIn()) {
+             return true;
+         }
+         return false;
+    }
+
+    public static function isAGW(){
+        $user = SessionHelper::getCurrentUser();
+        if (empty ($user))
+            return false;
+
+         if (($user->is_agw()) && SessionHelper::isLoggedIn()) {
+             return true;
+         }
+         return false;
+    }
+
     public static function  isLoggedIn(){
         if (empty ($_SESSION["user_id"]))
             return false;

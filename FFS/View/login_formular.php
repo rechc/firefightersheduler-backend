@@ -22,6 +22,7 @@
                 echo "bitte Melden Sie sich zuerst an";
             }
         ?>
+        <div name="infobox" id ="infobox"></div>
         <form action="../Controller/Authentification/login.php" method="post">
             <div id="login">
                 <div id="pos">

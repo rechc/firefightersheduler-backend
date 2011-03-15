@@ -2,6 +2,7 @@
     include_once '../global.inc.php';
     require_once PATH_BASIS .'/Controller/Authentification/checkuser.php';
     require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
+    require_once PATH_BASIS .'/Controller/NewUser/Rolle.php';
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
@@ -13,6 +14,17 @@
                 <link rel="stylesheet" type="text/css" href="css/users.css" />
                 <script type="text/javascript" src="../Controller/JavaScript/jsXMLHttpRequestHandle.js"></script>
                 <script type="text/javascript" src="../Controller/JavaScript/jsUserManager.js"></script>
+                <?php
+               if (isset($_REQUEST["uid"])){
+                        $uid = $_SESSION["user_id"];
+                        $user=User::get_user($uid);
+                        $lastname = $user->getName();
+                        $firstname = $user->getVorname();
+                        $email = $user->getEmail();
+                        $bday = $user->getGebDat();
+                        $password = $user->getPassword();
+               }
+                ?>
             </head>
             <body>
                 <h1>Benutzer erstellen </h1>
@@ -23,31 +35,31 @@
                             <tr>
                                 <div>
                                     <td>Name: </td>
-                                    <td><input type ="text" name="lastname" id="lastname" value=""></td>
+                                    <td><input type ="text" name="lastname" id="lastname" value="<?php echo $lastname ?>"></td>
                                 </div>
                                 <div>
                                     <td>Vorname: </td>
-                                    <td><input type ="text" name="firstname" id="firstname" value=""></td>
+                                    <td><input type ="text" name="firstname" id="firstname" value="<?php echo $firstname ?>"></td>
                                 </div>
                             </tr>
                             <tr>
                                 <div>
                                     <td>E-Mail: </td>
-                                    <td><input type ="text" name ="email" id="email"></td>
+                                    <td><input type ="text" name ="email" id="email" value="<?php echo $email ?>"></td>
                                 </div>
                                 <div>
                                     <td>Geburtsdatum: </td>
-                                    <td><input type ="text" name="bday" id="bday"></td>
+                                    <td><input type ="text" name="bday" id="bday" value"<?php echo $bday ?>"></td>
                                 </div>
                             </tr>
                             <tr>
                                 <div>
                                     <td>Passwort: </td>
-                                    <td><input type ="password" name ="password" id="user_password"></td>
+                                    <td><input type ="password" name ="password" id="user_password" value="<?php echo $password ?>"></td>
                                 </div>
                             <div>
                                 <td>Passwort bestätigen:
-                                <td><input type ="password" name="password_confirm" id="password_confirm"></td>
+                                <td><input type ="password" name="password_confirm" id="password_confirm" value="<?php echo $password ?>"></td>
                             </div>
                             </tr>
                             <tr>
@@ -58,7 +70,20 @@
                                     </td>
                                 <td>Rolle:</td>
                                 <td>
-                                    <select name="rolle" id="rolle">
+                                    <?php
+                                        echo Rolle::createRolleView();
+                                    ?>
+                                </td>
+                            </tr>
+                             <tr>
+                                    <td>Atemschutzgeräteträger: </td>
+                                    <td>
+                                         ja <input type="radio" value="AGTyes" name="AGT" id="AGTyes">
+                                         nein <input type="radio" value="AGTno" name="AGT" id="AGTno">
+                                    </td>
+                                <td>Löschbezirk:</td>
+                                <td>
+                                    <select name="lbz" id="lbz">
                                         <option value="agw">normal (10)</option>
                                         <option value="agw">AGW (40)</option>
                                         <option value="admin">Administrator (50)</option>
@@ -75,7 +100,6 @@
                                 </td>
                             </tr>
                         </table>
-                        <div name="infobox" id ="infobox"></div>
                     </form>
                 </div>
             </body>

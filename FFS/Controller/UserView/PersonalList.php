@@ -48,7 +48,7 @@ class PersonalList {
             $output .= $user->getRollen_ID();
             $output .= "</td>";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"editStammdaten.php?uid=" . $user->getID() . "\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"newUser.php?uid=" . $user->getID() . "\"><img src=\"images/edit.png\"></a></td>\n";
             }
         }
         return $output;
