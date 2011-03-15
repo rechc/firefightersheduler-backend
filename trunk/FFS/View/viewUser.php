@@ -23,7 +23,7 @@
              </h1></div>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='../Controller/DeleteUser.php' onclick=\"return (confirm('Möchten Sie den Benutzer wirklich löschen?'));\">Benutzer löschen<img alt='' src='images/delete.gif' width='16' high='16' /></a></div>";
+                echo "<div align='right'><a href='../Controller/DeleteUser.php?uid=". $uid ."' onclick=\"return (confirm('Möchten Sie den Benutzer wirklich löschen?'));\">Benutzer löschen<img alt='' src='images/delete.gif' width='16' high='16' /></a></div>";
         ?>
         <table>
             <thead>
