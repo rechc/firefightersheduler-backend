@@ -86,6 +86,7 @@ foot
     padding: 0px;
     background-color: #666666;
     height: 2.1em;
+    width:880px;
 }
 
 /*Navigations Bar*/
@@ -98,12 +99,13 @@ foot
 #buttonbar li{
     list-style: none;
     background-color:  #666666;
+    float: left;
+    border-right:1px solid #fff;
 }
 
 #buttonbar li.right {
     float:right;
-    padding-right: 7px;
-/*    width: 150px;*/
+    border-right: none;
 }
 
 #buttonbar a {
@@ -113,7 +115,6 @@ foot
     margin: 0px;
     padding: 0.3em 0.3em;
     text-decoration:none;
-    border-right: 1px solid white;
     font-weight: bold;
     font-size:1em;
     color: #FFFFFF;
