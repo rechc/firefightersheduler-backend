@@ -125,6 +125,16 @@ class Einsatz {
         $result = $dbConnector->execute_sql($sql);
     }
 
+
+    public function add_user_connection($user){}
+
+    /**
+     *
+     * @param <type> $ID 
+     */
+    public function add_user_connection($userID){}
+
+
     /**
      * get_warning_status
      * liefert den Warnungs-Status des Objekts
