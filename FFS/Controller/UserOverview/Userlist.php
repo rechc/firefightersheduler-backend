@@ -3,7 +3,7 @@
 require_once(PATH_BASIS . '/Model/AllUser.php');
 
 /**
- * author christian 
+ * @author Christian Rech
  */
 class Userlist {
 
