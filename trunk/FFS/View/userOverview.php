@@ -8,6 +8,11 @@
     require_once(PATH_BASIS . '/Controller/UserOverview/Userlist.php');
 ?>
     <div id="content">
+        <?php
+            if (isset($_REQUEST["userDeleted"])) {
+                echo "Benutzer erfolgreich gelöscht!";
+            }
+        ?>
         <div><h1>Benutzerübersicht</h1></div>
         <div align="right"><a href="newUser.php">neuer Benutzer<img alt="hinzuf&uuml;gen" src="images/add.gif" /></a></div>
         <table>

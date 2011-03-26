@@ -1,6 +1,7 @@
 <?php
+require_once(PATH_BASIS . '/Model/DbConnector.php');
 
-class Rolle {
+class NewUser {
 
     public static function createRolleView() {
         $output = "";
@@ -17,5 +18,17 @@ class Rolle {
         return $output;
     }
 
-}
+    public static function createLBZView(){
+        $sql = "SELECT name FROM lbz";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+
+        $output = "<select name='lbz' id='lbz'>";
+        while($data = mysql_fetch_array($result)){
+            $output .= "<option value='". $data['name'] ."'>". $data['name'] ."</option>";
+        }
+        $output .= "</select>";
+        return $output;
+    }
+  }
 ?>

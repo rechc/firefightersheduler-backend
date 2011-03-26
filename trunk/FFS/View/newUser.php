@@ -2,7 +2,7 @@
     include_once '../global.inc.php';
     require_once PATH_BASIS .'/Controller/Authentification/checkuser.php';
     require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
-    require_once PATH_BASIS .'/Controller/NewUser/Rolle.php';
+    require_once PATH_BASIS .'/Controller/NewUser/NewUser.php';
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
@@ -29,7 +29,7 @@
             <body>
                 <h1>Benutzer erstellen </h1>
                 <div id="userdata">
-                    <form id="editUser" action="../Controller/createUser.php" method="post">
+                    <form id="editUser" action="../Controller/CreateUser.php" method="post">
 <!--                        Benutzer-ID: <input type ="text" name="id" id="id" value="" readonly>-->
                         <table border="0">
                             <tr>
@@ -49,7 +49,7 @@
                                 </div>
                                 <div>
                                     <td>Geburtsdatum: </td>
-                                    <td><input type ="text" name="bday" id="bday" value"<?php echo $bday ?>"></td>
+                                    <td><input type ="text" name="bday" id="bday" value="<?php echo $bday ?>"></td>
                                 </div>
                             </tr>
                             <tr>
@@ -71,7 +71,7 @@
                                 <td>Rolle:</td>
                                 <td>
                                     <?php
-                                        echo Rolle::createRolleView();
+                                        echo NewUser::createRolleView();
                                     ?>
                                 </td>
                             </tr>
@@ -83,11 +83,9 @@
                                     </td>
                                 <td>Löschbezirk:</td>
                                 <td>
-                                    <select name="lbz" id="lbz">
-                                        <option value="agw">normal (10)</option>
-                                        <option value="agw">AGW (40)</option>
-                                        <option value="admin">Administrator (50)</option>
-                                    </select>
+                                    <?php
+                                        echo NewUser::createLBZView();
+                                    ?>
                                 </td>
                             </tr>
                             <tr>
