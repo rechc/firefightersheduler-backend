@@ -5,7 +5,7 @@ require_once (PATH_BASIS . '/Model/User.php');
 /**
  * Description of SessionHelper
  *
- * @author awagen
+ * @author awagen, christian
  */
 class SessionHelper {
 

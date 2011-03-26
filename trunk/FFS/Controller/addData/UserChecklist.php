@@ -12,7 +12,7 @@
 require_once(PATH_BASIS . '/Model/AllUser.php');
 
 
-class UserSelectList {
+class UserChecklist {
 
    public static function getUserSelectList() {
 
