@@ -4,6 +4,8 @@
     require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
+
+    require_once(PATH_BASIS . '/Controller/UserOverview/Userlist.php');
 ?>
     <div id="content">
         <div><h1>Benutzerübersicht</h1></div>
@@ -25,7 +27,6 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    require_once(PATH_BASIS . '/Controller/UserOverview/Userlist.php'); // TODO pfui
                     $userlist = Userlist::getUserTable();
                     echo $userlist;
                 ?>
