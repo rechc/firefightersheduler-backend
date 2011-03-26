@@ -5,7 +5,7 @@
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 
-    require_once(PATH_BASIS . '/Controller/UserChecklist/UserChecklist.php');
+    require_once(PATH_BASIS . '/Controller/addData/UserChecklist.php');
 ?>
     <div id="content">
         <div><h1>Daten hinzuf&uuml;gen</h1></div>        
