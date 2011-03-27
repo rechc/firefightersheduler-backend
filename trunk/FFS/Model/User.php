@@ -366,8 +366,8 @@ class User {
     public function send_mail($subject, $message) {
         //TODO funktioniert nicht... http://www.feuerwehr-saar.de  mailout.hier-bitte-ihren-domainnamen-einsetzen.de
        // ini_set("SMTP", "mailout.ff-riegelsberg.de");
-      //  ini_set("SMTP", "wp122.webpack.hosteurope.de");
-      //  ini_set('sendmail_from', 'agtmanager@ff-riegelsberg.de'); // keine auswirkungen gehabt
+        ini_set("SMTP", "wp122.webpack.hosteurope.de");
+        ini_set('sendmail_from', 'agtmanager@ff-riegelsberg.de'); // keine auswirkungen gehabt
       //  $senderemail = "agtmanager@ff-riegelsberg.de";//Config::emailAdresseServer();
       //  $header = "From: FFSScheduler <" . $senderemail . ">\r\n";
         echo "start";
