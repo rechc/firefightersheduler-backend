@@ -31,18 +31,22 @@
                         <tr class="input">
                             <td>E-Mail:</td>
                             <td><input type="text" name="Mail" class="input-field"></td>
-                            <td><a href="JavaScript:register()">registrieren</a></td>
                         </tr>
                         <tr class="input">
                             <td>Kennwort:</td>
                             <td><input type="password" name="Pwd" class="input-field"></td>
-                            <td><a href="JavaScript:password()">Passwort vergessen</a></td>
+                        </tr>
+                        <tr class="input">
+                            <td></td>
+                            <td><input type="submit" value="Login" id="login-button"></td>
                         </tr>
                     </table>
                     <p class="button">
-                        <input type="submit" value="Login" id="login-button">
+                        
                     </p>
                     <p class="button">
+                        <a href="JavaScript:register()">registrieren</a>
+                        <a href="JavaScript:password()">Passwort vergessen</a>
                         <a href="../Trash/DBConnectionTest.php">user + password table (only for test)</a>
                     </p>
                 </div>
