@@ -9,7 +9,7 @@ include_once '../global.inc.php';
 require_once PATH_BASIS . '/Model/User.php';
 require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
 
-
+    $uid = $_POST['uid'];
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
@@ -22,7 +22,7 @@ require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
 
     $correctEntry = CreateUser::checkEntry($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
     if (correctEntry == true)
-         CreateUser::createNewUser($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
+         CreateUser::createNewUser($uid, $firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
     else
         die ("Folgende Eingabe ist nicht korrekt: " . $correctEntry);
 
@@ -44,18 +44,22 @@ require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
     }
 
     
-    public static function createNewUser($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle){
-        $user = new User();
+    public static function createNewUser($uid, $firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle){
+        if (empty ($uid))
+            $user = new User();
+        else
+            $user = User::get_user ($uid);
         $user->setName($lastname);
         $user->setVorname($firstname);
-        $user->setEmail("a");
+        $user->setEmail($email);
         $user->setGebDat($bday);
         $user->setPassword($password);
-        $user->setAgt("ja");
-        $user->setRollen_ID(100);
-        $user->setLbz_ID(40);
+        $user->setAgt(1);  //TODO $agt geht nicht
+        $user->setRollen_ID($rolle);
+        $user->setLbz_ID(1); //TODO $lbz geht nicht
 
-        $user->create_db_entry();
+        if (empty ($uid))
+            $user->create_db_entry();
 
         header("Location: ../View/userOverview.php");
      }

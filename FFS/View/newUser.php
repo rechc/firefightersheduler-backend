@@ -63,11 +63,8 @@
                             </div>
                             </tr>
                             <tr>
-                                    <td> Geschlecht: </td>
-                                    <td>
-                                         männlich <input type="radio" value="maennlisch" name="Geschlecht" id="man">
-                                         weiblich <input type="radio" value="weiblisch" name="Geschlecht" id="woman">
-                                    </td>
+                                    <td> UID: </td>
+                                    <td><input type ='text' readonly name ='uid' id='rolle' value='<?php echo $uid ?>'></td>
                                 <td>Rolle:</td>
                                 <td>
                                     <?php
@@ -78,8 +75,8 @@
                              <tr>
                                     <td>Atemschutzgeräteträger: </td>
                                     <td>
-                                         ja <input type="radio" value="ja" name="AGT" id="AGTyes">
-                                         nein <input type="radio" value="nein" name="AGT" id="AGTno">
+                                         ja <input type="radio" value="1" name="AGT" id="AGTyes">
+                                         nein <input type="radio" value="0" name="AGT" id="AGTno">
                                     </td>
                                 <td>Löschbezirk:</td>
                                 <td>
@@ -91,7 +88,13 @@
                             <tr>
                                 <td colspan="4">
                                     <div>
-                                        <input type="submit" value="hinzufügen" name="ok" id="ok">
+                                        <?php
+                                            if (isset($_REQUEST["uid"])){
+                                                echo "<input type='submit' value='ändern' name='ok' id='ok'>";
+                                            } else {
+                                                echo "<input type='submit' value='hinzufügen' name='ok' id='ok'>";
+                                            }
+                                        ?>
 <!--                                        <input type="button" value="löschen" name="delete" id="delete" onClick="document.location.href='javascript:sendDeleteUserRequest(document.getElementById(id))'">-->
                                         <input type ="reset" value="abbrechen" name="reset" id="reset" onClick="document.location.href='javascript:reset()'">
                                      </div>
