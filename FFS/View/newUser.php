@@ -16,7 +16,7 @@
                 <script type="text/javascript" src="../Controller/JavaScript/jsUserManager.js"></script>
                 <?php
                if (isset($_REQUEST["uid"])){
-                        $uid = $_SESSION["user_id"];
+                        $uid = $_REQUEST["uid"];
                         $user=User::get_user($uid);
                         $lastname = $user->getName();
                         $firstname = $user->getVorname();
@@ -78,8 +78,8 @@
                              <tr>
                                     <td>Atemschutzgeräteträger: </td>
                                     <td>
-                                         ja <input type="radio" value="AGTyes" name="AGT" id="AGTyes">
-                                         nein <input type="radio" value="AGTno" name="AGT" id="AGTno">
+                                         ja <input type="radio" value="ja" name="AGT" id="AGTyes">
+                                         nein <input type="radio" value="nein" name="AGT" id="AGTno">
                                     </td>
                                 <td>Löschbezirk:</td>
                                 <td>

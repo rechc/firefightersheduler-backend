@@ -20,7 +20,7 @@ class SessionHelper {
             $current_uid = $_SESSION["user_id"];
             return User::get_user($current_uid);
         } else {
-            header("Location: ../View/login_formular.php?fehler=1");
+            header("Location: ../View/login_formular.php?fehler=1"); //TODO testen ob zu loginproblemem fuehrt
         }
     }
 
@@ -72,7 +72,7 @@ class SessionHelper {
 
     public static function  isLoggedIn(){
         $current_uid = $_SESSION["user_id"];
-        if (empty ($current_uid))
+        if (empty($current_uid))  //TODO is:set??
             return false;
         else
             return true;

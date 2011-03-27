@@ -10,6 +10,6 @@
           }
           echo "<li class=\"right\"><a href=\"../Controller/Authentification/logout.php\">Logout</a></li>
         </ul>
-    </div>";
+        </div>";
     }
     ?>
