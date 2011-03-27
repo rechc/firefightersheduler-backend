@@ -126,13 +126,17 @@ class Einsatz {
     }
 
 
-    public function add_user_connection($user){}
+//    public function add_user_connection($user){}
 
     /**
      *
      * @param <type> $ID 
      */
-    public function add_user_connection($userID){}
+    public function add_user_connection($userID){
+        $sql = "INSERT INTO r_einsatzUser VALUES (".$this->ID.",".$userID.");";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+    }
 
 
     /**
