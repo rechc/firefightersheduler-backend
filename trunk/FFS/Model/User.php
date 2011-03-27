@@ -219,7 +219,7 @@ class User {
                     gebDat, lbz_ID, agt)
                 VALUES ( '$this->name', '$this->vorname', '$this->email',
                     '$pwmd5', '$this->rollen_ID', '$this->gebDat',
-                    '$this->lbz_ID', '$this->agt' )";
+                    '$this->lbz_ID', '$this->agt' );";
 
             $dbConnector = DbConnector::getInstance();
             $result = $dbConnector->execute_sql($sql);

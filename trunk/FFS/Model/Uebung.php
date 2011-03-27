@@ -13,7 +13,7 @@ require_once(PATH_BASIS . '/Configuration/ExceptionText.php');
  * @author Warken Andreas
  * @version 1.0
  */
-class Uebung { 
+class Uebung {
 
     private $ID;
     private $ort;
@@ -125,18 +125,27 @@ class Uebung {
         $result = $dbConnector->execute_sql($sql);
     }
 
-//    public function add_user_connection($user){}
-
     /**
-     *
-     * @param <type> $ID
+     * add_user_connection
+     * stellt die Verbindung zwischen einer Uebung und einem User her.
+     * @param <type> $userID
      */
-    public function add_user_connection($userID){
-        $sql = "INSERT INTO r_uebungUser VALUES (".$this->ID.",".$userID.");";
+    public function add_user_connection($userID) {
+        $sql = "INSERT INTO r_uebungUser VALUES ('$this->ID','$userID');";
         $dbConnector = DbConnector::getInstance();
         $result = $dbConnector->execute_sql($sql);
     }
 
+    /**
+     * del_user_connection
+     * loescht die Verbindung zwischen einer Uebung und einem User.
+     * @param <type> $userID
+     */
+    public function del_user_connection($userID) {
+        $sql = "DELETE FROM r_uebungUser WHERE uebung_ID = '$this->ID' AND user_ID ='$userID';";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+    }
 
     /**
      * get_warning_status
@@ -152,7 +161,7 @@ class Uebung {
         $date_difference = floor(($datum_formated - $timestamp) / 86400);
         if ($date_difference < Config::last_uebung()) {
             return Config::red();
-        } elseif ($date_difference < (Config::last_uebung()+Config::uebung_warning_yellow())) {
+        } elseif ($date_difference < (Config::last_uebung() + Config::uebung_warning_yellow())) {
             return Config::yellow();
         } else {
             return Config::green();
@@ -162,7 +171,7 @@ class Uebung {
     // ---------------- Down setter and getter ----------------
 
     public function setID($ID) {
-        if ((is_numeric($ID))or ($ID == NULL)) {
+        if ((is_numeric($ID)) or ($ID == NULL)) {
             $this->ID = $ID;
         } else {
             throw new FFSException(ExceptionText::uebung_ID_not_numeric());
