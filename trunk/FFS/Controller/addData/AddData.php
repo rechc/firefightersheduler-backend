@@ -20,7 +20,7 @@ switch ($dataselection) {
         break;
     case 'addUserToEinsatz':
         $eid = $_POST['eid'];
-        $einsatz= Einsatz::load($einsatz);
+        $einsatz= Einsatz::load($eid);
         $uid = $_POST['uid'];
         $einsatz->add_user_connection($uid);
         header("Location: ../../View/editEinsatz.php?id=".$uid);
@@ -34,7 +34,7 @@ switch ($dataselection) {
         break;
     case 'addUserToUnterweisung':
         $uwid = $_POST['uwid'];
-        $unterweisung= Unterweisung::load($uebid);
+        $unterweisung= Unterweisung::load($uwid);
         $uid = $_POST['uid'];
         $unterweisung->add_user_connection($uid);
         header("Location: ../../View/editUnterweisung.php?id=".$uid);
