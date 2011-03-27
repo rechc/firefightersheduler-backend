@@ -366,12 +366,12 @@ class User {
     public function send_mail($subject, $message) {
         //TODO funktioniert nicht... http://www.feuerwehr-saar.de  mailout.hier-bitte-ihren-domainnamen-einsetzen.de
        // ini_set("SMTP", "mailout.ff-riegelsberg.de");
-        ini_set("SMTP", "wp122.webpack.hosteurope.de");
-        ini_set('sendmail_from', 'agtmanager@ff-riegelsberg.de'); // keine auswirkungen gehabt
+        ini_set("SMTP", "wp090.webpack.hosteurope.de");
+        ini_set('sendmail_from', 't0bias@ich-gugge.de'); // keine auswirkungen gehabt
       //  $senderemail = "agtmanager@ff-riegelsberg.de";//Config::emailAdresseServer();
       //  $header = "From: FFSScheduler <" . $senderemail . ">\r\n";
         echo "start";
-        mail("mapsmail@gmx.de", "hallo", "hallo", "From: agtmanager@ff-riegelsberg.de", "-f agtmanager@ff-riegelsberg.de"); // http://faq.hosteurope.de/index.php?cpid=2804&in_object=2&searchword=php+mail
+        mail("mapsmail@gmx.de", "hallo", "hallo", "From: t0bias@ich-gugge.de", "-f t0bias@ich-gugge.de"); // http://faq.hosteurope.de/index.php?cpid=2804&in_object=2&searchword=php+mail
         echo "ende";
 
     }
