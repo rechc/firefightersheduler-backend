@@ -8,35 +8,54 @@ require_once PATH_BASIS .'/Model/Unterweisung.php';
 //$date = $_POST['datum']; //??
 //$city = $_POST['ort'];  //??
 //$participants = $_POST['check']; //??
-
-$dataselection = $_POST['auswahl'];
+$option         = $_REQUEST['option'];
+$dataselection  = $_POST['auswahl'];
+$id             = $_POST['id'];
+$uid            = $_POST['uid'];
+if (!isset ($_POST['auswahl'])) {
+    $dataselection = $_REQUEST['auswahl'];
+}
+if (!isset ($_POST['id'])) {
+    $id     = $_REQUEST['id'];
+}
+if (!isset ($_POST['uid'])) {
+    $uid    = $_REQUEST['uid'];
+}
 switch ($dataselection) {
     case 'addUserToStrecke':
-        $sid = $_POST['sid'];
-        $strecke= Strecke::load($sid);
-        $uid = $_POST['uid'];
-        $strecke->add_user_connection($uid);
+        $strecke = Strecke::load($id);
+        if ($option == 'delete') {
+            $strecke->del_user_connection($uid);
+        } else {
+            $strecke->add_user_connection($uid);
+        }
         header("Location: ../../View/editStrecke.php?uid=".$uid);
         break;
     case 'addUserToEinsatz':
-        $eid = $_POST['eid'];
-        $einsatz= Einsatz::load($eid);
-        $uid = $_POST['uid'];
-        $einsatz->add_user_connection($uid);
+        $einsatz= Einsatz::load($id);
+        if ($option == 'delete') {
+            $einsatz->del_user_connection($uid);
+        } else {
+            $einsatz->add_user_connection($uid);
+        }
         header("Location: ../../View/editEinsatz.php?uid=".$uid);
         break;
     case 'addUserToUebung':
-        $uebid = $_POST['uebid'];
-        $uebung= Uebung::load($uebid);
-        $uid = $_POST['uid'];
-        $uebung->add_user_connection($uid);
+        $uebung= Uebung::load($id);
+        if ($option == 'delete') {
+            $uebung->del_user_connection($uid);
+        } else {
+            $uebung->add_user_connection($uid);
+        }
         header("Location: ../../View/editUebung.php?uid=".$uid);
         break;
     case 'addUserToUnterweisung':
-        $uwid = $_POST['uwid'];
-        $unterweisung= Unterweisung::load($uwid);
-        $uid = $_POST['uid'];
-        $unterweisung->add_user_connection($uid);
+        $unterweisung= Unterweisung::load($id);
+        if ($option == 'delete') {
+            $unterweisung->del_user_connection($uid);
+        } else {
+            $unterweisung->add_user_connection($uid);
+        }
         header("Location: ../../View/editUnterweisung.php?uid=".$uid);
         break;
 }

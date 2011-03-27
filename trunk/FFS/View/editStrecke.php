@@ -19,7 +19,7 @@
             <div>
                 <table>
                     <tr>
-                        <td><select name="sid" size="1">
+                        <td><select name="id" size="1">
                                 <?php echo PersonalList::getStreckeList() ?>
                             </select>
                         </td>

@@ -18,7 +18,7 @@
             <div>
                 <table>
                     <tr>
-                        <td><select name="eid" size="1">
+                        <td><select name="id" size="1">
                                 <?php echo PersonalList::getEinsatzList() ?>
                             </select>
                         </td>
