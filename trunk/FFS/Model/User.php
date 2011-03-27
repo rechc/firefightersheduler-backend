@@ -370,8 +370,10 @@ class User {
       //  ini_set('sendmail_from', 'agtmanager@ff-riegelsberg.de'); // keine auswirkungen gehabt
       //  $senderemail = "agtmanager@ff-riegelsberg.de";//Config::emailAdresseServer();
       //  $header = "From: FFSScheduler <" . $senderemail . ">\r\n";
- 
+        echo "start";
         mail("mapsmail@gmx.de", "hallo", "hallo", "From: agtmanager@ff-riegelsberg.de", "-f agtmanager@ff-riegelsberg.de"); // http://faq.hosteurope.de/index.php?cpid=2804&in_object=2&searchword=php+mail
+        echo "ende";
+
     }
 
     /**
