@@ -1,6 +1,6 @@
 <?php
     include_once '../global.inc.php';
-    require_once (PATH_BASIS .'/Controller/Authentification/checkuser.php');
+    require_once PATH_BASIS .'/Controller/Authentification/checkuser.php';
     require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');

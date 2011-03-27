@@ -71,7 +71,8 @@ class SessionHelper {
     }
 
     public static function  isLoggedIn(){
-        if (empty ($_SESSION["user_id"]))
+        $current_uid = $_SESSION["user_id"];
+        if (empty ($current_uid))
             return false;
         else
             return true;

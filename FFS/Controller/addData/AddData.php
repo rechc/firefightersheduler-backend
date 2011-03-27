@@ -1,13 +1,13 @@
 <?php
-//TODO WICHTIG Includes anpassen
-//require_once(PATH_BASIS . '/Model/DbConnector.php');
-//require_once('../../Model/Strecke.php');
-//require_once('../../Model/Einsatz.php');
-//require_once('../../Model/Uebung.php');
-//require_once('../../Model/Unterweisung.php');
-$date = $_POST['datum']; //??
-$city = $_POST['ort'];  //??
-$participants = $_POST['check']; //??
+include_once '../../global.inc.php';
+require_once PATH_BASIS .'/Model/Strecke.php';
+require_once PATH_BASIS .'/Model/Einsatz.php';
+require_once PATH_BASIS .'/Model/Uebung.php';
+require_once PATH_BASIS .'/Model/Unterweisung.php';
+
+//$date = $_POST['datum']; //??
+//$city = $_POST['ort'];  //??
+//$participants = $_POST['check']; //??
 
 $dataselection = $_POST['auswahl'];
 switch ($dataselection) {
