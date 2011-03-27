@@ -370,45 +370,7 @@ class User {
         ini_set("SMTP", Config::emailServer());
         ini_set('sendmail_from', $sender_email);
         $header = "From: FFSScheduler <" . $sender_email . ">\r\n";
-        mail($this->email, $subject, $message, "From: ".$sender_email, Config::emailSenderInclParameter());
-    }
-
-    /**
-     * geht au net
-     * @param <type> $subject
-     * @param <type> $message
-     */
-    public function send_mail_library($subject, $message) {
-        $mail = new PHPMailer();
-
-        $mail->IsSMTP();                                   // per SMTP verschicken
-        $mail->Host = "wp122.webpack.hosteurope.de";//"mailout.ff-riegelsberg.de"; // SMTP-Server
-        $mail->SMTPAuth = true;     // SMTP mit Authentifizierung benutzen
-        $mail->Username = "agtmanager@ff-riegelsberg.de";  // SMTP-Benutzername
-        $mail->Password = "atemschutz"; // SMTP-Passwort
-
-        $mail->From = "agtmanager@ff-riegelsberg.de";
-        $mail->FromName = "Max Mustermann";
-        $mail->AddAddress("mapsmail@gmx.de", "Herr Beispiel");
-        //$mail->AddReplyTo("noreply@kundenserver.de", "Information");
-
-        $mail->WordWrap = 50;                              // Zeilenumbruch einstellen
-        // $mail->AddAttachment("/var/tmp/file.tar.gz");      // Attachment
-        // $mail->AddAttachment("/tmp/image.jpg", "new.jpg");
-        //$mail->IsHTML(true);                               // als HTML-E-Mail senden
-
-        $mail->Subject = "Test mit PHPMailer";
-        $mail->Body = "Test mit <b>PHPMailer</b>";
-        $mail->AltBody = "Hallo Empfaenger, dies ist ein Test mit dem PHPMailer unter
-                    Linux und mit PHP ";
-
-        if (!$mail->Send()) {
-            echo "Die Nachricht konnte nicht versandt werden <p>";
-            echo "Mailer Error: " . $mail->ErrorInfo;
-            exit;
-        }
-
-        echo "Die Nachricht wurde erfolgreich versandt";
+        mail($this->email, $subject, $message, "From: " . $sender_email, Config::emailSenderInclParameter());
     }
 
     /**
