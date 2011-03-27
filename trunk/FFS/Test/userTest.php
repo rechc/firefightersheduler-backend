@@ -89,8 +89,8 @@ function test_mail() {
     $email = "t.lana@ff-riegelsberg.de";
     $password = 4711;
     $xy = User::get_user_by_login($email, $password);
-    $message = "hallo";
-    $subject = "hallooo";
+    $message = "geeeeeht";
+    $subject = "testmail";
     $xy->send_mail($subject, $message);
     echo "fertig";
 }
