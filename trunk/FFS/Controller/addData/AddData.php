@@ -16,24 +16,28 @@ switch ($dataselection) {
         $strecke= Strecke::load($sid);
         $uid = $_POST['uid'];
         $strecke->add_user_connection($uid);
+        header("Location: ../../View/editStrecke.php?id=".$uid);
         break;
     case 'addUserToEinsatz':
         $eid = $_POST['eid'];
         $einsatz= Einsatz::load($einsatz);
         $uid = $_POST['uid'];
         $einsatz->add_user_connection($uid);
+        header("Location: ../../View/editEinsatz.php?id=".$uid);
         break;
     case 'addUserToUebung':
         $uebid = $_POST['uebid'];
         $uebung= Uebung::load($uebid);
         $uid = $_POST['uid'];
         $uebung->add_user_connection($uid);
+        header("Location: ../../View/editUebung.php?id=".$uid);
         break;
     case 'addUserToUnterweisung':
         $uwid = $_POST['uwid'];
         $unterweisung= Unterweisung::load($uebid);
         $uid = $_POST['uid'];
         $unterweisung->add_user_connection($uid);
+        header("Location: ../../View/editUnterweisung.php?id=".$uid);
         break;
 }
 
