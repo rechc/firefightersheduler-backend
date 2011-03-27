@@ -100,7 +100,7 @@ class PersonalList {
             $output .= "\t\t\t<td>" . $starray_entry->getDatum() . "</td>\n";
             $output .= "\t\t\t<td>" . $starray_entry->getOrt() . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"editStrecke.php?id=" . $starray_entry->getID() . "\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"editStrecke.php?id=" . $starray_entry->getID() ."&uid=".$user->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
         }
@@ -127,7 +127,7 @@ class PersonalList {
             $output .= "\t\t\t<td>" . $earray_entry->getDatum() . "</td>\n";
             $output .= "\t\t\t<td>" . $earray_entry->getOrt() . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"editEinsatz.php?id=" . $earray_entry->getID() . "\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"editEinsatz.php?id=" . $earray_entry->getID() ."&uid=".$user->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
         }
@@ -154,7 +154,7 @@ class PersonalList {
             $output .= "\t\t\t<td>" . $uarray_entry->getDatum() . "</td>\n";
             $output .= "\t\t\t<td>" . $uarray_entry->getOrt() . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"editUebung.php?id=" . $uarray_entry->getID() . "\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"editUebung.php?id=" . $uarray_entry->getID() ."&uid=".$user->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
         }
@@ -181,7 +181,7 @@ class PersonalList {
             $output .= "\t\t\t<td>" . $uwarray_entry->getDatum() . "</td>\n";
             $output .= "\t\t\t<td>" . $uwarray_entry->getOrt() . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"editUnterweisung.php?id=" . $uwarray_entry->getID() . "\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"editUnterweisung.php?id=" . $uwarray_entry->getID() ."&uid=".$user->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
         }
@@ -214,6 +214,31 @@ class PersonalList {
         return $output;
     }
 
+    public static function getUnterweisungList() {
+        $unterweisungliste = UnterweisungListe::getAll();
+        $unterweisungarray = $unterweisungliste->getUnterweisung_array();
+        $output = "";
+        foreach ($unterweisungarray as $unterweisung) {
+            $ID     = $unterweisung->getID();
+            $datum  = $unterweisung->getDatum();
+            $ort    = $unterweisung->getOrt();
+            $output .= "<option value=\"".$ID."\">".$datum." ".$ort."</option>\n";
+        }
+        return $output;
+    }
+
+    public static function getUebungList() {
+        $uebungliste = UebungListe::getAll();
+        $uebungarray = $uebungliste->getUebung_array();
+        $output = "";
+        foreach ($uebungarray as $uebung) {
+            $ID     = $uebung->getID();
+            $datum  = $uebung->getDatum();
+            $ort    = $uebung->getOrt();
+            $output .= "<option value=\"".$ID."\">".$datum." ".$ort."</option>\n";
+        }
+        return $output;
+    }
 }
 
 ?>
