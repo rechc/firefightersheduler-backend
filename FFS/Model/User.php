@@ -381,7 +381,7 @@ class User {
         $mail = new PHPMailer();
 
         $mail->IsSMTP();                                   // per SMTP verschicken
-        $mail->Host = "mailout.ff-riegelsberg.de"; // SMTP-Server
+        $mail->Host = "wp122.webpack.hosteurope.de";//"mailout.ff-riegelsberg.de"; // SMTP-Server
         $mail->SMTPAuth = true;     // SMTP mit Authentifizierung benutzen
         $mail->Username = "agtmanager@ff-riegelsberg.de";  // SMTP-Benutzername
         $mail->Password = "atemschutz"; // SMTP-Passwort
