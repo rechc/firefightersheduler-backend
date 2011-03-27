@@ -8,6 +8,7 @@
 ?>
     <div id="content">
         <?php
+            echo PATH_BASIS;
             if (isset($_REQUEST["uid"]))
                         $uid = $_REQUEST["uid"];
                     else
@@ -20,15 +21,18 @@
         ?>        
         <div><h1><?php echo $user->getVorname()." ".$user->getName() ?> zu Strecke hinzuf&uuml;gen</h1></div>
         <!-- ToDo wohin gehts ?-->
-        <form action="../Model/Authentification/login.php" method="post">
+        <form action="../Controller/addData/AddData.php" method="post">
             <div>
                 <table>
                     <tr>
-                        <td><select name="Einsatzliste" size="1">
+                        <td><select name="sid" size="1">
                                 <?php echo PersonalList::getStreckeList() ?>
                             </select>
                         </td>
-                        <td><input type="submit" value="hinzuf&uuml;gen"></td>
+                        <td>
+                            <input type="hidden" name="auswahl" value="addUserToStrecke">
+                            <input type="hidden" name="uid" value="<?php echo $uid; ?>">
+                            <input type="submit" value="hinzuf&uuml;gen"></td>
                     </tr>
                 </table>
             </div>
