@@ -8,7 +8,6 @@
 ?>
     <div id="content">
         <?php
-            echo PATH_BASIS;
             if (isset($_REQUEST["uid"]))
                         $uid = $_REQUEST["uid"];
                     else
