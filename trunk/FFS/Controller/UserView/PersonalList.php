@@ -188,6 +188,7 @@ class PersonalList {
         }
         return $output;
     }
+
     public static function getStreckeList() {
         $streckeliste = StreckeListe::getAll();
         $streckearray = $streckeliste->getStrecke_array();
@@ -196,6 +197,19 @@ class PersonalList {
             $ID     = $strecke->getID();
             $datum  = $strecke->getDatum();
             $ort    = $strecke->getOrt();
+            $output .= "<option value=\"".$ID."\">".$datum." ".$ort."</option>\n";
+        }
+        return $output;
+    }
+
+    public static function getEinsatzList() {
+        $einsatzliste = EinsatzListe::getAll();
+        $einsatzarray = $einsatzliste->getEinsatz_array();
+        $output = "";
+        foreach ($einsatzarray as $einsatz) {
+            $ID     = $einsatz->getID();
+            $datum  = $einsatz->getDatum();
+            $ort    = $einsatz->getOrt();
             $output .= "<option value=\"".$ID."\">".$datum." ".$ort."</option>\n";
         }
         return $output;
