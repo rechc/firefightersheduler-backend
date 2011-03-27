@@ -100,7 +100,12 @@ class PersonalList {
             $output .= "\t\t\t<td>" . $starray_entry->getDatum() . "</td>\n";
             $output .= "\t\t\t<td>" . $starray_entry->getOrt() . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"editStrecke.php?id=" . $starray_entry->getID() ."&uid=".$user->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
+                $output .= "id=".$starray_entry->getID();
+                $output .= "&uid=".$user->getID();
+                $output .= "&auswahl=addUserToStrecke&option=delete\" ";
+                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\"\">";
+                $output .= "<img src=\"images/delete2.png\" alt=\"löschen\" title=\"löschen\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
         }
@@ -127,7 +132,12 @@ class PersonalList {
             $output .= "\t\t\t<td>" . $earray_entry->getDatum() . "</td>\n";
             $output .= "\t\t\t<td>" . $earray_entry->getOrt() . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"editEinsatz.php?id=" . $earray_entry->getID() ."&uid=".$user->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
+                $output .= "id=".$earray_entry->getID();
+                $output .= "&uid=".$user->getID();
+                $output .= "&auswahl=addUserToEinsatz&option=delete\" ";
+                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\"\">";
+                $output .= "<img src=\"images/delete2.png\" alt=\"löschen\" title=\"löschen\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
         }
@@ -154,7 +164,12 @@ class PersonalList {
             $output .= "\t\t\t<td>" . $uarray_entry->getDatum() . "</td>\n";
             $output .= "\t\t\t<td>" . $uarray_entry->getOrt() . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"editUebung.php?id=" . $uarray_entry->getID() ."&uid=".$user->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
+                $output .= "id=".$uarray_entry->getID();
+                $output .= "&uid=".$user->getID();
+                $output .= "&auswahl=addUserToUebung&option=delete\" ";
+                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\"\">";
+                $output .= "<img src=\"images/delete2.png\" alt=\"löschen\" title=\"löschen\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
         }
@@ -181,7 +196,12 @@ class PersonalList {
             $output .= "\t\t\t<td>" . $uwarray_entry->getDatum() . "</td>\n";
             $output .= "\t\t\t<td>" . $uwarray_entry->getOrt() . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"editUnterweisung.php?id=" . $uwarray_entry->getID() ."&uid=".$user->getID()."\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
+                $output .= "id=".$uwarray_entry->getID();
+                $output .= "&uid=".$user->getID();
+                $output .= "&auswahl=addUserToUnterweisung&option=delete\" ";
+                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\"\">";
+                $output .= "<img src=\"images/delete2.png\" alt=\"löschen\" title=\"löschen\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
         }
