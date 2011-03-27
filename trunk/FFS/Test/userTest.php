@@ -91,7 +91,7 @@ function test_mail() {
     $xy = User::get_user_by_login($email, $password);
     $message = "hallo";
     $subject = "hallooo";
-    $xy->send_mail($subject, $message);
+    $xy->send_mail_library($subject, $message);
     echo "fertig";
 }
 
