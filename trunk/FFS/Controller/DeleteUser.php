@@ -7,5 +7,5 @@
     $user = User::get_user($id);
     $user->delete_with_dependencys();
 
-    header("Location: ../View/viewOverview.php?userDeleted=true");
+    header("Location: ../View/userOverview.php?userDeleted=true");
 ?>

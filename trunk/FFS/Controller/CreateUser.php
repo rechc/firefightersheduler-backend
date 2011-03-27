@@ -20,17 +20,16 @@ require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
     $lbz = $_POST['lbz'];
     $agt = $POST['AGT'];
 
-    $correctEntry = CreateUser::checkEntry($firstname, $lastname, $email, $bday, $password);
-
+    $correctEntry = CreateUser::checkEntry($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
     if (correctEntry == true)
-         CreateUser::createNewUser($firstname, $lastname, $email, $bday, $password);
+         CreateUser::createNewUser($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
     else
         die ("Folgende Eingabe ist nicht korrekt: " . $correctEntry);
 
 
  class CreateUser{
 
-    public static function checkEntry($firstname,$lastname,$email,$bday,$password){
+    public static function checkEntry($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle){
           if (empty ($firstname)){
             return "Vorname";
         } elseif (empty ($lastname)) {
@@ -45,20 +44,20 @@ require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
     }
 
     
-    public static function createNewUser($firstname,$lastname,$email,$bday,$password){
+    public static function createNewUser($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle){
         $user = new User();
         $user->setName($lastname);
         $user->setVorname($firstname);
         $user->setEmail("a");
         $user->setGebDat($bday);
         $user->setPassword($password);
-        $user->setRollen_ID(10);
-        $user->setLbz_ID(100);
         $user->setAgt("ja");
+        $user->setRollen_ID(100);
+        $user->setLbz_ID(40);
 
         $user->create_db_entry();
 
-        header("Location: ../View/usersOverview.php");
+        header("Location: ../View/userOverview.php");
      }
 
  }

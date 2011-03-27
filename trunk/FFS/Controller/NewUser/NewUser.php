@@ -10,9 +10,9 @@ class NewUser {
         }
         elseif (SessionHelper::isAdmin()) {
             $output .= "<select name='rolle' id='rolle'>";
-                $putput .= "<option value='agw'>normal (10)</option>";
-                $output .= "<option value='agw'>AGW (40)</option>";
-                $output .= "<option value='admin'>Administrator (50)</option>";
+                $putput .= "<option value='10'>normal (10)</option>";
+                $output .= "<option value='40'>AGW (40)</option>";
+                $output .= "<option value='50'>Administrator (50)</option>";
             $output .= "</select>";
         }
         return $output;
@@ -23,9 +23,9 @@ class NewUser {
         $dbConnector = DbConnector::getInstance();
         $result = $dbConnector->execute_sql($sql);
 
-        $output = "<select name='lbz' id='lbz'>";
+        $output = "<select ID, name='lbz' id='lbz'>";
         while($data = mysql_fetch_array($result)){
-            $output .= "<option value='". $data['name'] ."'>". $data['name'] ."</option>";
+            $output .= "<option value='". $data['ID'] ."'>". $data['name'] ."</option>";
         }
         $output .= "</select>";
         return $output;
