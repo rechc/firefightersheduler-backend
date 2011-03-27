@@ -12,19 +12,18 @@
                     else
                         $uid = $_SESSION["user_id"];
             $user=User::get_user($uid);
-        ?>        
-        <div><h1><?php echo $user->getVorname()." ".$user->getName() ?> zu Strecke hinzuf&uuml;gen</h1></div>
-        <!-- ToDo wohin gehts ?-->
+        ?>
+        <div><h1><?php echo $user->getVorname()." ".$user->getName() ?> zu Einsatz hinzuf&uuml;gen</h1></div>
         <form action="../Controller/addData/AddData.php" method="post">
             <div>
                 <table>
                     <tr>
-                        <td><select name="sid" size="1">
-                                <?php echo PersonalList::getStreckeList() ?>
+                        <td><select name="eid" size="1">
+                                <?php echo PersonalList::getEinsatzList() ?>
                             </select>
                         </td>
                         <td>
-                            <input type="hidden" name="auswahl" value="addUserToStrecke">
+                            <input type="hidden" name="auswahl" value="addUserToEinsatz">
                             <input type="hidden" name="uid" value="<?php echo $uid; ?>">
                             <input type="submit" value="hinzuf&uuml;gen"></td>
                     </tr>
@@ -48,7 +47,7 @@
             <tfoot></tfoot>
             <tbody>
                 <?php
-                    echo PersonalList::getStreckeTable($user);
+                    echo PersonalList::getEinsatzTable($user);
                 ?>
             </tbody>
         </table>
