@@ -18,7 +18,6 @@
                         $uid = $_SESSION["user_id"];
                     $user=User::get_user($uid);
                     echo $user->getVorname()." ".$user->getName();
-                    // echo "\n PW md5: ".md5($user->getPassword());
                 ?>
              </h1></div>
         <?php
@@ -73,7 +72,7 @@
         <div><br><h1>G26.3 Untersuchungen</h1></div>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='editG26.php?uid=".$uid."&func=new'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='editG26.php?uid=".$uid."&func=new'>neue G26.3 hinzufügen<img alt='' src='images/add.gif' /></a></div>";
         ?>
         <table>
             <thead>
@@ -98,7 +97,8 @@
         <div><br><h1>&Uuml;bungsstrecken</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='addData.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>neue Strecke hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='editStrecke.php?uid=".$uid."'>zu vorhandener Strecke hinzufügen<img alt='' src='images/add.gif' /></a></div>";
         ?>
         </div>
         <table>
@@ -124,7 +124,8 @@
         <div><br><h1>Eins&auml;tze</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='addData.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>neuen Einsatz hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='editEinsatz.php?uid=".$uid."'>zu vorhandenem Einsatz hinzufügen<img alt='' src='images/add.gif' /></a></div>";
         ?>
         </div>
         <table>
@@ -150,8 +151,9 @@
         <div><br><h1>Einsatz&uuml;bungen</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='addData.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
-        ?>
+                echo "<div align='right'><a href='addData.php'>neue Übung hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='editUebung.php?uid=".$uid."'>zu vorhandener Übung hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+            ?>
         </div>
         <table>
             <thead>
@@ -176,7 +178,8 @@
         <div><br><h1>Unterweisungen</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='addData.php'>hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>neue Unterweisung hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='editUnterweisung.php?uid=".$uid."'>zu vorhandener Unterweisung hinzufügen<img alt='' src='images/add.gif' /></a></div>";
         ?>
         </div>
         <table>
