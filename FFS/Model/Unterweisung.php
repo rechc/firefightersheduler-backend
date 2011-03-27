@@ -5,14 +5,13 @@ require_once(PATH_BASIS . '/Configuration/Config.php');
 require_once(PATH_BASIS . '/Configuration/ExceptionText.php');
 require_once('FFSException.php');
 
-
 /**
  * Description of Unterweisung
  * Die Klasse stellt Daten einer Unterweisung bereit und
  * handhabt alle dazugehoerigen Funktionen.
  *
  * @author Warken Andreas
- * @version 0.9
+ * @version 1.0
  */
 class Unterweisung {
 
@@ -129,14 +128,24 @@ class Unterweisung {
         $result = $dbConnector->execute_sql($sql);
     }
 
-//    public function add_user_connection($user){}
+    /**
+     * add_user_connection
+     * stellt die Verbindung zwischen einer Unterweisung und einem User her.
+     * @param <type> $userID
+     */
+    public function add_user_connection($userID) {
+        $sql = "INSERT INTO r_unterweisungUser VALUES ('$this->ID','$userID');";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+    }
 
     /**
-     *
-     * @param <type> $ID
+     * del_user_connection
+     * loescht die Verbindung zwischen einer Unterweisung und einem User.
+     * @param <type> $userID
      */
-    public function add_user_connection($userID){
-        $sql = "INSERT INTO r_unterweisungUser VALUES (".$this->ID.",".$userID.");";
+    public function del_user_connection($userID) {
+        $sql = "DELETE FROM r_unterweisungUser WHERE unterweisung_ID = '$this->ID' AND user_ID ='$userID';";
         $dbConnector = DbConnector::getInstance();
         $result = $dbConnector->execute_sql($sql);
     }
@@ -165,7 +174,7 @@ class Unterweisung {
     // ---------------- Down setter and getter ----------------
 
     public function setID($ID) {
-        if ((is_numeric($ID))or ($ID == NULL)) {
+        if ((is_numeric($ID)) or ($ID == NULL)) {
             $this->ID = $ID;
         } else {
             throw new FFSException(ExceptionText::unterweisung_ID_not_numeric());
@@ -181,7 +190,7 @@ class Unterweisung {
     }
 
     public function setVerantID($verantID) {
-        if ((is_numeric($verantID))or ($verantID == NULL)){
+        if ((is_numeric($verantID)) or ($verantID == NULL)) {
             $this->verantID = $verantID;
         } else {
             throw new FFSException(ExceptionText::unterweisung_verantID_not_numeric());
