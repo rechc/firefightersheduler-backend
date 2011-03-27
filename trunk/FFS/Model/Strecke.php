@@ -125,13 +125,22 @@ class Strecke {
         $result = $dbConnector->execute_sql($sql);
     }
 
-    public function add_user_connection($user){}
-
+//    public function add_user_connection($user){}
     /**
      *
      * @param <type> $ID
      */
-    public function add_user_connection($userID){}
+    public function add_user_connection($userID){
+        $sql = "INSERT INTO r_streckeUser VALUES (".$this->ID.",".$userID.");";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+    }
+
+    public function del_user_connection($userID){
+        $sql = "DELETE FROM r_streckeUser WHERE streck_ID = ".$this->ID." AND user_ID =".$userID.";";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+    }
 
 
     /**

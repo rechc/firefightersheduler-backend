@@ -125,13 +125,17 @@ class Uebung {
         $result = $dbConnector->execute_sql($sql);
     }
 
-    public function add_user_connection($user){}
+//    public function add_user_connection($user){}
 
     /**
      *
      * @param <type> $ID
      */
-    public function add_user_connection($userID){}
+    public function add_user_connection($userID){
+        $sql = "INSERT INTO r_uebungUser VALUES (".$this->ID.",".$userID.");";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+    }
 
 
     /**
