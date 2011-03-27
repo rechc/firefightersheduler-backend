@@ -113,7 +113,7 @@ foot
     /*width: 6em;*/
     width: auto;
     margin: 0px;
-    padding: 0.3em 0.3em;
+    padding: 0.3em 1.0em;
     text-decoration:none;
     font-weight: bold;
     font-size:1em;
@@ -134,6 +134,13 @@ foot
 
 #loginform div{
     padding: 0.2em 0;
+}
+
+#delBar {
+    float: right;
+    position: relative;
+    top: -30px;
+    left: 10px;
 }
 
 a{
@@ -217,4 +224,8 @@ tfoot th, tfoot td {
 	font-size: 0.8em;
 	color: #ffffff;
 	height: 21px;
+}
+
+h1 {
+    width: 700px;
 }
