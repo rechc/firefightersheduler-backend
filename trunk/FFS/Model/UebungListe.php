@@ -40,7 +40,7 @@ class UebungListe {
 
             while ($row = mysql_fetch_array($result)) { //sequentielles durchgehen der zeilen
                 $uebung = Uebung::parse_result_as_objekt($row);
-                $uebungliste->append_strecke($uebung);
+                $uebungliste->append_uebung($uebung);
             }
             return $uebungliste;
         } else {
