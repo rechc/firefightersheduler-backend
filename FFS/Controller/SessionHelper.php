@@ -20,7 +20,7 @@ class SessionHelper {
             $current_uid = $_SESSION["user_id"];
             return User::get_user($current_uid);
         } else {
-            return NULL; // TODO redirect to Loginpage
+            header("Location: ../View/login_formular.php?fehler=1");
         }
     }
 
@@ -37,13 +37,14 @@ class SessionHelper {
 
     public static function isAdminOrAGW(){
         $user = SessionHelper::getCurrentUser();
-        if (empty ($user))
+        if (empty ($user)){
             return false;
-        
-         if (($user->is_agw()) | ($user->is_admin()) && SessionHelper::isLoggedIn()) {
-             return true;
-         }
-         return false;
+        } else {
+             if (($user->is_agw()) | ($user->is_admin()) && SessionHelper::isLoggedIn()) {
+                 return true;
+             } else
+                return false;
+        }
     }
 
     public static function isAdmin(){
@@ -61,17 +62,19 @@ class SessionHelper {
         $user = SessionHelper::getCurrentUser();
         if (empty ($user))
             return false;
-
-         if (($user->is_agw()) && SessionHelper::isLoggedIn()) {
-             return true;
+         else{
+             if (($user->is_agw()) && SessionHelper::isLoggedIn()) {
+                 return true;
+             } else
+                return false;
          }
-         return false;
     }
 
     public static function  isLoggedIn(){
         if (empty ($_SESSION["user_id"]))
             return false;
-        return true;
+        else
+            return true;
     }
 
 }
