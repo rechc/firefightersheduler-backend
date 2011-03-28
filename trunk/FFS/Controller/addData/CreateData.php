@@ -10,7 +10,13 @@
  * @author christian
  */
 
-$user_array = $_POST['check'];
+include_once '../../global.inc.php';
+require_once PATH_BASIS .'/Model/Einsatz.php';
+require_once PATH_BASIS .'/Model/Uebung.php';
+require_once PATH_BASIS .'/Model/Strecke.php';
+require_once PATH_BASIS .'/Model/Unterweisung.php';
+
+$user_array = $POST['check'];
 $date = $_POST['datum'];
 $city = $_POST['ort'];
 $dataselection  = $_POST['auswahl'];
@@ -22,16 +28,19 @@ class CreateData {
     public function __construct($dataselection, $date, $city, $user_array) {
         switch ($dataselection) {
             case 'Einsatz':
-                $selction = "addUserToStrecke";
+                $selction = "addUserToEinsatz";
                 $data = new Einsatz();
                 break;
             case 'Uebung':
+                $selction = "addUserToUebung";
                 $data = new Uebung();
                 break;
             case 'Strecke':
+                $selction = "addUserToStrecke";
                 $data = new Strecke();
                 break;
             case 'Unterweisung':
+                $selction = "addUserToUnterweisung";
                 $data = new Unterweisung();
                 break;
         }
@@ -39,8 +48,7 @@ class CreateData {
         $data->setDatum($date);
         $data->setOrt($city);
         $data->create_db_entry();
-        //TODO $id festlegen;
-        addUsers($user_array, $selction, $id);
+        $this->addUsers($user_array, $selction, $data->getID());
     }
 
     public function addUsers($user_array, $selction, $id){
