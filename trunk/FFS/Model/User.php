@@ -13,7 +13,6 @@ require_once('EinsatzListe.php');
 require_once('Strecke.php');
 require_once('StreckeListe.php');
 require_once ('HelpFunctions.php');
-require_once(PATH_BASIS . '/Trash/class.phpmailer.php');
 
 /**
  * Description of User
