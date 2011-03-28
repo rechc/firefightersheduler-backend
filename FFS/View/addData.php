@@ -21,7 +21,7 @@
                     </thead>
                     <tfoot></tfoot>
                     <tbody>
-                        <form action="../Controller/addData/AddMoreData.php" method="post">
+                        <form action="../Controller/addData/CreateData.php" method="post">
                         <tr>
                             <td><select name="auswahl">
                                     <option value="Einsatz">Einsatz</option>
