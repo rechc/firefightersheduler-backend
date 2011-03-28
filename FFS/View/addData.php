@@ -8,7 +8,7 @@
     require_once(PATH_BASIS . '/Controller/addData/UserChecklist.php');
 ?>
     <div id="content">
-        <div><h1>Daten hinzuf&uuml;gen</h1></div>        
+        <div><h3>Daten hinzuf&uuml;gen</h3></div>
             <div>
                 <table>
                     <thead>

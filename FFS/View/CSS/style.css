@@ -25,6 +25,7 @@ body{
         padding-top:13px;
         margin: 0px;
         font:12px/1.5em Arial,Verdana,Sans-Serif;
+        text-align: center;
 }
 
 
@@ -40,10 +41,12 @@ foot
 
 #maincontainer {
 	width: 880px;
-	margin:0px auto;  			/* äußerer Rand*/
+        margin-left: auto;
+        margin-right: auto;
         padding:10px 25px 0px;
 	background-color: #FFFFFF;
 	border:3px double #333333;  /* Rahmen alle properties*/
+        text-align: left
 }
 
 #header {
@@ -228,4 +231,8 @@ tfoot th, tfoot td {
 
 h1 {
     width: 700px;
+}
+
+#w3 {
+    float: right;
 }
