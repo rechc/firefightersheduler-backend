@@ -11,6 +11,8 @@
         <?php
             if (isset($_REQUEST["userDeleted"])) {
                 echo "Benutzer erfolgreich gelöscht!";
+            } else if (isset($_REQUEST["fehler"])) {
+                echo "Sie haben nicht alle Felder korrekt ausgefühlt. Fehler bei: " . $_REQUEST["fehler"];
             }
         ?>
         <div><h3>Benutzerübersicht</h3></div>

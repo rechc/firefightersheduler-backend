@@ -24,7 +24,8 @@ require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
     if (correctEntry == true)
          CreateUser::createNewUser($uid, $firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
     else
-        die ("Folgende Eingabe ist nicht korrekt: " . $correctEntry);
+          header("Location: ../View/userOverview.php?fehler=" . $correctEntry);
+//        die ("Folgende Eingabe ist nicht korrekt: " . $correctEntry);
 
 
  class CreateUser{
