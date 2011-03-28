@@ -44,7 +44,7 @@
                     ?>
                 </tr>
             </thead>
-            <tfoot></tfoot>
+<!--            <tfoot></tfoot>-->
             <tbody>
                 <?php
                     echo PersonalList::getUebungTable($user);

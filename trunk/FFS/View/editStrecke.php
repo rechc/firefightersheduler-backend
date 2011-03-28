@@ -45,7 +45,7 @@
                     ?>
                 </tr>
             </thead>
-            <tfoot></tfoot>
+<!--            <tfoot></tfoot>-->
             <tbody>
                 <?php
                     echo PersonalList::getStreckeTable($user);
