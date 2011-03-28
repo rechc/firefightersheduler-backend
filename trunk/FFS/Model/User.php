@@ -392,6 +392,17 @@ class User {
     }
 
     /**
+     * Beta TODO Implement
+     */
+    public function start_cronjob_note_check() {
+        $warning = $this->get_warning_status();
+        if ($warning != Config::green()) {
+            //TODO IMPLEMENT
+        }
+        
+    }
+
+    /**
      * erwartet einen vollen (betrunkenen) Benutzer ^^
      * wem was nicht an der Ausgabe gefaellt, schoener machen ohne zu fragen
      * @deprecated !
