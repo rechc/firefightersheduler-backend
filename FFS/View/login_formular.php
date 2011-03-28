@@ -5,13 +5,7 @@
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
-<html>
-    <head>
-        <title>Login</title>
-<!--        <link rel="stylesheet" type="text/css" href="./css/login_style.css" />-->
-        <script type="text/javascript" src="../Controller/JavaScript/jsLogin.js"></script>
-    </head>
-    <body>
+<div id="content">
         <?php //Ausnahme ;-)
             if (isset($_REQUEST["fehler"])) {
                 echo "Login fehlgeschlagen! ";
@@ -22,7 +16,7 @@
                 echo "bitte Melden Sie sich zuerst an";
             }
         ?>
-        <div name="infobox" id ="infobox"></div>
+        <div id="infobox"></div>
         <form action="../Controller/Authentification/login.php" method="post">
             <div id="login">
                 <div id="pos">
@@ -52,6 +46,11 @@
                 </div>
             </div>
         </form>
-    </body>  
-</html>
+        <!-- Ende Content -->
+    <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-html401"
+        alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+    </p>
+    </div>
 <?php include (PATH_BASIS . '/View/Layout/footer.inc.php') ?>

@@ -47,7 +47,7 @@ class PersonalList {
             $output .= $user->getRollen_ID();
             $output .= "</td>";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"newUser.php?uid=" . $user->getID() . "\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"newUser.php?uid=" . $user->getID() . "\"><img src=\"images/edit.png\" alt=\"edit\"></a></td>\n";
             }
         }
         return $output;
@@ -73,7 +73,7 @@ class PersonalList {
             $output .= "\t\t\t<td>" . $garray_entry->getDatum() . "</td>\n";
             $output .= "\t\t\t<td>" . $garray_entry->getGueltigBis() . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
-                $output .= "\t\t\t<td><a href=\"editG26.php?id=" . $garray_entry->getID() . "&func=edit\"><img src=\"images/edit.png\"></a></td>\n";
+                $output .= "\t\t\t<td><a href=\"editG26.php?id=" . $garray_entry->getID() . "&amp;func=edit\"><img src=\"images/edit.png\" alt=\"edit\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
         }
@@ -102,9 +102,9 @@ class PersonalList {
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                 $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
                 $output .= "id=".$starray_entry->getID();
-                $output .= "&uid=".$user->getID();
-                $output .= "&auswahl=addUserToStrecke&option=delete\" ";
-                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\"\">";
+                $output .= "&amp;uid=".$user->getID();
+                $output .= "&amp;auswahl=addUserToStrecke&amp;option=delete\" ";
+                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\">";
                 $output .= "<img src=\"images/delete2.png\" alt=\"löschen\" title=\"löschen\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
@@ -134,9 +134,9 @@ class PersonalList {
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                 $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
                 $output .= "id=".$earray_entry->getID();
-                $output .= "&uid=".$user->getID();
-                $output .= "&auswahl=addUserToEinsatz&option=delete\" ";
-                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\"\">";
+                $output .= "&amp;uid=".$user->getID();
+                $output .= "&amp;auswahl=addUserToEinsatz&amp;option=delete\" ";
+                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\">";
                 $output .= "<img src=\"images/delete2.png\" alt=\"löschen\" title=\"löschen\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
@@ -166,9 +166,9 @@ class PersonalList {
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                 $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
                 $output .= "id=".$uarray_entry->getID();
-                $output .= "&uid=".$user->getID();
-                $output .= "&auswahl=addUserToUebung&option=delete\" ";
-                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\"\">";
+                $output .= "&amp;uid=".$user->getID();
+                $output .= "&amp;auswahl=addUserToUebung&amp;option=delete\" ";
+                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\">";
                 $output .= "<img src=\"images/delete2.png\" alt=\"löschen\" title=\"löschen\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";
@@ -198,9 +198,9 @@ class PersonalList {
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                 $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
                 $output .= "id=".$uwarray_entry->getID();
-                $output .= "&uid=".$user->getID();
-                $output .= "&auswahl=addUserToUnterweisung&option=delete\" ";
-                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\"\">";
+                $output .= "&amp;uid=".$user->getID();
+                $output .= "&amp;auswahl=addUserToUnterweisung&amp;option=delete\" ";
+                $output .= "onclick=\"return (confirm('Möchten Sie diese Zuordnung wirklich löschen?'));\">";
                 $output .= "<img src=\"images/delete2.png\" alt=\"löschen\" title=\"löschen\"></a></td>\n";
             }
             $output .= "\t\t</tr>\n";

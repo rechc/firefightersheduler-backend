@@ -6,9 +6,6 @@
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
     require_once (PATH_BASIS . '/Controller/SessionHelper.php');
 ?>
-<head>
-    <script type="text/javascript" src="../Controller/JavaScript/jsDeleteUser.js"></script>
-</head>
     <div id="content">
         <div><h1>
                 <?php
@@ -22,7 +19,7 @@
              </h1></div>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='../Controller/DeleteUser.php?uid=". $uid ."' onclick=\"return (confirm('Möchten Sie den Benutzer wirklich löschen?'));\">Benutzer löschen<img alt='' src='images/delete.gif' width='16' high='16' /></a></div>";
+                echo "<div align='right'><a href='../Controller/DeleteUser.php?uid=". $uid ."' onclick=\"return (confirm('Möchten Sie den Benutzer wirklich löschen?'));\">Benutzer löschen<img alt='' src='images/delete.gif' width='16' height='16'></a></div>";
         ?>
         <table>
             <thead>
@@ -37,7 +34,7 @@
                     <th>Unterweisung</th>
                 </tr>
             </thead>
-            <tfoot></tfoot>
+<!--            <tfoot>&nbsp;</tfoot>-->
             <tbody>
                 <?php
                     echo PersonalList::getUserData($user);
@@ -60,7 +57,7 @@
                     ?>
                 </tr>
             </thead>
-            <tfoot></tfoot>
+<!--            <tfoot></tfoot>-->
             <tbody>
                 <tr>
                     <?php
@@ -72,7 +69,7 @@
         <div><br><h1>G26.3 Untersuchungen</h1></div>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='editG26.php?uid=".$uid."&func=new'>neue G26.3 hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='editG26.php?uid=".$uid."&amp;func=new'>neue G26.3 hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
         ?>
         <table>
             <thead>
@@ -87,7 +84,7 @@
                     ?>
                 </tr>
             </thead>
-            <tfoot></tfoot>
+<!--            <tfoot></tfoot>-->
             <tbody>
                 <?php
                     echo PersonalList::getG26Table($user);
@@ -97,8 +94,8 @@
         <div><br><h1>&Uuml;bungsstrecken</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='addData.php'>neue Strecke hinzufügen<img alt='' src='images/add.gif' /></a></div>";
-                echo "<div align='right'><a href='editStrecke.php?uid=".$uid."'>zu vorhandener Strecke hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>neue Strecke hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
+                echo "<div align='right'><a href='editStrecke.php?uid=".$uid."'>zu vorhandener Strecke hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
         ?>
         </div>
         <table>
@@ -114,7 +111,7 @@
                     ?>
                 </tr>
             </thead>
-            <tfoot></tfoot>
+<!--            <tfoot></tfoot>-->
             <tbody>
                 <?php
                     echo PersonalList::getStreckeTable($user);
@@ -124,8 +121,8 @@
         <div><br><h1>Eins&auml;tze</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='addData.php'>neuen Einsatz hinzufügen<img alt='' src='images/add.gif' /></a></div>";
-                echo "<div align='right'><a href='editEinsatz.php?uid=".$uid."'>zu vorhandenem Einsatz hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>neuen Einsatz hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
+                echo "<div align='right'><a href='editEinsatz.php?uid=".$uid."'>zu vorhandenem Einsatz hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
         ?>
         </div>
         <table>
@@ -141,7 +138,7 @@
                     ?>
                 </tr>
             </thead>
-            <tfoot></tfoot>
+<!--            <tfoot></tfoot>-->
             <tbody>
                 <?php
                     echo PersonalList::getEinsatzTable($user);
@@ -151,8 +148,8 @@
         <div><br><h1>Einsatz&uuml;bungen</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='addData.php'>neue Übung hinzufügen<img alt='' src='images/add.gif' /></a></div>";
-                echo "<div align='right'><a href='editUebung.php?uid=".$uid."'>zu vorhandener Übung hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>neue Übung hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
+                echo "<div align='right'><a href='editUebung.php?uid=".$uid."'>zu vorhandener Übung hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
             ?>
         </div>
         <table>
@@ -168,7 +165,7 @@
                     ?>
                 </tr>
             </thead>
-            <tfoot></tfoot>
+<!--            <tfoot></tfoot>-->
             <tbody>
                 <?php
                     echo PersonalList::getUebungTable($user);
@@ -178,8 +175,8 @@
         <div><br><h1>Unterweisungen</h1>
         <?php
             if(SessionHelper::isAdminOrAGW())
-                echo "<div align='right'><a href='addData.php'>neue Unterweisung hinzufügen<img alt='' src='images/add.gif' /></a></div>";
-                echo "<div align='right'><a href='editUnterweisung.php?uid=".$uid."'>zu vorhandener Unterweisung hinzufügen<img alt='' src='images/add.gif' /></a></div>";
+                echo "<div align='right'><a href='addData.php'>neue Unterweisung hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
+                echo "<div align='right'><a href='editUnterweisung.php?uid=".$uid."'>zu vorhandener Unterweisung hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
         ?>
         </div>
         <table>
@@ -195,7 +192,7 @@
                     ?>
                 </tr>
             </thead>
-            <tfoot></tfoot>
+<!--            <tfoot></tfoot>-->
             <tbody>
                 <?php
                     echo PersonalList::getUnterweisungTable($user);
@@ -203,5 +200,10 @@
             </tbody>
         </table>
     <!-- Ende Content -->
+    <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+        src="http://www.w3.org/Icons/valid-html401"
+        alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
+    </p>
     </div>
 <?php include (PATH_BASIS . '/View/Layout/footer.inc.php') ?>
