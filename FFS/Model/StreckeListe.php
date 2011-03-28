@@ -22,8 +22,6 @@ class StreckeListe {
      */
     public function __construct() {
         $this->strecke_array = new ArrayObject();
-        // TL TODO auskommentiert. testen ob so lauffaehig
-        //$this->strecke_array[0] = new Strecke();
     }
 
     /**
