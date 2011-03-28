@@ -20,7 +20,7 @@ class Userlist {
         $output = "";
 
         foreach ($user_array as $user) {
-            $output .= "<tr onClick=document.location.href='viewUser.php?uid=" . $user->getID() . "'>";
+            $output .= "<tr>";
             $output .= Userlist::getUserData($user);
             $output .= "<td><a href='viewUser.php?uid=" . $user->getID() . "'><img alt='anschauen' src='images/view.gif' /></a>";
             $output .= "</tr>";
