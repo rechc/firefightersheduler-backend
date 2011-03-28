@@ -7,7 +7,7 @@
     require_once (PATH_BASIS . '/Controller/SessionHelper.php');
 ?>
     <div id="content">
-        <div><h1>
+        <div><h3>
                 <?php
                     if (isset($_REQUEST["uid"]))
                         $uid = $_REQUEST["uid"];
@@ -16,7 +16,7 @@
                     $user=User::get_user($uid);
                     echo $user->getVorname()." ".$user->getName();
                 ?>
-             </h1></div>
+             </h3></div>
         <?php
             if(SessionHelper::isAdminOrAGW())
                 echo "<div align='right'><a href='../Controller/DeleteUser.php?uid=". $uid ."' onclick=\"return (confirm('Möchten Sie den Benutzer wirklich löschen?'));\">Benutzer löschen<img alt='' src='images/delete.gif' width='16' height='16'></a></div>";
@@ -41,7 +41,7 @@
                 ?>
             </tbody>
         </table>
-        <div><br><h1>Stammdaten</h1></div>
+        <div><br><h3>Stammdaten</h3></div>
         <table>
             <thead>
                 <tr>
@@ -66,7 +66,7 @@
                 </tr>
             </tbody>
         </table>
-        <div><br><h1>G26.3 Untersuchungen</h1></div>
+        <div><br><h3>G26.3 Untersuchungen</h3></div>
         <?php
             if(SessionHelper::isAdminOrAGW())
                 echo "<div align='right'><a href='editG26.php?uid=".$uid."&amp;func=new'>neue G26.3 hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
@@ -91,7 +91,7 @@
                 ?>
             </tbody>
         </table>
-        <div><br><h1>&Uuml;bungsstrecken</h1>
+        <div><br><h3>&Uuml;bungsstrecken</h3>
         <?php
             if(SessionHelper::isAdminOrAGW())
                 echo "<div align='right'><a href='addData.php'>neue Strecke hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
@@ -118,7 +118,7 @@
                 ?>
             </tbody>
         </table>
-        <div><br><h1>Eins&auml;tze</h1>
+        <div><br><h3>Eins&auml;tze</h3>
         <?php
             if(SessionHelper::isAdminOrAGW())
                 echo "<div align='right'><a href='addData.php'>neuen Einsatz hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
@@ -145,7 +145,7 @@
                 ?>
             </tbody>
         </table>
-        <div><br><h1>Einsatz&uuml;bungen</h1>
+        <div><br><h3>Einsatz&uuml;bungen</h3>
         <?php
             if(SessionHelper::isAdminOrAGW())
                 echo "<div align='right'><a href='addData.php'>neue Übung hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
@@ -172,7 +172,7 @@
                 ?>
             </tbody>
         </table>
-        <div><br><h1>Unterweisungen</h1>
+        <div><br><h3>Unterweisungen</h3>
         <?php
             if(SessionHelper::isAdminOrAGW())
                 echo "<div align='right'><a href='addData.php'>neue Unterweisung hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
@@ -200,10 +200,5 @@
             </tbody>
         </table>
     <!-- Ende Content -->
-    <p>
-    <a href="http://validator.w3.org/check?uri=referer"><img
-        src="http://www.w3.org/Icons/valid-html401"
-        alt="Valid HTML 4.01 Transitional" height="31" width="88"></a>
-    </p>
     </div>
 <?php include (PATH_BASIS . '/View/Layout/footer.inc.php') ?>
