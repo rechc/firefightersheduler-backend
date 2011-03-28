@@ -86,12 +86,13 @@ function testusrg26() {
 //testusrg26();
 //echo md5(4711);
 function test_mail() {
-    $email = "t.lana@ff-riegelsberg.de";
+    $email = "mapsmail@gmx.de";
     $password = 4711;
     $xy = User::get_user_by_login($email, $password);
     $message = "geeeeeht";
     $subject = "testmail";
     $xy->send_mail($subject, $message);
+
     echo "fertig";
 }
 
