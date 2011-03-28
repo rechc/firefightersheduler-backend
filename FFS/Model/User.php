@@ -222,6 +222,7 @@ class User {
 
             $dbConnector = DbConnector::getInstance();
             $result = $dbConnector->execute_sql($sql);
+            $this->setID(mysql_insert_id($dbConnector->getConnectionid()));
         } else {
             throw new FFSException(ExceptionText::user_missing_param());
         }
