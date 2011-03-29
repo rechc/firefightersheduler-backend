@@ -30,8 +30,8 @@
                                     <option value="Unterweisung">Unterweisung</option>
                                 </select>
                             </td>
-                            <td><input type="text" name="datum" value="<?php echo $datum ?>"></td>
-                            <td><input type="text" name="ort" value="<?php echo $datum ?>"></td>
+                            <td><input type="text" name="datum"></td>
+                            <td><input type="text" name="ort"></td>
                             <td><input type="submit" value="hinzuf&uuml;gen"></td>
                         </tr>
                         <tr>
