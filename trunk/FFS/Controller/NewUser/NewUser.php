@@ -6,7 +6,7 @@ class NewUser {
     public static function createRolleView() {
         $output = "";
         if (SessionHelper::isAGW()) {
-            $output .= "<input type ='text' readonly name ='rolle' id='rolle' value='Nutzer (10)'>";
+            $output .= "<input type ='text' style='background-color:lightgray;' readonly name ='rolle' id='rolle' value='Nutzer (10)'>";
         }
         elseif (SessionHelper::isAdmin()) {
             $output .= "<select name='rolle' id='rolle'>";

@@ -16,12 +16,18 @@ require_once PATH_BASIS .'/Model/Uebung.php';
 require_once PATH_BASIS .'/Model/Strecke.php';
 require_once PATH_BASIS .'/Model/Unterweisung.php';
 
-$user_array = $POST['check'];
+$user_array = $POST['checkedUsers'];
 $date = $_POST['datum'];
 $city = $_POST['ort'];
 $dataselection  = $_POST['auswahl'];
 
-$createData = new CreateData($dataselection, $date, $city, $user_array);
+?>
+<html>
+    check: <?php echo $user_array ?>
+</html>
+<?php
+
+//$createData = new CreateData($dataselection, $date, $city, $user_array);
 
 class CreateData {
 
