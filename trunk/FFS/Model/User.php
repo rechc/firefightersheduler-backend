@@ -14,6 +14,8 @@ require_once('Strecke.php');
 require_once('StreckeListe.php');
 require_once ('HelpFunctions.php');
 
+//TODO LBZ = löschbezirk
+
 /**
  * Description of User
  *
@@ -378,7 +380,8 @@ class User {
      * generiert ein neues Passwort, speichert dies in der DB und sendet es dem
      * User per Email
      */
-    public function generate_and_send_new_password() {
+    public static function generate_and_send_new_password($email) {
+        // TODO load user by email 
         try {
             $newpw = HelpFunctions::generate_string(rand(7, 11));
             $name = $this->vorname . " " . $this->name;
@@ -520,12 +523,13 @@ class User {
         $this->ID = $ID;
     }
 
-    public function setEmail($email) {
-        if (!preg_match("/^[A-Z0-9._%+-ÄÖÜäöü]+@[A-Z0-9.-ÄÖÜäöü]+\.[A-Z]{2,6}$/i", $email)) {
+    public function setEmail($email) {//TODO hier muss ein fehler sein
+        $this->email = $email;
+      /*  if (!preg_match("/^[A-Z0-9._%+-ÄÖÜäöü]+@[A-Z0-9.-ÄÖÜäöü]+\.[A-Z]{2,6}$/i", $email)) {
             $this->email = $email;
         } else {
             throw new FFSException(Config::wrongEmail());
-        }
+        }*/
     }
 
     public function setPassword($password) {
