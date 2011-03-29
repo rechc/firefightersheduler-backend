@@ -98,7 +98,7 @@ class PersonalList {
             }
             $output .= "&nbsp;</td>\n";
             $output .= "\t\t\t<td>" . $starray_entry->getDatum() . "</td>\n";
-            $output .= "\t\t\t<td>" . $starray_entry->getOrt() . "</td>\n";
+            $output .= "\t\t\t<td>" . htmlentities($starray_entry->getOrt()) . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                 $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
                 $output .= "id=".$starray_entry->getID();
@@ -130,7 +130,7 @@ class PersonalList {
             }
             $output .= "&nbsp;</td>\n";
             $output .= "\t\t\t<td>" . $earray_entry->getDatum() . "</td>\n";
-            $output .= "\t\t\t<td>" . $earray_entry->getOrt() . "</td>\n";
+            $output .= "\t\t\t<td>" . htmlentities($earray_entry->getOrt()) . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                 $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
                 $output .= "id=".$earray_entry->getID();
@@ -162,7 +162,7 @@ class PersonalList {
             }
             $output .= "&nbsp;</td>\n";
             $output .= "\t\t\t<td>" . $uarray_entry->getDatum() . "</td>\n";
-            $output .= "\t\t\t<td>" . $uarray_entry->getOrt() . "</td>\n";
+            $output .= "\t\t\t<td>" . htmlentities($uarray_entry->getOrt()) . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                 $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
                 $output .= "id=".$uarray_entry->getID();
@@ -194,7 +194,7 @@ class PersonalList {
             }
             $output .= "&nbsp;</td>\n";
             $output .= "\t\t\t<td>" . $uwarray_entry->getDatum() . "</td>\n";
-            $output .= "\t\t\t<td>" . $uwarray_entry->getOrt() . "</td>\n";
+            $output .= "\t\t\t<td>" . htmlentities($uwarray_entry->getOrt()) . "</td>\n";
             if ($_SESSION["user_rolle"] == 40 | $_SESSION["user_rolle"] == 50) {
                 $output .= "\t\t\t<td><a href=\"../Controller/addData/AddData.php?";
                 $output .= "id=".$uwarray_entry->getID();

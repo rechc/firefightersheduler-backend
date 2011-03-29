@@ -14,19 +14,16 @@ require_once('Strecke.php');
 require_once('StreckeListe.php');
 require_once ('HelpFunctions.php');
 
-//TODO LBZ = löschbezirk
-
 /**
  * Description of User
  *
  * @author Warken Andreas
- * @version 1.0 Beta
+ * @version 1.0
  * 
  */
 class User {
 
     // joins überprüfen , performance
-    // todo email validierung
 
     private $ID;
     private $email;
@@ -91,6 +88,25 @@ class User {
 
     /**
      * get_user
+     * interne Methode z.B. fuer Passwort vergessen Funktion
+     *
+     * @param <type> $email
+     * @return <type> User-Objekt
+     */
+    private static function get_user_by_email($email) {
+        $pwmd5 = md5($password);
+        $sql = "SELECT ID, email, name, vorname, gebDat, lbz_ID, agt, rollen_ID
+                FROM user
+                WHERE ( email = '$email' );";
+
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+
+        return USER::parse_result_as_object($result);
+    }
+
+    /**
+     * get_user
      * liefert den vollständigen User mit allen Listen (ausser passwort)
      * @param <type> $ID
      * @return User-Objekt 
@@ -129,7 +145,6 @@ class User {
                 $user = new User();
                 $user->setID($data["ID"]);
                 $user->setEmail($data["email"]);
-                // $user->setPassword($data["password"]);
                 $user->setName($data["name"]);
                 $user->setVorname($data["vorname"]);
                 $user->setGebDat($data["gebDat"]);
@@ -381,34 +396,42 @@ class User {
      * User per Email
      */
     public static function generate_and_send_new_password($email) {
-        // TODO load user by email 
+        $usr = User::get_user_by_email($email);
+
         try {
             $newpw = HelpFunctions::generate_string(rand(7, 11));
-            $name = $this->vorname . " " . $this->name;
+            $name = $usr->getVorname() . " " . $usr->getName();
             $message = Config::newPasswordText($name, $newpw);
-            $this->setPassword($newpw);
-            $this->save_pw();
-            $this->send_mail(Config::newPasswordSubject(), $message);
+            $usr->setPassword($newpw);
+            $usr->save_pw();
+            $usr->send_mail(Config::newPasswordSubject(), $message);
         } catch (Exception $exc) {
             echo $exc->getTraceAsString();
         }
     }
 
     /**
-     * Beta TODO Implement
+     * start_cronjob_note_check
+     *
+     * Prueft die Tauglichkeit und sendet eine Email an den User
+     * (wird fuer den Cronjob benoetigt)
      */
     public function start_cronjob_note_check() {
         $warning = $this->get_warning_status();
         if ($warning != Config::green()) {
-            //TODO IMPLEMENT
+            if ($warning == Config::yellow()) {
+                $this->send_mail(Config::email_subject_status(), Config::email_text_yellow_status());
+            }
+            if ($warning == Config::red()) {
+                $this->send_mail(Config::email_subject_status(), Config::email_text_red_status());
+            }
         }
-        
     }
 
     /**
      * erwartet einen vollen (betrunkenen) Benutzer ^^
      * wem was nicht an der Ausgabe gefaellt, schoener machen ohne zu fragen
-     * @deprecated !
+     * @deprecated !nur zum testen!
      */
     public function debug_output_full_user() {
         echo '<h3>', "User:", '</h3>', '<br>';
@@ -517,19 +540,18 @@ class User {
     // ---------------- Down setter and getter ----------------
     // auto über alt+einfg  // geht anscheind nicht übers kontextmenü wie bei
     // java projekten, ps: plz stil beibehalten setter dann getter
-    // TODO validierung feldlänge , numerical etc.
 
     public function setID($ID) {
         $this->ID = $ID;
     }
 
-    public function setEmail($email) {//TODO hier muss ein fehler sein
+    public function setEmail($email) {
         $this->email = $email;
-      /*  if (!preg_match("/^[A-Z0-9._%+-ÄÖÜäöü]+@[A-Z0-9.-ÄÖÜäöü]+\.[A-Z]{2,6}$/i", $email)) {
+        if (!preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $email)) {
             $this->email = $email;
         } else {
             throw new FFSException(Config::wrongEmail());
-        }*/
+        }
     }
 
     public function setPassword($password) {
