@@ -35,31 +35,31 @@
                             <tr>
                                 <div>
                                     <td>Name: </td>
-                                    <td><input type ="text" name="lastname" id="lastname" value="<?php echo $lastname ?>"></td>
+                                    <td><input type ="text" name="lastname" id="lastname"></td>
                                 </div>
                                 <div>
                                     <td>Vorname: </td>
-                                    <td><input type ="text" name="firstname" id="firstname" value="<?php echo $firstname ?>"></td>
+                                    <td><input type ="text" name="firstname" id="firstname"></td>
                                 </div>
                             </tr>
                             <tr>
                                 <div>
                                     <td>E-Mail: </td>
-                                    <td><input type ="text" name ="email" id="email" value="<?php echo $email ?>"></td>
+                                    <td><input type ="text" name ="email" id="email" value="@ff-riegelsberg.de"></td>
                                 </div>
                                 <div>
                                     <td>Geburtsdatum: </td>
-                                    <td><input type ="text" name="bday" id="bday" value="<?php echo $bday ?>"></td>
+                                    <td><input type ="text" name="bday" id="bday" value="1900-12-31"></td>
                                 </div>
                             </tr>
                             <tr>
                                 <div>
                                     <td>Passwort: </td>
-                                    <td><input type ="password" name ="password" id="user_password" value="<?php echo $password ?>"></td>
+                                    <td><input type ="password" name ="password" id="user_password"></td>
                                 </div>
                             <div>
                                 <td>Passwort bestätigen:
-                                <td><input type ="password" name="password_confirm" id="password_confirm" value="<?php echo $password ?>"></td>
+                                <td><input type ="password" name="password_confirm" id="password_confirm"></td>
                             </div>
                             </tr>
                             <tr>
@@ -74,9 +74,10 @@
                             </tr>
                              <tr>
                                     <td>Atemschutzgeräteträger: </td>
-                                    <td>
-                                         ja <input type="radio" value="1" name="AGT" id="AGTyes">
-                                         nein <input type="radio" value="0" name="AGT" id="AGTno">
+                                    <td><select name="AGT" id="AGT">
+                                            <option value='1'>ja</option>
+                                            <option value='0'>nein</option>
+                                        </select>
                                     </td>
                                 <td>Löschbezirk:</td>
                                 <td>
