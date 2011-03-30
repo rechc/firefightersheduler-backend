@@ -4,9 +4,9 @@
     $user = SessionHelper::getCurrentUser();
     if (!empty ($user)){
         if (!($user->is_agw()) & !($user->is_admin())) {
-                header ("Location:" .PATH_BASIS. "View/wrongAuthorization.php");
+                header ("Location: ../View/wrongAuthorization.php");
         }
     } else{
-        header ("Location:" .PATH_BASIS. "View/wrongAuthorization.php");
+        header ("Location: ../View/wrongAuthorization.php");
     }
 ?>
