@@ -18,6 +18,9 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
         $email = $user->getEmail();
         $bday = $user->getGebDat();
         $password = $user->getPassword();
+        $AGT = $user->getAgt();
+        $rolle = $user->getRollen_ID();
+        $lbz = $user->getLbz_ID();
     }
     ?>
 
@@ -53,21 +56,21 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
                     <td>Rolle:</td>
                     <td>
                         <?php
-                        echo NewUser::createRolleView();
+                        echo NewUser::createRolleView($rolle);
                         ?>
                     </td>
                 </tr>
                 <tr>
                     <td>Atemschutzgeräteträger: </td>
                     <td><select name="AGT" id="AGT">
-                            <option value='1'>ja</option>
-                            <option value='0'>nein</option>
+                            <option value='1' <?php if ($AGT == true) echo "selected" ?>>ja</option>
+                            <option value='0' <?php if ($AGT == false) echo "selected" ?>>nein</option>
                         </select>
                     </td>
                     <td>Löschbezirk:</td>
                     <td>
                         <?php
-                        echo NewUser::createLBZView();
+                        echo NewUser::createLBZView($lbz);
                         ?>
                     </td>
                 </tr>
