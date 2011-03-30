@@ -2,6 +2,7 @@
     include_once '../global.inc.php';
     require_once (PATH_BASIS .'/Controller/Authentification/checkuser.php');
     require_once (PATH_BASIS . '/Controller/UserView/PersonalList.php');
+    require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
     require_once (PATH_BASIS . '/Model/G26.php');
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
