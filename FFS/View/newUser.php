@@ -7,12 +7,6 @@
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
     <div id="content">
-        <html>
-            <head>
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                <title>FFS Benutzer</title>
-                <link rel="stylesheet" type="text/css" href="css/users.css" />
-                <script src="../Controller/JavaScript/checkform.js" type="text/javascript"></script>
                 <?php
                    $email = "@ff-riegelsberg.de";
                    $bday = "1900-12-31";
