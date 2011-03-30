@@ -399,7 +399,7 @@ class User {
         $usr = User::get_user_by_email($email);
 
         try {
-            $newpw = HelpFunctions::generate_string(rand(7, 11));
+            $newpw = HelpFunctions::generate_string(4);
             $name = $usr->getVorname() . " " . $usr->getName();
             $message = Config::newPasswordText($name, $newpw);
             $usr->setPassword($newpw);
