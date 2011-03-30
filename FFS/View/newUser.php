@@ -11,7 +11,7 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
     <?php
     $email = "@ff-riegelsberg.de";
     $bday = "1900-12-31";
-    $user_rolle = SessionHelper::getCurrentUser()->getRollen_ID();
+    $rolle = 10;
     if (isset($_REQUEST["uid"])) {
         $uid = $_REQUEST["uid"];
         $user = User::get_user($uid);
@@ -60,7 +60,7 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
                     <td>Rolle:</td>
                     <td>
                         <?php
-                        echo NewUser::createRolleView($user_rolle);
+                        echo NewUser::createRolleView($rolle);
                         ?>
                     </td>
                 </tr>
