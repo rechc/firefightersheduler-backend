@@ -14,31 +14,15 @@ require_once PATH_BASIS . '/Model/Einsatz.php';
 require_once PATH_BASIS . '/Model/Uebung.php';
 require_once PATH_BASIS . '/Model/Strecke.php';
 require_once PATH_BASIS . '/Model/Unterweisung.php';
+require_once PATH_BASIS . '/Controller/addData/AddData.php';
 
 $date = $_POST['datum'];
 $city = $_POST['ort'];
 $uid_array = $_POST['checkedUsers'];
-
-if (isset($_POST['checkedUsers'])) {
-    foreach ($_POST['checkedUsers'] as $v) {
-        print " $v\n";
-    }
-} else {
-    //falls kein array tue irgendwas oder nix
-}
-
 $dataselection = $_POST['auswahl'];
-?>
-<html>
-    datum: <?php echo $date ?> <br>
-    city: <?php echo $city ?> <br>
-    check: <?php echo $uid_array ?> <br>
-    selection: <?php echo $dataselection ?>
-</html>
-<?php
 
-//$createData = new CreateData($dataselection, $date, $city, $user_array);
-//$createData->addUsers($user_array);
+$createData = new CreateData($dataselection, $date, $city, $user_array);
+$createData->addUsers($uid_array);
 
 class CreateData {
 
@@ -71,9 +55,9 @@ class CreateData {
         $this->ID = $data->getID();
     }
 
-    public function addUsers($user_array, $id) {
+    public function addUsers($uid_array) {
         foreach ($uid_array as $uid) {
-            AddData::addUserConnection($this->selection, "create", $this->id, $uid);
+            AddData::addUserConnection($this->selection, "create", $this->ID, $uid);
         }
     }
 
