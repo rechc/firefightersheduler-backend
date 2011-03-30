@@ -81,7 +81,7 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
                                 echo "<input type='submit' value='hinzufügen' name='ok' id='ok'>";
                             }
                             ?>
-                            <input type="button" value="checkform" name="delete" id="checkform" onclick="checkdata()">
+                            <input type="button" value="checkform" name="delete" id="checkform" onclick="javascript: checkdata();">
                             <input type ="reset" value="abbrechen" name="reset" id="reset" onClick="document.location.href='userOverview.php'">
                         </div>
                     </td>
