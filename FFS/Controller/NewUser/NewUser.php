@@ -12,16 +12,28 @@ class NewUser {
      * Prüft die Berechtigung eines Benutzers
      * und gebt je nach Recht eine generierte Rollenansicht zurück
      */
-    public static function createRolleView() {
+    public static function createRolleView($rolle) {
         $output = "";
         if (SessionHelper::isAGW()) {
             $output .= "<input type ='text' style='background-color:lightgray;' readonly name ='rolle' id='rolle' value='Nutzer (10)'>";
         }
         elseif (SessionHelper::isAdmin()) {
             $output .= "<select name='rolle' id='rolle'>";
-                $output .= "<option value='10'>Nutzer (10)</option>";
-                $output .= "<option value='40'>AGW (40)</option>";
-                $output .= "<option value='50'>Administrator (50)</option>";
+                if ($rolle == 10) {
+                    $output .= "<option value='10' selected>Nutzer (10)</option>";
+                    $output .= "<option value='40'>AGW (40)</option>";
+                    $output .= "<option value='50'>Administrator (50)</option>";
+                } else if ($rolle == 40){
+                    $output .= "<option value='10'>Nutzer (10)</option>";
+                    $output .= "<option value='40' selected>AGW (40)</option>";
+                    $output .= "<option value='50'>Administrator (50)</option>";
+                } else if ($rolle == 50){
+                    $output .= "<option value='10'>Nutzer (10)</option>";
+                    $output .= "<option value='40'>AGW (40)</option>";
+                    $output .= "<option value='50' selected>Administrator (50)</option>";
+                } else {
+                    $output .= "<option value='10'>Nutzer (10)</option>";
+                }      
             $output .= "</select>";
         }
         return $output;
@@ -30,7 +42,7 @@ class NewUser {
     /**
      * Liest aus Datenbank alle Leitbezirke und generiert Ansicht
      */
-    public static function createLBZView(){
+    public static function createLBZView($lbz){
         $sql = "SELECT ID, name FROM lbz";
         $dbConnector = DbConnector::getInstance();
         $result = $dbConnector->execute_sql($sql);
