@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -9,18 +9,25 @@
  *
  * @author christian
  */
-
 include_once '../../global.inc.php';
-require_once PATH_BASIS .'/Model/Einsatz.php';
-require_once PATH_BASIS .'/Model/Uebung.php';
-require_once PATH_BASIS .'/Model/Strecke.php';
-require_once PATH_BASIS .'/Model/Unterweisung.php';
+require_once PATH_BASIS . '/Model/Einsatz.php';
+require_once PATH_BASIS . '/Model/Uebung.php';
+require_once PATH_BASIS . '/Model/Strecke.php';
+require_once PATH_BASIS . '/Model/Unterweisung.php';
 
 $date = $_POST['datum'];
 $city = $_POST['ort'];
-$uid_array = $POST['checkedUsers'];
-$dataselection  = $_POST['auswahl'];
+$uid_array = $_POST['checkedUsers'];
 
+if (isset($_POST['checkedUsers'])) {
+    foreach ($_POST['checkedUsers'] as $v) {
+        print " $v\n";
+    }
+} else {
+    //falls kein array tue irgendwas oder nix
+}
+
+$dataselection = $_POST['auswahl'];
 ?>
 <html>
     datum: <?php echo $date ?> <br>
@@ -30,10 +37,11 @@ $dataselection  = $_POST['auswahl'];
 </html>
 <?php
 
-$createData = new CreateData($dataselection, $date, $city, $user_array);
-$createData->addUsers($user_array);
+//$createData = new CreateData($dataselection, $date, $city, $user_array);
+//$createData->addUsers($user_array);
 
 class CreateData {
+
     private $ID;
     private $selection;
 
@@ -63,11 +71,11 @@ class CreateData {
         $this->ID = $data->getID();
     }
 
-    public function addUsers($user_array, $id){
+    public function addUsers($user_array, $id) {
         foreach ($uid_array as $uid) {
             AddData::addUserConnection($this->selection, "create", $this->id, $uid);
         }
     }
-    
+
 }
 ?>

@@ -20,8 +20,8 @@ class UserChecklist {
         $output = "";
 
         foreach ($user_array as $user) {
-            $output .= "<input type='checkbox' name='checkedUsers[]' value='". $user->getID() . "'>" .  $user->getName() . ", " . $user->getVorname() . "</option>";
-            $output .= "<br/>";
+            $output .= "<input type='checkbox' name='checkedUsers[]' value='". $user->getID() . "'>" .  $user->getName() . ", " . $user->getVorname();
+            $output .= "<br> \n";
         }
         return $output;
     }
