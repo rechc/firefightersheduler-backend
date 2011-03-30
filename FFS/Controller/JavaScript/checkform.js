@@ -3,7 +3,7 @@
       var re_string = /^([a-zA-Z-]+\s)*[a-zA-Z-]+$/;
 //      var re_telefon = /^[0-9]+$/;
 //      var re_strasse = /^([a-zA-Z0-9-\.]+\s)+[a-zA-Z0-9-]*$/;
-      var re_integer = /^[0-9]+$/;
+      var re_integer = /^[0-9]+$/; //positiv ! kann mach auch testen mit numeric
 
 //<<Initialisierung der Kontrollwerte>>
       string_checked = new Array();
@@ -16,6 +16,7 @@
 //      var all_tel_check = 0;
 
       function checkdata(){
+          alert("starte check data")
             var send = true;
             for (j = 0; j <= document.sendform.string.length; j++) {
               string_checked[j] = 0;
