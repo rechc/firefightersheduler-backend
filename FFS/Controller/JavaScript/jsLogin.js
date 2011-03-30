@@ -4,5 +4,5 @@ function register(){
 }
 
 function password(){
-    alert("not yet supported");
+    alert("TODO implement");
 }

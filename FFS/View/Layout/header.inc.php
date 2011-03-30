@@ -4,9 +4,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="CSS/style.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Feuerwehr Riegelsberg - Atemschutzverwaltung</title>
-    <script type="text/javascript" src="../Controller/JavaScript/jsDeleteUser.js"></script>
     <script type="text/javascript" src="../Controller/JavaScript/jsLogin.js"></script>
-    <script src="../Controller/JavaScript/checkform.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Controller/JavaScript/checkform.js"></script>
 </head>
  <body>
  <div id="maincontainer">
