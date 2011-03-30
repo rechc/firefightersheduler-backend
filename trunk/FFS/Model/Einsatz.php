@@ -144,7 +144,7 @@ class Einsatz {
      * @param <type> $userID 
      */
     public function del_user_connection($userID) {
-        $sql = "DELETE FROM r_streckeUser WHERE streck_ID = '$this->ID' AND user_ID ='$userID';";
+        $sql = "DELETE FROM r_einsatzUser WHERE einsatz_ID = '$this->ID' AND user_ID ='$userID';";
         $dbConnector = DbConnector::getInstance();
         $result = $dbConnector->execute_sql($sql);
     }

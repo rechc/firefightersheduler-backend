@@ -16,37 +16,43 @@ require_once PATH_BASIS .'/Model/Uebung.php';
 require_once PATH_BASIS .'/Model/Strecke.php';
 require_once PATH_BASIS .'/Model/Unterweisung.php';
 
-$user_array = $POST['checkedUsers'];
 $date = $_POST['datum'];
 $city = $_POST['ort'];
+$uid_array = $POST['checkedUsers'];
 $dataselection  = $_POST['auswahl'];
 
 ?>
 <html>
-    check: <?php echo $user_array ?>
+    datum: <?php echo $date ?> <br>
+    city: <?php echo $city ?> <br>
+    check: <?php echo $uid_array ?> <br>
+    selection: <?php echo $dateselection ?>
 </html>
 <?php
 
-//$createData = new CreateData($dataselection, $date, $city, $user_array);
+$createData = new CreateData($dataselection, $date, $city, $user_array);
+$createData->addUsers($user_array);
 
 class CreateData {
+    private $ID;
+    private $selection;
 
-    public function __construct($dataselection, $date, $city, $user_array) {
+    public function __construct($dataselection, $date, $city) {
         switch ($dataselection) {
             case 'Einsatz':
-                $selction = "addUserToEinsatz";
+                $this->selection = "addUserToEinsatz";
                 $data = new Einsatz();
                 break;
             case 'Uebung':
-                $selction = "addUserToUebung";
+                $this->selection = "addUserToUebung";
                 $data = new Uebung();
                 break;
             case 'Strecke':
-                $selction = "addUserToStrecke";
+                $this->selection = "addUserToStrecke";
                 $data = new Strecke();
                 break;
             case 'Unterweisung':
-                $selction = "addUserToUnterweisung";
+                $this->selection = "addUserToUnterweisung";
                 $data = new Unterweisung();
                 break;
         }
@@ -54,12 +60,12 @@ class CreateData {
         $data->setDatum($date);
         $data->setOrt($city);
         $data->create_db_entry();
-        $this->addUsers($user_array, $selction, $data->getID());
+        $this->ID = $data->getID();
     }
 
-    public function addUsers($user_array, $selction, $id){
-        foreach ($user_array as $user) {
-            AddData::addUserConnection($selection, "create", $id, $user->getID());
+    public function addUsers($user_array, $id){
+        foreach ($uid_array as $uid) {
+            AddData::addUserConnection($this->selection, "create", $this->id, $uid);
         }
     }
     
