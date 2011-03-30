@@ -1,4 +1,7 @@
 <?php
+    /**
+     * Dient zum Logout eines Benutzers
+     */
     // Wird ausgeführt um mit der Ausgabe des Headers zu warten.
     ob_start ();
 

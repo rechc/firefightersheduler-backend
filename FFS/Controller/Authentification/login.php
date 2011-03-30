@@ -1,4 +1,7 @@
 <?php
+/**
+ * Erstellt eine neue User-Session
+ */
     session_start ();
     session_unset ();
     session_destroy ();    

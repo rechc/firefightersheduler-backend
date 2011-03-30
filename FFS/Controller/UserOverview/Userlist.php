@@ -1,21 +1,21 @@
 <?php
+/**
+ * Wird von userOverview.php als Hilfsklasse verwendet
+ * Erstellt die Ansicht einer Tabelle mit allen Benutzern
+ * und einem Überblick ihrer Daten
+ */
 
 require_once(PATH_BASIS . '/Model/AllUser.php');
 
-/**
- * @author Christian Rech
- */
 class Userlist {
 
-    /**
-     * Standard Konstruktor
+    public function __construct() { }
+
+    /*
+     * Erstellt Tabelle mit allen Benutzern
+     * und übersicht derer Daten
      */
-    public function __construct() {
-
-    }
-
     public static function getUserTable() {
-
         $user_array = AllUser::get_userarray_for_manager_view();
         $output = "";
 
