@@ -18,6 +18,8 @@ $createData = new CreateData($dataselection, $date, $city);
 if(isset ($_POST['checkedUsers'])){
     $uid_array = $_POST['checkedUsers'];
     $createData->addUsers($uid_array);
+}else{
+     header("Location: ../../View/viewUser.php");
 }
 
 class CreateData {
