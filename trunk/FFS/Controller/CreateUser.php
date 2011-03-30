@@ -40,7 +40,10 @@ CreateUser::createNewUser($uid, $firstname,$lastname,$email,$bday,$password, $ag
 
         if (empty ($uid))
             $user->create_db_entry();
-        //TODO Prüfen ob änderungen an User in DB geschrieben werden. Methode zum schreiben in user???
+        else{
+            $user->save_without_pw ();
+            $user->save_pw();
+        }
 
         header("Location: ../View/userOverview.php");
      }
