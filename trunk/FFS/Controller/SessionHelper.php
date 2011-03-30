@@ -1,12 +1,9 @@
 <?php
-
+/**
+ * 
+ */
 require_once (PATH_BASIS . '/Model/User.php');
 
-/**
- * Description of SessionHelper
- *
- * @author awagen, christian
- */
 class SessionHelper {
 
     /**
@@ -25,8 +22,7 @@ class SessionHelper {
     }
 
     /**
-     *
-     * @return <type> 
+     *  Liefert aktuellen Benutzernamen
      */
     public static function getCurrentUserName() {
         $output.= $_SESSION["user_vorname"];
@@ -35,6 +31,9 @@ class SessionHelper {
         return $output;
     }
 
+    /**
+     * Prüft ob Benutzer Admin oder AGW ist
+     */
     public static function isAdminOrAGW(){
         $user = SessionHelper::getCurrentUser();
         if (empty ($user)){
@@ -47,6 +46,9 @@ class SessionHelper {
         }
     }
 
+    /**
+     * Prüft ob aktueller Benutzer Admin ist
+     */
     public static function isAdmin(){
         $user = SessionHelper::getCurrentUser();
         if (empty ($user))
@@ -58,6 +60,9 @@ class SessionHelper {
          return false;
     }
 
+    /*
+     * Prüft ob aktueller Benutzer AGW ist
+     */
     public static function isAGW(){
         $user = SessionHelper::getCurrentUser();
         if (empty ($user))
@@ -70,6 +75,9 @@ class SessionHelper {
          }
     }
 
+    /**
+     * Prüft ob Benutzer eingeloggt ist
+     */
     public static function  isLoggedIn(){
         $current_uid = $_SESSION["user_id"];
         if (empty($current_uid))  //TODO is:set??

@@ -1,8 +1,17 @@
 <?php
+/**
+ * Dient als Hilfsklasse von newUser.php
+ * Erstellt Rollenansicht und/oder Leitbezirk Ansicht
+ */
+
 require_once(PATH_BASIS . '/Model/DbConnector.php');
 
 class NewUser {
 
+    /**
+     * Prüft die Berechtigung eines Benutzers
+     * und gebt je nach Recht eine generierte Rollenansicht zurück
+     */
     public static function createRolleView() {
         $output = "";
         if (SessionHelper::isAGW()) {
@@ -18,6 +27,9 @@ class NewUser {
         return $output;
     }
 
+    /**
+     * Liest aus Datenbank alle Leitbezirke und generiert Ansicht
+     */
     public static function createLBZView(){
         $sql = "SELECT ID, name FROM lbz";
         $dbConnector = DbConnector::getInstance();

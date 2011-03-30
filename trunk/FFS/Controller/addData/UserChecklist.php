@@ -1,21 +1,13 @@
 <?php
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of UserSelectList
- *
- * @author christian
+/*
+ * Dient als Hilfsklasse von addData.php
+ * Erstellt eine Ansicht mit Checkbox pro Benutzer
  */
 require_once(PATH_BASIS . '/Model/AllUser.php');
-
 
 class UserChecklist {
 
    public static function getUserSelectList() {
-
         $user_array = AllUser::get_userarray_for_manager_view();
         $output = "";
 
