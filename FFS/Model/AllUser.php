@@ -15,7 +15,7 @@
      * @return User-ArrayObject
      */
      public static function get_userarray_for_manager_view(){
-         $sql = "SELECT ID FROM user ORDER BY name, vorname"; // WHERE agt=1"; // TODO später fixen
+         $sql = "SELECT ID FROM user ORDER BY name, vorname"; 
 
          $dbConnector = DbConnector::getInstance();
          $result = $dbConnector->execute_sql($sql);
