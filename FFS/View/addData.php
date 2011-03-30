@@ -22,31 +22,31 @@
                     <tfoot></tfoot>
                     <tbody>
                         <form action="../Controller/addData/CreateData.php" method="post">
-                        <tr>
-                            <td><select name="auswahl">
-                                    <option value="Einsatz">Einsatz</option>
-                                    <option value="Uebung">Einsatz&uuml;bung</option>
-                                    <option value="Strecke">Belastungstrecke</option>
-                                    <option value="Unterweisung">Unterweisung</option>
-                                </select>
-                            </td>
-                            <td><input type="text" name="datum"></td>
-                            <td><input type="text" name="ort"></td>
-                            <td><input type="submit" value="hinzuf&uuml;gen"></td>
-                        </tr>
-                        <tr>
-                            <td colspan=4>
-                                Wählen Sie hier die Teilnehmer:
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan=4>
-                                <?php
-                                $userSelectList = UserChecklist::getUserSelectList();
-                                echo $userSelectList;
-                                ?>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><select name="auswahl">
+                                        <option value="Einsatz">Einsatz</option>
+                                        <option value="Uebung">Einsatz&uuml;bung</option>
+                                        <option value="Strecke">Belastungstrecke</option>
+                                        <option value="Unterweisung">Unterweisung</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" name="datum"></td>
+                                <td><input type="text" name="ort"></td>
+                                <td><input type="submit" value="hinzuf&uuml;gen"></td>
+                            </tr>
+                            <tr>
+                                <td colspan=4>
+                                    Wählen Sie hier die Teilnehmer:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan=4>
+                                    <?php
+                                    $userSelectList = UserChecklist::getUserSelectList();
+                                    echo $userSelectList;
+                                    ?>
+                                </td>
+                            </tr>
                         </form>
                     </tbody>
                 </table>
