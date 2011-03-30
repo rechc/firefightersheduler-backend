@@ -11,15 +11,38 @@ $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $email = $_POST['email'];
 $bday = $_POST['bday'];
-$password = $_POST['password'];
+$password = $_POST['user_password'];
 $confirm_password = $_POST['password_confirm'];
 $rolle = $_POST['rolle'];
 $lbz = $_POST['lbz'];
 $agt = $_POST['AGT'];
 
-CreateUser::createNewUser($uid, $firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
+
+    $correctEntry = CreateUser::checkEntry($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
+    if ($correctEntry == "correct")
+         CreateUser::createNewUser($uid, $firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
+    else
+          header("Location: ../View/newUser.php?fehler=" . $correctEntry);
+//        die ("Folgende Eingabe ist nicht korrekt: " . $correctEntry)
 
  class CreateUser{
+
+     /*
+      * Prüft ob alle Pflichtfelder ausgefüllt sind
+      */
+    public static function checkEntry($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle){
+          if (empty ($firstname)){
+            return "Vorname";
+        } elseif (empty ($lastname)) {
+            return "Nachname";
+        } elseif (empty ($email)) {
+            return "E-Mail";
+        } elseif (empty ($bday)) {
+            return "Geburtsdatum";
+        } else {
+            return "correct";
+        }
+    }
 
      /*
       * Erstellt oder ändert einen Benutzer
@@ -45,7 +68,7 @@ CreateUser::createNewUser($uid, $firstname,$lastname,$email,$bday,$password, $ag
             $user->save_pw();
         }
 
-        header("Location: ../View/userOverview.php");
+        header("Location: ../View/userOverview.php?created=true");
      }
 
  }
