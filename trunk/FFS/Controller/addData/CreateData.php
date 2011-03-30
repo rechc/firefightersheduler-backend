@@ -33,7 +33,7 @@ $dataselection = $_POST['auswahl'];
     datum: <?php echo $date ?> <br>
     city: <?php echo $city ?> <br>
     check: <?php echo $uid_array ?> <br>
-    selection: <?php echo $dateselection ?>
+    selection: <?php echo $dataselection ?>
 </html>
 <?php
 
