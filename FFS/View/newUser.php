@@ -1,6 +1,7 @@
 <?php
 include_once '../global.inc.php';
 require_once PATH_BASIS . '/Controller/Authentification/checkuser.php';
+require_once PATH_BASIS . '/Controller/SessionHelper.php';
 require_once PATH_BASIS . '/Controller/Authentification/authorizationCheck.php';
 require_once PATH_BASIS . '/Controller/NewUser/NewUser.php';
 include (PATH_BASIS . '/View/Layout/header.inc.php');
@@ -10,6 +11,7 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
     <?php
     $email = "@ff-riegelsberg.de";
     $bday = "1900-12-31";
+    $user_rolle = SessionHelper::getCurrentUser()->getRollen_ID();
     if (isset($_REQUEST["uid"])) {
         $uid = $_REQUEST["uid"];
         $user = User::get_user($uid);
@@ -21,6 +23,8 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
         $AGT = $user->getAgt();
         $rolle = $user->getRollen_ID();
         $lbz = $user->getLbz_ID();
+    } else if (isset($_REQUEST["fehler"])){
+        echo "Sie haben nicht alle Pflichtfelder ausgefüllt. Fehler in " . $_REQUEST["fehler"];
     }
     ?>
 
@@ -31,24 +35,24 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
             <table border="0">
                 <tr>
                     <td>Name: </td>
-                    <td><input type ="text" name="lastname" id="lastname" value="<?php echo $lastname ?>"></td>
+                    <td><input onchange="lastnameCheck()" type ="text" name="lastname" id="lastname" value="<?php echo $lastname ?>"></td>
 
                     <td>Vorname: </td>
-                    <td><input type ="text" name="firstname" id="firstname" value="<?php echo $firstname ?>">
+                    <td><input onchange="firstnameCheck()" type ="text" name="firstname" id="firstname" value="<?php echo $firstname ?>">
                 </tr>
                 <tr>
                     <td>E-Mail: </td>
-                    <td><input type ="text" name ="email" id="email" value="<?php echo $email ?>"></td>
+                    <td><input onchange="emailCheck()" type ="text" name ="email" id="email" value="<?php echo $email ?>"></td>
 
                     <td>Geburtsdatum: </td>
-                    <td><input type ="text" name="bday" id="bday" value="<?php echo $bday ?>"></td>
+                    <td><input onchange="bdateCheck()" type ="text" name="bday" id="bday" value="<?php echo $bday ?>"></td>
                 </tr>
                 <tr>
                     <td>Passwort: </td>
-                    <td><input type ="password" name ="password" id="user_password" value="<?php echo $password ?>"></td>
+                    <td><input type ="password" name ="user_password" id="user_password" value="<?php echo $password ?>"></td>
 
                     <td>Passwort bestätigen:
-                    <td><input type ="password" name="password_confirm" id="password_confirm" value="<?php echo $password ?>"></td>
+                    <td><input onchange="passwordCheck()" type ="password" name="password_confirm" id="password_confirm" value="<?php echo $password ?>"></td>
                 </tr>
                 <tr>
                     <td> UID: </td>
@@ -56,7 +60,7 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
                     <td>Rolle:</td>
                     <td>
                         <?php
-                        echo NewUser::createRolleView($rolle);
+                        echo NewUser::createRolleView($user_rolle);
                         ?>
                     </td>
                 </tr>
@@ -84,7 +88,7 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
                                 echo "<input type='submit' value='hinzufügen' name='ok' id='ok'>";
                             }
                             ?>
-                            <input type="button" value="checkform" name="delete" id="checkform" onclick="javascript: checkdata();">
+<!--                            <input type="button" value="checkform" name="delete" id="checkform" onclick="javascript: checkdata();">-->
                             <input type ="reset" value="abbrechen" name="reset" id="reset" onClick="document.location.href='userOverview.php'">
                         </div>
                     </td>
