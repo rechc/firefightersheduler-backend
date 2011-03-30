@@ -19,11 +19,11 @@ class NewUser {
     }
 
     public static function createLBZView(){
-        $sql = "SELECT name FROM lbz";
+        $sql = "SELECT ID, name FROM lbz";
         $dbConnector = DbConnector::getInstance();
         $result = $dbConnector->execute_sql($sql);
 
-        $output = "<select ID, name='lbz' id='lbz'>";
+        $output = "<select name='lbz' id='lbz'>";
         while($data = mysql_fetch_array($result)){
             $output .= "<option value='". $data['ID'] ."'>". $data['name'] ."</option>";
         }

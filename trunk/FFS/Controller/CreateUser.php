@@ -7,7 +7,7 @@
  */
 include_once '../global.inc.php';
 require_once PATH_BASIS . '/Model/User.php';
-require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
+//require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
 
     $uid = $_POST['uid'];
     $firstname = $_POST['firstname'];
@@ -18,31 +18,31 @@ require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
     $confirm_password = $_POST['password_confirm'];
     $rolle = $_POST['rolle'];
     $lbz = $_POST['lbz'];
-    $agt = $POST['AGT'];
+    $agt = $_POST['AGT'];
 
-    $correctEntry = CreateUser::checkEntry($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
-    if (correctEntry == true)
+//    $correctEntry = CreateUser::checkEntry($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
+//    if (correctEntry == true)
          CreateUser::createNewUser($uid, $firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
-    else
-          header("Location: ../View/userOverview.php?fehler=" . $correctEntry);
+//    else
+//          header("Location: ../View/userOverview.php?fehler=" . $correctEntry);
 //        die ("Folgende Eingabe ist nicht korrekt: " . $correctEntry);
 
 
  class CreateUser{
-
-    public static function checkEntry($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle){
-          if (empty ($firstname)){
-            return "Vorname";
-        } elseif (empty ($lastname)) {
-            return "Nachname";
-        } elseif (empty ($email)) {
-            return "E-Mail";
-        } elseif (empty ($bday)) {
-            return "Geburtsdatum";
-        } else {
-            return true;
-        }
-    }
+//TODO löschen wenn JavaScript check fertig ist
+//    public static function checkEntry($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle){
+//          if (empty ($firstname)){
+//            return "Vorname";
+//        } elseif (empty ($lastname)) {
+//            return "Nachname";
+//        } elseif (empty ($email)) {
+//            return "E-Mail";
+//        } elseif (empty ($bday)) {
+//            return "Geburtsdatum";
+//        } else {
+//            return true;
+//        }
+//    }
 
     
     public static function createNewUser($uid, $firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle){
@@ -55,9 +55,9 @@ require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
         $user->setEmail($email);
         $user->setGebDat($bday);
         $user->setPassword($password);
-        $user->setAgt(1);  //TODO $agt geht nicht
+        $user->setAgt($agt);
         $user->setRollen_ID($rolle);
-        $user->setLbz_ID(1); //TODO $lbz geht nicht
+        $user->setLbz_ID($lbz); //TODO $lbz geht nicht
 
         if (empty ($uid))
             $user->create_db_entry();
