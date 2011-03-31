@@ -10,5 +10,5 @@
  <body>
  <div id="maincontainer">
     <div id="header" >
-        <div id="branding" class="left"  style="cursor: pointer;"></div>
+        <div id="branding" class="left" onclick="location.href='http://www.feuerwehr-saar.de';" style="cursor: pointer;"></div>
     </div>
