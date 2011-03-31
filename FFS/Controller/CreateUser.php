@@ -11,14 +11,14 @@ $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $email = $_POST['email'];
 $bday = $_POST['bday'];
-$password = $_POST['user_password'];
+$password = "9999";     //$_POST['user_password'];
 $confirm_password = $_POST['password_confirm'];
 $rolle = $_POST['rolle'];
 $lbz = $_POST['lbz'];
 $agt = $_POST['AGT'];
 
 
-    $correctEntry = CreateUser::checkEntry($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
+    $correctEntry = CreateUser::checkEntry($firstname,$lastname,$email,$bday);
     if ($correctEntry == "correct")
          CreateUser::createNewUser($uid, $firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle);
     else
@@ -30,7 +30,7 @@ $agt = $_POST['AGT'];
      /*
       * Prüft ob alle Pflichtfelder ausgefüllt sind
       */
-    public static function checkEntry($firstname,$lastname,$email,$bday,$password, $agt, $lbz, $rolle){
+    public static function checkEntry($firstname,$lastname,$email,$bday){
           if (empty ($firstname)){
             return "Vorname";
         } elseif (empty ($lastname)) {
@@ -61,11 +61,11 @@ $agt = $_POST['AGT'];
         $user->setRollen_ID($rolle);
         $user->setLbz_ID($lbz);
 
-        if (empty ($uid))
+        if (empty ($uid)){
             $user->create_db_entry();
-        else{
+//            $user->generate_and_send_new_password($email); //TODO Im Aktivbetrieb Kommentar raus holen
+        }else{
             $user->save_without_pw ();
-            $user->save_pw();
         }
 
         header("Location: ../View/userOverview.php?created=true");

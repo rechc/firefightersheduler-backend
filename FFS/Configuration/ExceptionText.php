@@ -1,14 +1,6 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of ExceptionText
- *
- * @author awagen
+ * Hier werden die Fehlertexte gespeichert
  */
 class ExceptionText {
 

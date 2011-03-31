@@ -1,4 +1,7 @@
 <?php
+/*
+ * Klasse dient dazu um eine Verbindung zwischen User und Einsatz,Streck,Uebung oder Unterweisung
+ */
 include_once '../../global.inc.php';
 require_once PATH_BASIS .'/Model/Strecke.php';
 require_once PATH_BASIS .'/Model/Einsatz.php';

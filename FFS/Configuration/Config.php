@@ -1,24 +1,8 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of Config
- *
- * @author awagen
- * @version beta
+ * Configdatei welche allgemeine Parameter speichert
  */
 class Config {
-
-    //put your code here
-
-    public static function xx() {
-
-    }
-
     // --------- Mailconfig ---------
 
     public static function emailSenderAdresseServer() {

@@ -1,6 +1,7 @@
 <?php
 /**
- * 
+ * Beinhaltet kleine Hilfsfunktionen welche zum Bestimmen
+ * des Benutzers und dessen Rechte dienen
  */
 require_once (PATH_BASIS . '/Model/User.php');
 
