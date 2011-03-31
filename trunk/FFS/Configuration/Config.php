@@ -60,8 +60,8 @@ class Config {
     }
 
     public static function newPasswordText($name, $pwd) {
-        return "Hallo " . $name . "\n Ihr neues Passwort lautet " . $pwd . "\n Bitte passen Sie das Passwort ihren wünschen neu an. \n
-            Mit freundlichen Grüßen \n ihr FFSScheduler-Team";
+        return "Hallo " . $name . "\n Dein neues Passwort lautet " . $pwd . "\n Dieses Passwort ist nur dir bekannt und kann nicht geändert werden \n
+            Mit freundlichen Grüßen \n Dein FFSScheduler-Team";
     }
 
     public static function newPasswordSubject() {
