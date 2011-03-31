@@ -213,7 +213,7 @@ class User {
         $pwmd5 = md5($this->password);
 
         $sql = "UPDATE user
-            SET password = '$pwmd5'
+            SET passwort = '$pwmd5'
             WHERE ID = '$this->ID'";
 
         $dbConnector = DbConnector::getInstance();
