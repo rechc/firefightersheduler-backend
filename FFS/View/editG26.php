@@ -74,7 +74,7 @@
                 <table>
                     <tr>
                         <td>Datum:</td>
-                        <td><input type="text" name="datum" value="<?php echo $datum ?>"></td>
+                        <td><input onchange="dateCheck('datum')" type="text" name="datum" value="<?php echo $datum ?>"></td>
                     </tr>
                     <tr>
                         <td>G&uuml;ltig bis:</td>
