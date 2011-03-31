@@ -6,6 +6,9 @@
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
     require_once (PATH_BASIS . '/Controller/SessionHelper.php');
 ?>
+<!-- viewUser.php ist die Startseite nach erfolgtem Login
+    ist der User nicht eingeloggt wird er über eine includierte Methode zum Loginfenster weitergeleitet
+-->
     <div id="content">
         <div><h3>
                 <?php
@@ -17,6 +20,7 @@
                     echo $user->getVorname()." ".$user->getName();
                 ?>
              </h3></div>
+        <!-- isAdminOrAGW ueberprueft ob der angemeldete Nutzer die Rechten hat die Links abgezeigt zu bekommen -->
         <?php
             if(SessionHelper::isAdminOrAGW())
                 echo "<div align='right'><a href='../Controller/DeleteUser.php?uid=". $uid ."' onclick=\"return (confirm('Möchten Sie den Benutzer wirklich löschen?'));\">Benutzer löschen<img alt='' src='images/delete.gif' width='16' height='16'></a></div>";
@@ -34,8 +38,8 @@
                     <th>Unterweisung</th>
                 </tr>
             </thead>
-<!--            <tfoot>&nbsp;</tfoot>-->
             <tbody>
+                <!-- getUserData($user) liefert eine Übersicht des Users-->
                 <?php
                     echo PersonalList::getUserData($user);
                 ?>
@@ -57,9 +61,9 @@
                     ?>
                 </tr>
             </thead>
-<!--            <tfoot></tfoot>-->
             <tbody>
                 <tr>
+                    <!-- getStammDaten($user) liefert die Stammdaten des Users-->
                     <?php
                         echo PersonalList::getStammDaten($user);
                     ?>
@@ -84,8 +88,8 @@
                     ?>
                 </tr>
             </thead>
-<!--            <tfoot></tfoot>-->
             <tbody>
+            <!-- getG26Table($user) liefert eine Tabelle mt G26 Daten des Users-->
                 <?php
                     echo PersonalList::getG26Table($user);
                 ?>
@@ -112,8 +116,8 @@
                     ?>
                 </tr>
             </thead>
-<!--            <tfoot></tfoot>-->
             <tbody>
+            <!-- getStreckeTable($user) liefert eine Tabelle mt Übungsstrecken des Users-->
                 <?php
                     echo PersonalList::getStreckeTable($user);
                 ?>
@@ -140,8 +144,8 @@
                     ?>
                 </tr>
             </thead>
-<!--            <tfoot></tfoot>-->
             <tbody>
+            <!-- getEinsatzTable($user) liefert eine Tabelle mt Einsätzen des Users-->
                 <?php
                     echo PersonalList::getEinsatzTable($user);
                 ?>
@@ -167,8 +171,8 @@
                     ?>
                 </tr>
             </thead>
-<!--            <tfoot></tfoot>-->
             <tbody>
+            <!-- getUebungTable($user) liefert eine Tabelle mt Einsatzübungen des Users-->
                 <?php
                     echo PersonalList::getUebungTable($user);
                 ?>
@@ -195,8 +199,8 @@
                     ?>
                 </tr>
             </thead>
-<!--            <tfoot></tfoot>-->
             <tbody>
+            <!-- getUnterweisungTable($user) liefert eine Tabelle mt Unterweisungen des Users-->
                 <?php
                     echo PersonalList::getUnterweisungTable($user);
                 ?>

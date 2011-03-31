@@ -1,12 +1,13 @@
 <?php
-include_once '../global.inc.php';
-require_once PATH_BASIS . '/Controller/Authentification/checkuser.php';
-require_once PATH_BASIS . '/Controller/SessionHelper.php';
-require_once PATH_BASIS . '/Controller/Authentification/authorizationCheck.php';
-require_once PATH_BASIS . '/Controller/NewUser/NewUser.php';
-include (PATH_BASIS . '/View/Layout/header.inc.php');
-include (PATH_BASIS . '/View/Layout/navi.inc.php');
+    include_once '../global.inc.php';
+    require_once PATH_BASIS . '/Controller/Authentification/checkuser.php';
+    require_once PATH_BASIS . '/Controller/SessionHelper.php';
+    require_once PATH_BASIS . '/Controller/Authentification/authorizationCheck.php';
+    require_once PATH_BASIS . '/Controller/NewUser/NewUser.php';
+    include (PATH_BASIS . '/View/Layout/header.inc.php');
+    include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
+
 <div id="content">
     <?php
     $email = "@ff-riegelsberg.de";
@@ -31,7 +32,6 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
     <h1>Benutzer erstellen </h1>
     <div id="userdata">
         <form id="editUser" name="sendform" action="../Controller/CreateUser.php" method="post">
-<!--                        Benutzer-ID: <input type ="text" name="id" id="id" value="" readonly>-->
             <table border="0">
                 <tr>
                     <td>Name: </td>
@@ -49,10 +49,10 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
                 </tr>
 <!--                <tr>
                     <td>Passwort: </td>
-                    <td><input type ="password" name ="user_password" id="user_password" value="<?php echo $password ?>"></td>
+                    <td><input type ="password" name ="user_password" id="user_password" value="<?php /* echo $password */ ?>"></td>
 
                     <td>Passwort bestätigen:
-                    <td><input onchange="passwordCheck()" type ="password" name="password_confirm" id="password_confirm" value="<?php echo $password ?>"></td>
+                    <td><input onchange="passwordCheck()" type ="password" name="password_confirm" id="password_confirm" value="<?php /* echo $password */ ?>"></td>
                 </tr>-->
                 <tr>
                     <td> UID: </td>
@@ -88,7 +88,6 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
                                 echo "<input type='submit' value='hinzufügen' name='ok' id='ok'>";
                             }
                             ?>
-<!--                            <input type="button" value="checkform" name="delete" id="checkform" onclick="javascript: checkdata();">-->
                             <input type ="reset" value="abbrechen" name="reset" id="reset" onClick="document.location.href='userOverview.php'">
                         </div>
                     </td>
