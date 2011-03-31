@@ -40,7 +40,6 @@
                     <p class="button">
                         <a href="JavaScript:register()">registrieren</a>
                         <a href="forgotPw.php">Passwort vergessen</a>
-                        <a href="../Trash/DBConnectionTest.php">user + password table (only for test)</a>
                     </p>
                 </div>
             </div>

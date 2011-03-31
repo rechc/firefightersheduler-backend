@@ -172,7 +172,7 @@ thead th {
         background: #666666;
 	height: 21px;
 	color: #FFFFFF;
-	font-size: 0.8em;
+	font-size: 1.1em;
 	font-family: Arial;
 	font-weight: bold;
 	padding: 0px 7px;
@@ -227,3 +227,4 @@ tfoot th, tfoot td {
 	color: #ffffff;
 	height: 21px;
 }
+img {border: none}
