@@ -18,27 +18,15 @@ function emailCheck(){
     }
 }
 
-function lastnameCheck(){
-    var name = document.getElementById("lastname").value;
-    if (name == "") {
+function stringCheck(stringtext){
+    var text = document.getElementById(stringtext).value;
+    if (text == "") {
         alert("leerer Text");
     }
     else
-    if (!name.match(re_string)) {
-        document.getElementById("lastname").value = "";
-        alert("Name ist nicht gültig");
-    }
-}
-
-function firstnameCheck(){
-    var name = document.getElementById("firstname").value;
-    if (name == "") {
-        alert("leerer Text");
-    }
-    else
-    if (!name.match(re_string)) {
-        document.getElementById("firstname").value = "";
-        alert("Vorname ist nicht gültig");
+    if (!text.match(re_string)) {
+        document.getElementById(stringtext).value = "";
+        alert("Text ist nicht gültig");
     }
 }
 

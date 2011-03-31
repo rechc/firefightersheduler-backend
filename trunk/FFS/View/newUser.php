@@ -35,10 +35,10 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
             <table border="0">
                 <tr>
                     <td>Name: </td>
-                    <td><input onchange="lastnameCheck()" type ="text" name="lastname" id="lastname" value="<?php echo $lastname ?>"></td>
+                    <td><input onchange="stringCheck('lastname')" type ="text" name="lastname" id="lastname" value="<?php echo $lastname ?>"></td>
 
                     <td>Vorname: </td>
-                    <td><input onchange="firstnameCheck()" type ="text" name="firstname" id="firstname" value="<?php echo $firstname ?>">
+                    <td><input onchange="stringCheck('firstname')" type ="text" name="firstname" id="firstname" value="<?php echo $firstname ?>">
                 </tr>
                 <tr>
                     <td>E-Mail: </td>
