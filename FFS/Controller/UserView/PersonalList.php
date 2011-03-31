@@ -13,14 +13,14 @@ class PersonalList {
     /**
      * Standard Konstruktor
      */
-    public function __construct() {
+    public function __construct() {}
 
-    }
+    public static function getUserDataTable() {}
 
-    public static function getUserDataTable() {
 
-    }
-
+    /*
+     * Erstellt Tabelle mit User Informationen
+     */
     public static function getUserData($user) {
         $output = "<tr>";
         $output .= Userlist::getUserData($user);
@@ -29,7 +29,7 @@ class PersonalList {
     }
 
     /**
-     *
+     * Erstellte Stammdaten Tabelle
      * @return <type> 
      */
     public static function getStammDaten($user) {
@@ -57,6 +57,9 @@ class PersonalList {
         return $output;
     }
 
+    /*
+     * Erstellt G26 Tabelle
+     */
     public static function getG26Table($user) {
         $glist = $user->getG26Liste_object();
         $garray = $glist->getG26_array();
@@ -84,6 +87,9 @@ class PersonalList {
         return $output;
     }
 
+    /*
+     * Erstellt Strecke Tabelle
+     */
     public static function getStreckeTable($user) {
         $stlist = $user->getStreckeListe_object();
         $starray = $stlist->getStrecke_array();
@@ -116,6 +122,9 @@ class PersonalList {
         return $output;
     }
 
+    /*
+     * Erstellt Einsatz Tabelle
+     */
     public static function getEinsatzTable($user) {
         $elist = $user->getEinsatzListe_object();
         $earray = $elist->getEinsatz_array();
@@ -148,6 +157,9 @@ class PersonalList {
         return $output;
     }
 
+    /*
+     * Erstellt Übung Tabelle
+     */
     public static function getUebungTable($user) {
         $ulist = $user->getUebungListe_object();
         $uarray = $ulist->getUebung_array();
@@ -180,6 +192,9 @@ class PersonalList {
         return $output;
     }
 
+    /*
+     * Erstellt Unterweisung Tabelle
+     */
     public static function getUnterweisungTable($user) {
         $uwlist = $user->getUnterweisungListe_object();
         $uwarray = $uwlist->getUnterweisung_array();
@@ -212,6 +227,9 @@ class PersonalList {
         return $output;
     }
 
+    /*
+     * Erstellt Strecke Liste
+     */
     public static function getStreckeList() {
         $streckeliste = StreckeListe::getAll();
         $streckearray = $streckeliste->getStrecke_array();
@@ -225,6 +243,9 @@ class PersonalList {
         return $output;
     }
 
+    /*
+     * Erstellt Einsatz Liste
+     */
     public static function getEinsatzList() {
         $einsatzliste = EinsatzListe::getAll();
         $einsatzarray = $einsatzliste->getEinsatz_array();
@@ -238,6 +259,9 @@ class PersonalList {
         return $output;
     }
 
+    /*
+     * Erstellt Unterweisung Liste
+     */
     public static function getUnterweisungList() {
         $unterweisungliste = UnterweisungListe::getAll();
         $unterweisungarray = $unterweisungliste->getUnterweisung_array();
@@ -251,6 +275,9 @@ class PersonalList {
         return $output;
     }
 
+    /*
+     * Erstellt Übung Liste
+     */
     public static function getUebungList() {
         $uebungliste = UebungListe::getAll();
         $uebungarray = $uebungliste->getUebung_array();

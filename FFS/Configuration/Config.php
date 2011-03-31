@@ -124,12 +124,12 @@ class Config {
      * max Zeitabstand zur letzten belastungsstrecke
      * @return Anzahl Tage
      */
-    public static function last_loading_track() {//uebersetzung ka....
+    public static function last_loading_track() {
         return 356;
     }
 
     public static function g26_yellow_state() {
-        return 60; //vorläufig normale zeit 1068 Tage = 3 JAhre
+        return 60; //vorläufig normale zeit 1068 Tage = 3 Jahre
     }
 
     public static function green() {
@@ -143,25 +143,6 @@ class Config {
     public static function red() {
         return 2;
     }
-
-    /* Rot wenn
-      G26.3 Untersuchung abgelaufen ODER
-      Einsatz UND Einsatzübung älter als 365 Tage ODER
-      Belastungsstrecke älter als 365 Tage */
-
-// --------- for db ---------
-
-    /*    const mysqlhost="stud-i-pr2.htw-saarland.de"; // MySQL-Host angeben
-      const mysqldb="FFS"; // Gewuenschte Datenbank angeben
-      const mysqluser="htwmaps"; // MySQL-User angeben
-      const mysqlpwd="g00gl3m4p5k1ll4"; // Passwort angeben
-
-
-      var $mysqlhost="feuerwehr-saar.de"; // MySQL-Host angeben
-      var $mysqldb="db1057229-2"; // Gewuenschte Datenbank angeben
-      var $mysqluser="dbu1057229"; // MySQL-User angeben
-      var $mysqlpwd="h0m3b0y"; // Passwort angeben
-     */
 
     public static function mysqlhost() {
         return "stud-i-pr2.htw-saarland.de";
