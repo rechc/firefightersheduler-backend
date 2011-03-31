@@ -1,4 +1,8 @@
 <?php
+/*
+ * Erstellt Ansicht mit den einzelnen Benutzertabllen
+ */
+
 require_once(PATH_BASIS . '/Model/User.php');
 require_once(PATH_BASIS . '/Controller/UserOverview/Userlist.php');
 require_once (PATH_BASIS . '/Controller/SessionHelper.php');

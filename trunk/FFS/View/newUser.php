@@ -47,13 +47,13 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
                     <td>Geburtsdatum: </td>
                     <td><input onchange="dateCheck('bday')" type ="text" name="bday" id="bday" value="<?php echo $bday ?>"></td>
                 </tr>
-                <tr>
+<!--                <tr>
                     <td>Passwort: </td>
                     <td><input type ="password" name ="user_password" id="user_password" value="<?php echo $password ?>"></td>
 
                     <td>Passwort bestätigen:
                     <td><input onchange="passwordCheck()" type ="password" name="password_confirm" id="password_confirm" value="<?php echo $password ?>"></td>
-                </tr>
+                </tr>-->
                 <tr>
                     <td> UID: </td>
                     <td><input style="background-color:lightgray;" type ='text' readonly name ='uid' id='rolle' value='<?php echo $uid ?>'></td>
