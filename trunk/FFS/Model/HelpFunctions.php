@@ -14,10 +14,10 @@ class HelpFunctions {
      * @return string
      */
     public static function generate_string($length) {
-        $pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        $pool .= "abcdefghijklmnopqrstuvwxyz";
+        //$pool = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        //$pool .= "abcdefghijklmnopqrstuvwxyz";
         $pool .= "1234567890";
-        $pool .= "#+/!?";
+        //$pool .= "#+/!?";
 
         $password = "";
         for ($i = 0; $i < $length; $i++) {
