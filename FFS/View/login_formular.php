@@ -31,7 +31,7 @@
                             <td><input type="password" name="Pwd" class="input-field"></td>
                         </tr>
                         <tr class="input">
-                            <td>&nbsp:</td>
+                            <td>&nbsp</td>
                             <td><input type="submit" value="Login" id="login-button"></td>
                         </tr>
                     </table>
@@ -40,7 +40,7 @@
                     </p>
                     <p class="button">
                         <a href="JavaScript:register()">registrieren</a>
-                        <a href="JavaScript:password()">Passwort vergessen</a>
+                        <a href="forgotPw.php">Passwort vergessen</a>
                         <a href="../Trash/DBConnectionTest.php">user + password table (only for test)</a>
                     </p>
                 </div>
