@@ -10,7 +10,6 @@ class ExceptionText {
     }
 
     //unterweisung
-
     public static function unterweisung_not_found() {
         return "Es wurde keine Unterweisung zu den angegebenen Paramtern gefunden";
     }
@@ -32,7 +31,6 @@ class ExceptionText {
     }
 
     //unterweisungListe
-
     public static function unterweisungListe_no_unterweisung() {
         return "Zu dem angegebenen Benutzer wurde keine Unterweisung gefunden";
     }
@@ -42,7 +40,6 @@ class ExceptionText {
     }
 
     //uebung
-
     public static function uebung_not_found() {
         return "Es wurde keine Uebung zu den angegebenen Paramtern gefunden";
     }

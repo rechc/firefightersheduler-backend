@@ -28,6 +28,9 @@ class Userlist {
         return $output;
     }
 
+    /*
+     * Erstellt Überischt eines Benutzers mit Benutzerdaten
+     */
     public static function getUserData($user) {
         try {
             $vorname = $user->getVorname();
