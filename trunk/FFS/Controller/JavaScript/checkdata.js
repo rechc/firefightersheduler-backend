@@ -2,7 +2,7 @@
 var re_email = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
 var re_string = /^([a-zA-Z-]+\s)*[a-zA-Z-]+$/;
 var re_integer = /^[0-9]+$/;
-var re_bday = /^[0-9]{4,4}\-[0-9]{2,2}\-[0-9]{2,2}$/
+var re_date = /^[0-9]{4,4}\-[0-9]{2,2}\-[0-9]{2,2}$/
 
 function emailCheck(){
     var email = document.getElementById("email").value;
@@ -42,21 +42,21 @@ function firstnameCheck(){
     }
 }
 
-function bdateCheck(){
-    var bday = document.getElementById("bday").value;
-    if (bday == "") {
+function dateCheck(datum){
+    var date = document.getElementById(datum).value;
+    if (date == "") {
         alert("leerer Text");
     }
     else
-    if (!bday.match(re_bday)) {
-        document.getElementById("bday").value = "";
-        alert("Gebrutsdatum ist nicht gültig (JJJ-MM-TT)");
+    if (!date.match(re_date)) {
+        document.getElementById(datum).value = "";
+        alert("Datum ist nicht gültig. Bitte folgendes Format verwenden (JJJJ-MM-TT)");
     }
 }
 
-function passwordCheck(){ //TODO vergleich geht nicht
+function passwordCheck(){
     var password = document.getElementById("user_password").value;
-    var confirm_password = document.getElementById("confirm_password").value;
+    var confirm_password = document.getElementById("password_confirm").value;
     if (password != confirm_password){
         document.getElementById("password_confirm").value = "";
         alert("Passwörter sind nicht gleich");

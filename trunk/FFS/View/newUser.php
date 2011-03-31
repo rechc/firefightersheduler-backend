@@ -45,7 +45,7 @@ include (PATH_BASIS . '/View/Layout/navi.inc.php');
                     <td><input onchange="emailCheck()" type ="text" name ="email" id="email" value="<?php echo $email ?>"></td>
 
                     <td>Geburtsdatum: </td>
-                    <td><input onchange="bdateCheck()" type ="text" name="bday" id="bday" value="<?php echo $bday ?>"></td>
+                    <td><input onchange="dateCheck('bday')" type ="text" name="bday" id="bday" value="<?php echo $bday ?>"></td>
                 </tr>
                 <tr>
                     <td>Passwort: </td>
