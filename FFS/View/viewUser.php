@@ -93,9 +93,10 @@
         </table>
         <div><br><h3>&Uuml;bungsstrecken</h3>
         <?php
-            if(SessionHelper::isAdminOrAGW())
+            if(SessionHelper::isAdminOrAGW()) {
                 echo "<div align='right'><a href='addData.php'>neue Strecke hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
                 echo "<div align='right'><a href='editStrecke.php?uid=".$uid."'>zu vorhandener Strecke hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
+            }
         ?>
         </div>
         <table>
@@ -120,9 +121,10 @@
         </table>
         <div><br><h3>Eins&auml;tze</h3>
         <?php
-            if(SessionHelper::isAdminOrAGW())
+            if(SessionHelper::isAdminOrAGW()) {
                 echo "<div align='right'><a href='addData.php'>neuen Einsatz hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
                 echo "<div align='right'><a href='editEinsatz.php?uid=".$uid."'>zu vorhandenem Einsatz hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
+            }
         ?>
         </div>
         <table>
@@ -147,10 +149,10 @@
         </table>
         <div><br><h3>Einsatz&uuml;bungen</h3>
         <?php
-            if(SessionHelper::isAdminOrAGW())
+            if(SessionHelper::isAdminOrAGW()) {
                 echo "<div align='right'><a href='addData.php'>neue Übung hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
                 echo "<div align='right'><a href='editUebung.php?uid=".$uid."'>zu vorhandener Übung hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
-            ?>
+            }?>
         </div>
         <table>
             <thead>
@@ -174,9 +176,10 @@
         </table>
         <div><br><h3>Unterweisungen</h3>
         <?php
-            if(SessionHelper::isAdminOrAGW())
+            if(SessionHelper::isAdminOrAGW()) {
                 echo "<div align='right'><a href='addData.php'>neue Unterweisung hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
                 echo "<div align='right'><a href='editUnterweisung.php?uid=".$uid."'>zu vorhandener Unterweisung hinzufügen<img alt='neu' src='images/add.gif'></a></div>";
+            }
         ?>
         </div>
         <table>
