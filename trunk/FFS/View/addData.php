@@ -30,7 +30,7 @@
                                         <option value="Unterweisung">Unterweisung</option>
                                     </select>
                                 </td>
-                                <td><input type="text" name="datum"></td>
+                                <td><input onchange="datecheck('datum')" type="text" name="datum"></td>
                                 <td><input type="text" name="ort"></td>
                                 <td><input type="submit" value="hinzuf&uuml;gen"></td>
                             </tr>
