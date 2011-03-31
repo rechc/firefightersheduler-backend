@@ -6,7 +6,7 @@
     require_once (PATH_BASIS . '/Controller/SessionHelper.php');
 ?>
     <div id="content">
-    <!-- Ende Content -->
+    <!-- Start Content -->
     <?php
         if (isset ($_REQUEST["requestmail"])) {
                 $email    = $_REQUEST["requestmail"];

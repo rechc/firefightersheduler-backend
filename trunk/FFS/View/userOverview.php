@@ -4,9 +4,11 @@
     require_once PATH_BASIS .'/Controller/Authentification/authorizationCheck.php';
     include (PATH_BASIS . '/View/Layout/header.inc.php');
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
-
     require_once(PATH_BASIS . '/Controller/UserOverview/Userlist.php');
 ?>
+<!--
+    userOverView.php bietet dem AGW und dem Admin eine Übersicht über alle Nutzer
+-->
     <div id="content">
         <?php
             if (isset($_REQUEST["userDeleted"])) {
@@ -31,8 +33,8 @@
                     <th>&nbsp;</th>
                 </tr>
             </thead>
-<!--            <tfoot></tfoot>-->
             <tbody>
+                <!-- getUserTable liefert die Tabelle mit allen Usern -->
                 <?php
                     $userlist = Userlist::getUserTable();
                     echo $userlist;

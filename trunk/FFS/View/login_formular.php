@@ -6,11 +6,10 @@
     include (PATH_BASIS . '/View/Layout/navi.inc.php');
 ?>
 <div id="content">
-        <?php //Ausnahme ;-)
+    <!-- Ausgabe von Loginrelevanten Fehlermeldungen -->
+        <?php 
             if (isset($_REQUEST["fehler"])) {
                 echo "Login fehlgeschlagen! ";
-                echo PATH_BASIS;
-//                echo Exception::bad_user_login();
             }
             if (isset($_REQUEST["pleaseLogin"])){
                 echo "bitte Melden Sie sich zuerst an";
