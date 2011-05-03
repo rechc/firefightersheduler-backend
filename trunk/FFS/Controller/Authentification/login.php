@@ -23,6 +23,7 @@
         $_SESSION["user_nachname"] = $currentuser->getName();
         $_SESSION["user_vorname"] = $currentuser->getVorname();
         $_SESSION["user_rolle"] = $currentuser->getRollen_ID();
+        $currentuser->login_log();
 
         header("Location: ../../View/viewUser.php");
     }  else {
