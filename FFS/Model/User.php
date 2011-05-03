@@ -428,6 +428,13 @@ class User {
         }
     }
 
+    public function login_Log() {
+        $sql = "INSERT INTO userlog (datum, email) VALUES
+        (NULL, '$this->email');";
+        $dbConnector = DbConnector::getInstance();
+        $result = $dbConnector->execute_sql($sql);
+    }
+
     /**
      * erwartet einen vollen (betrunkenen) Benutzer ^^
      * wem was nicht an der Ausgabe gefaellt, schoener machen ohne zu fragen
