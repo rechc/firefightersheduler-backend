@@ -58,7 +58,12 @@ class NewUser {
 
         $output = "<select name='lbz' id='lbz'>";
         while($data = mysql_fetch_array($result)){
-            $output .= "<option value='". $data['ID'] ."'>". $data['name'] ."</option>";
+            if ($data['ID'] == $lbz) {
+                $output .= "<option value='". $data['ID'] ."' selected>". $data['name'] ."</option>";
+            } else {
+               $output .= "<option value='". $data['ID'] ."'>". $data['name'] ."</option>"; 
+            }
+            
         }
         $output .= "</select>";
         return $output;
