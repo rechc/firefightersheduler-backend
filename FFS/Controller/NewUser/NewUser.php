@@ -15,7 +15,16 @@ class NewUser {
     public static function createRolleView($rolle) {
         $output = "";
         if (SessionHelper::isAGW()) {
-            $output .= "<input type ='text' style='background-color:lightgray;' readonly name ='rolle' id='rolle' value='Nutzer (10)'>";
+            $output .= "<select name='rolle' id='rolle'>";
+            if ($rolle == 10) {
+                    $output .= "<option value='10' selected>Nutzer (10)</option>";
+                } else if ($rolle == 40){
+                    $output .= "<option value='40' selected>AGW (40)</option>";
+                } else if ($rolle == 50){
+                    $output .= "<option value='50' selected>Administrator (50)</option>";
+                } else {
+                    $output .= "<option value='10'>Nutzer (10)</option>";
+                }
         }
         elseif (SessionHelper::isAdmin()) {
             $output .= "<select name='rolle' id='rolle'>";
